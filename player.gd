@@ -15,5 +15,3 @@ func _physics_process(delta):
 	else:
 		velocity = velocity.lerp(Vector2.ZERO, delta * friction)
 	move_and_slide()
-
-#func _input(event: InputEvent):
