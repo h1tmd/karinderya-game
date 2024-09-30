@@ -13,10 +13,9 @@ script = ExtResource("1_5tuxm")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_87ytd")
 offset = Vector2(5, -200)
-flip_h = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-74, -100, -82, 4, 102, 4, 86, -106, 8, -118)
+polygon = PackedVector2Array(-60, -98, -62, 4, 2, 10, 74, 4, 68, -102, 8, -118)
 
 [node name="InteractReach" type="Area2D" parent="."]
 position = Vector2(0, -180)
