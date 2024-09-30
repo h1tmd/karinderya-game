@@ -1,10 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://df77bu4rije41"]
+[gd_scene load_steps=4 format=3 uid="uid://df77bu4rije41"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_5tuxm"]
 [ext_resource type="Texture2D" uid="uid://fl1ctc3cfy2t" path="res://assets/player.png" id="2_87ytd"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_j7nvi"]
-radius = 98.732
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mnahm"]
 size = Vector2(79, 121)
@@ -16,10 +13,10 @@ script = ExtResource("1_5tuxm")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_87ytd")
 offset = Vector2(5, -200)
+flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, -36)
-shape = SubResource("CircleShape2D_j7nvi")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-74, -100, -82, 4, 102, 4, 86, -106, 8, -118)
 
 [node name="InteractReach" type="Area2D" parent="."]
 collision_layer = 2

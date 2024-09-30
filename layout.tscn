@@ -29,7 +29,7 @@ polygon = PackedVector2Array(-32, 764, 82, 758, 82, 68, 400, 68, 398, 2, 618, 2,
 position = Vector2(1884, 642)
 
 [node name="Dispenser" type="StaticBody2D" parent="."]
-position = Vector2(242, 1242)
+position = Vector2(202, 1242)
 
 [node name="Sprite2D" type="Sprite2D" parent="Dispenser"]
 texture = ExtResource("3_485o0")
@@ -51,10 +51,10 @@ position = Vector2(-20, 98)
 shape = SubResource("CircleShape2D_8t1yo")
 
 [node name="Table" parent="." instance=ExtResource("5_bi7te")]
-position = Vector2(1052, 1170)
+position = Vector2(950, 1216)
 
 [node name="Table2" parent="." instance=ExtResource("5_bi7te")]
-position = Vector2(2076, 1172)
+position = Vector2(2076, 1208)
 
 [node name="Table3" parent="." instance=ExtResource("5_bi7te")]
-position = Vector2(3166, 1180)
+position = Vector2(3168, 1216)
