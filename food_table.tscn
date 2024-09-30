@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://vsr8j68ajo2p"]
+
+[ext_resource type="Texture2D" uid="uid://cumcef2ah66s4" path="res://assets/foodtable.png" id="1_ultsb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_px4kx"]
+size = Vector2(2000, 371)
+
+[node name="FoodTable" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ultsb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 87.5)
+shape = SubResource("RectangleShape2D_px4kx")
