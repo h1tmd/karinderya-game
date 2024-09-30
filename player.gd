@@ -8,7 +8,7 @@ var direction = Vector2.ZERO
 
 func _process(_delta):
 	direction = Input.get_vector("left","right","up","down")
-	interact_reach.look_at(global_position + direction)
+	interact_reach.look_at(interact_reach.global_position + direction)
 	if direction.x > 0:
 		sprite_2d.flip_h = true
 	elif direction.x < 0:

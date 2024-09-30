@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://fl1ctc3cfy2t" path="res://assets/player.png" id="2_87ytd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mnahm"]
-size = Vector2(79, 121)
+size = Vector2(143.5, 138)
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
@@ -19,9 +19,10 @@ flip_h = true
 polygon = PackedVector2Array(-74, -100, -82, 4, 102, 4, 86, -106, 8, -118)
 
 [node name="InteractReach" type="Area2D" parent="."]
+position = Vector2(0, -180)
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractReach"]
-position = Vector2(130, 12)
+position = Vector2(161.75, 0)
 shape = SubResource("RectangleShape2D_mnahm")
