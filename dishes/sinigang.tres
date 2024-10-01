@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dish" load_steps=3 format=3 uid="uid://qumpnnocgwpc"]
+
+[ext_resource type="Texture2D" uid="uid://bmf86t4xcsi0" path="res://assets/dishes/sinigang.png" id="1_8teo3"]
+[ext_resource type="Script" path="res://scripts/res_dish.gd" id="2_ljltb"]
+
+[resource]
+script = ExtResource("2_ljltb")
+image = ExtResource("1_8teo3")
+name = "Sinigang"
+price = 30.0

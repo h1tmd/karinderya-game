@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://pgoxq8n8pb50"]
+
+[ext_resource type="Script" path="res://scripts/dish_item.gd" id="1_ola3k"]
+
+[node name="DishItem" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 49.0
+script = ExtResource("1_ola3k")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer"]
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Name"

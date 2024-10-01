@@ -1,17 +1,17 @@
 [gd_scene load_steps=5 format=3 uid="uid://c8sbjr4h22ptn"]
 
-[ext_resource type="PackedScene" uid="uid://ciaoc3hpfpjof" path="res://scenes/layout.tscn" id="1_wfnnx"]
-[ext_resource type="PackedScene" uid="uid://df77bu4rije41" path="res://scenes/player.tscn" id="2_su5ee"]
-[ext_resource type="Texture2D" uid="uid://bmwew740mxsuq" path="res://assets/customer.png" id="3_ka4vc"]
-[ext_resource type="PackedScene" uid="uid://ckjhd6s0wljtq" path="res://scenes/serve_ui.tscn" id="4_tdjw2"]
+[ext_resource type="PackedScene" uid="uid://ciaoc3hpfpjof" path="res://scenes/layout.tscn" id="1_ptahu"]
+[ext_resource type="PackedScene" uid="uid://df77bu4rije41" path="res://scenes/player.tscn" id="2_royxq"]
+[ext_resource type="Texture2D" uid="uid://bmwew740mxsuq" path="res://assets/customer.png" id="3_wk6ar"]
+[ext_resource type="PackedScene" uid="uid://ckjhd6s0wljtq" path="res://scripts/serve_ui.tscn" id="4_b70ts"]
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
 
-[node name="Layout" parent="." instance=ExtResource("1_wfnnx")]
+[node name="Layout" parent="." instance=ExtResource("1_ptahu")]
 y_sort_enabled = true
 
-[node name="Player" parent="." instance=ExtResource("2_su5ee")]
+[node name="Player" parent="." instance=ExtResource("2_royxq")]
 y_sort_enabled = true
 position = Vector2(288, 200)
 speed = 600
@@ -20,8 +20,8 @@ acceleration = 10
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(261, 386)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_ka4vc")
+texture = ExtResource("3_wk6ar")
 
-[node name="Serve UI" parent="." instance=ExtResource("4_tdjw2")]
-visible = false
-top_level = true
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Serve UI" parent="CanvasLayer" instance=ExtResource("4_b70ts")]
