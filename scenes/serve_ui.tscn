@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckjhd6s0wljtq"]
+
+[ext_resource type="Script" path="res://scripts/serve_ui.gd" id="1_gd2hf"]
+
+[node name="Serve UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gd2hf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -762.0
+offset_top = -438.0
+offset_bottom = 46.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0.924038, 0.447985, 0.524595, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+color = Color(1.82897e-06, 0.701463, 0.704148, 1)
+
+[node name="GridContainer" type="GridContainer" parent="ColorRect/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/HBoxContainer/GridContainer"]
+layout_mode = 2
+text = "asdfghjasdfghj"

@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://ciaoc3hpfpjof"]
+
+[ext_resource type="Texture2D" uid="uid://dvr1eijygxevg" path="res://assets/room.png" id="1_oeiqx"]
+[ext_resource type="PackedScene" uid="uid://vsr8j68ajo2p" path="res://scenes/food_table.tscn" id="2_pyccu"]
+[ext_resource type="Texture2D" uid="uid://4mcpw7c63qw8" path="res://assets/waterdispenser.png" id="3_485o0"]
+[ext_resource type="Texture2D" uid="uid://qojy8o7tvagu" path="res://assets/sign.png" id="4_thymj"]
+[ext_resource type="PackedScene" uid="uid://t665gqdx8ug1" path="res://scenes/table.tscn" id="5_bi7te"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eeemq"]
+radius = 104.0
+height = 364.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8t1yo"]
+radius = 72.0278
+
+[node name="Layout" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+
+[node name="Room" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Room"]
+texture = ExtResource("1_oeiqx")
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room"]
+polygon = PackedVector2Array(-32, 764, 82, 758, 82, 68, 400, 68, 398, 2, 618, 2, 614, 64, 934, 66, 940, 178, 964, 210, 1010, 222, 1062, 200, 1076, 182, 1082, 70, 1162, 70, 1162, 212, 1490, 214, 1614, 210, 2134, 202, 2140, 78, 2396, 76, 2398, 232, 2902, 222, 2894, 920, 3254, 918, 3254, 74, 3836, 74, 3840, 2158, 80, 2158, 82, 860, 4, 854, 2, 764, -60, 746, -16, 858, -20, 2156, -16, 2264, 3974, 2286, 3938, -46, -28, -30)
+
+[node name="FoodTable" parent="." instance=ExtResource("2_pyccu")]
+position = Vector2(1884, 642)
+
+[node name="Dispenser" type="StaticBody2D" parent="."]
+position = Vector2(202, 1242)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dispenser"]
+texture = ExtResource("3_485o0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dispenser"]
+position = Vector2(-2, 120)
+shape = SubResource("CapsuleShape2D_eeemq")
+
+[node name="Sign" type="StaticBody2D" parent="."]
+position = Vector2(282, 604)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sign"]
+position = Vector2(-16, 56)
+texture = ExtResource("4_thymj")
+offset = Vector2(0, -50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sign"]
+position = Vector2(-20, 98)
+shape = SubResource("CircleShape2D_8t1yo")
+
+[node name="Table" parent="." instance=ExtResource("5_bi7te")]
+position = Vector2(950, 1216)
+
+[node name="Table2" parent="." instance=ExtResource("5_bi7te")]
+position = Vector2(2076, 1208)
+
+[node name="Table3" parent="." instance=ExtResource("5_bi7te")]
+position = Vector2(3168, 1216)

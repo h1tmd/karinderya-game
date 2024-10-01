@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FoodItem" load_steps=3 format=3 uid="uid://mr1mr7dk80bf"]
+
+[ext_resource type="Texture2D" uid="uid://b3q6ix4jx2hll" path="res://assets/food_placeholder.png" id="1_d5r20"]
+[ext_resource type="Script" path="res://resources/res_food.gd" id="1_rt5pt"]
+
+[resource]
+script = ExtResource("1_rt5pt")
+image = ExtResource("1_d5r20")
+name = "Batchoy"
+price = 150.0
