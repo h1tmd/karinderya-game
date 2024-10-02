@@ -11,14 +11,15 @@ func _unhandled_input(event: InputEvent) -> void:
 		visible = not visible
 
 func load_dishes():
+	var dish_scene = load(("res://scenes/dish_item.tscn"))
 	var dir = DirAccess.open("res://dishes/")
 	if dir:
 		dir.list_dir_begin()
 		var file = dir.get_next()
 		while file != "":
-			var dish_item : Node = TextureRect.new()
+			var dish_item : Node = dish_scene.instantiate()
 			var dish_data : Dish = load("res://dishes/" + file)
-			dish_item.texture = dish_data.image
+			dish_item.set_data(dish_data.name, dish_data.image)
 			grid_container.add_child(dish_item)
 			file = dir.get_next()
 	else:

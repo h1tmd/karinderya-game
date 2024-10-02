@@ -41,6 +41,7 @@ layout_mode = 2
 
 [node name="GridContainer" type="GridContainer" parent="ColorRect/HSplitContainer/ScrollContainer"]
 layout_mode = 2
+theme_override_constants/h_separation = 30
 columns = 2
 
 [node name="Button" type="Button" parent="ColorRect"]

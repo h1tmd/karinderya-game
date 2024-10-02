@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7bxmn"]
 radius = 37.0
-height = 228.0
+height = 198.0
 
 [node name="Chair" type="StaticBody2D"]
 script = ExtResource("1_vghsm")
