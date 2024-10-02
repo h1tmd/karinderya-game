@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ciaoc3hpfpjof" path="res://scenes/layout.tscn" id="1_ptahu"]
 [ext_resource type="PackedScene" uid="uid://df77bu4rije41" path="res://scenes/player.tscn" id="2_royxq"]
 [ext_resource type="Texture2D" uid="uid://bmwew740mxsuq" path="res://assets/customer.png" id="3_wk6ar"]
-[ext_resource type="PackedScene" uid="uid://ckjhd6s0wljtq" path="res://scripts/serve_ui.tscn" id="4_b70ts"]
+[ext_resource type="PackedScene" uid="uid://ckjhd6s0wljtq" path="res://scenes/serve_ui.tscn" id="4_b70ts"]
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true

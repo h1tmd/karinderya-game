@@ -3,6 +3,7 @@ class_name DishItem
 
 @onready var texture_rect = $MarginContainer/VBoxContainer/TextureRect
 @onready var label = $MarginContainer/VBoxContainer/Label
+@onready var ggparent : Node = $"../../.."
 
 var label_text : String = ""
 var sprite_image : Texture
@@ -16,17 +17,15 @@ func _ready():
 	label.text = label_text
 	texture_rect.texture = sprite_image
 
-
 func _on_mouse_entered():
 	mouse_over = true
 
-
 func _on_mouse_exited():
 	mouse_over = false
-	print("exit")
 
-#func _input(event):
-	#if event.is_action_pressed("click") and event.is_pressed():
-		#print("clicksfded")
-	#if Input.is_action_just_pressed("click") and not event.is_echo(): 
-		#if mouse_over:
+func _input(event):
+	if event.is_action_pressed("click") and mouse_over:
+		var dish_serving = load("res://scenes/dish_serving.tscn").instantiate()
+		#var dish_serving = dish_serving_scn.instantiate()
+		ggparent.add_child(dish_serving)
+		dish_serving.global_position = get_global_mouse_position()

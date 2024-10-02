@@ -9,6 +9,8 @@ anchor_right = 0.203125
 anchor_bottom = 0.384259
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
 script = ExtResource("1_ola3k")
 metadata/_edit_use_anchors_ = true
 

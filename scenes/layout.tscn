@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://vsr8j68ajo2p" path="res://scenes/food_table.tscn" id="2_pyccu"]
 [ext_resource type="Texture2D" uid="uid://4mcpw7c63qw8" path="res://assets/waterdispenser.png" id="3_485o0"]
 [ext_resource type="Texture2D" uid="uid://qojy8o7tvagu" path="res://assets/sign.png" id="4_thymj"]
-[ext_resource type="PackedScene" uid="uid://t665gqdx8ug1" path="res://scripts/table.tscn" id="5_bi7te"]
+[ext_resource type="PackedScene" uid="uid://t665gqdx8ug1" path="res://scenes/table.tscn" id="5_bi7te"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eeemq"]
 radius = 104.0
