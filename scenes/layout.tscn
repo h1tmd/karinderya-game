@@ -10,8 +10,8 @@
 radius = 104.0
 height = 364.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8t1yo"]
-radius = 72.0278
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2gy24"]
+size = Vector2(190, 120)
 
 [node name="Layout" type="Node2D"]
 scale = Vector2(0.5, 0.5)
@@ -39,16 +39,16 @@ position = Vector2(-2, 120)
 shape = SubResource("CapsuleShape2D_eeemq")
 
 [node name="Sign" type="StaticBody2D" parent="."]
-position = Vector2(282, 604)
+position = Vector2(232, 646)
 
 [node name="Sprite2D" type="Sprite2D" parent="Sign"]
 position = Vector2(-16, 56)
 texture = ExtResource("4_thymj")
-offset = Vector2(0, -50)
+offset = Vector2(0, -100)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sign"]
-position = Vector2(-20, 98)
-shape = SubResource("CircleShape2D_8t1yo")
+position = Vector2(-21, 42)
+shape = SubResource("RectangleShape2D_2gy24")
 
 [node name="Table" parent="." instance=ExtResource("5_bi7te")]
 position = Vector2(950, 1216)

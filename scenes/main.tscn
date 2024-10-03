@@ -2,11 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://ciaoc3hpfpjof" path="res://scenes/layout.tscn" id="1_ptahu"]
 [ext_resource type="PackedScene" uid="uid://df77bu4rije41" path="res://scenes/player.tscn" id="2_royxq"]
-[ext_resource type="Texture2D" uid="uid://bmwew740mxsuq" path="res://assets/customer.png" id="3_wk6ar"]
+[ext_resource type="PackedScene" uid="uid://dw2uugi5lsy75" path="res://scenes/customer.tscn" id="3_rxjuf"]
 [ext_resource type="PackedScene" uid="uid://ckjhd6s0wljtq" path="res://scenes/serve_ui.tscn" id="4_b70ts"]
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
+
+[node name="Customer" parent="." instance=ExtResource("3_rxjuf")]
+position = Vector2(719, 487)
+scale = Vector2(0.5, 0.5)
 
 [node name="Layout" parent="." instance=ExtResource("1_ptahu")]
 y_sort_enabled = true
@@ -16,11 +20,6 @@ y_sort_enabled = true
 position = Vector2(288, 200)
 speed = 600
 acceleration = 10
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(261, 386)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_wk6ar")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
