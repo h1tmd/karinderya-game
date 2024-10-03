@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dw2uugi5lsy75"]
+
+[ext_resource type="Script" path="res://scripts/customer.gd" id="1_1q51h"]
+[ext_resource type="Texture2D" uid="uid://bmwew740mxsuq" path="res://assets/customer.png" id="1_p1q35"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rv5l4"]
+radius = 50.4876
+
+[node name="Customer" type="CharacterBody2D"]
+script = ExtResource("1_1q51h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_p1q35")
+offset = Vector2(0, -180)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -43)
+shape = SubResource("CircleShape2D_rv5l4")
