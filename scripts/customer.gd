@@ -1,28 +1,55 @@
 extends CharacterBody2D
+class_name Customer
 
 var order = {}
 
+func _ready() -> void:
+	generate_order()
+	Global.current_customer = self
+
 # place/generate order
 func generate_order():
-	var choices = []
-	var dir = DirAccess.open("res://dishes/")
-	if dir:
-		dir.list_dir_begin()
-		var file = dir.get_next()
-		while file != "":
-			var dish_data : Dish = load("res://dishes/" + file)
-			choices.append(dish_data.name)
-			file = dir.get_next()
-	else:
-		print("Error in opening path")
-	
+	# Generate randomly
 	randomize()
-	var meal = choices.pick_random()
+	var meal : Dish = Global.dishes.pick_random()
 	var rice = randi_range(1, 3)
-	order = {meal: 1, "Rice": rice}
-	# random meal and random number of rice
+	order = {meal.name: 1, "Rice": rice}
+	
+	# Convert to a string
+	var order_str = ""
+	for i in order:
+		order_str += "%s: %s\n" % [i, order[i]]
+	print(order_str)
 
 
 # receive order
+func receive_order(order_received: Dictionary):
+	var mistakes = 0
+	
+	if order == order_received:
+		print(":))")
+		return
+	else:
+		for key in order:
+			if key in order_received:
+				# incorrect amount
+				if not order_received[key] >= order[key]:
+					mistakes += 1
+			else:
+				# ordered dish is missing
+				mistakes += 1
+		for key in order_received:
+			if key not in order:
+				# extra dish not ordered
+				mistakes += 1
+
+	match mistakes:
+		1:
+			print(":)")
+		2:
+			print(":(")
+		_:
+			print(">:(")
+
 # path
 # timer

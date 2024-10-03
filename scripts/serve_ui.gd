@@ -28,3 +28,5 @@ func _on_button_pressed():
 		else:
 			order[dish] += 1
 	print(order)
+	var cust : Customer = Global.current_customer
+	cust.receive_order(order)
