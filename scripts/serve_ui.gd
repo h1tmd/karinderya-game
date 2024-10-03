@@ -1,5 +1,6 @@
 extends Control
 @onready var grid_container: GridContainer = $ColorRect/HSplitContainer/ScrollContainer/GridContainer
+@onready var serving_area = $"ColorRect/HSplitContainer/Panel/Serving Area"
 
 
 func _ready() -> void:
@@ -24,3 +25,15 @@ func load_dishes():
 			file = dir.get_next()
 	else:
 		print("Error in opening path")
+
+
+func _on_button_pressed():
+	var dishes_served = serving_area.get_overlapping_areas()
+	var order = {}
+	for dish_served : Area2D in dishes_served:
+		var dish = dish_served.get_groups()[0]
+		if dish not in order:
+			order[dish] = 1
+		else:
+			order[dish] += 1
+	print(order)
