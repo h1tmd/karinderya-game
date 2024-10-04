@@ -6,6 +6,11 @@ var dishes = []
 var current_customer : Customer
 # A* for pathfinding
 var astar = AStar2D.new()
+# Seats available
+var available_seats = []
+
+const order_loc = Vector2(716, 483)
+const exit_loc = Vector2(-89, 483)
 
 
 func _ready() -> void:
@@ -31,6 +36,8 @@ func generate_astar():
 	# Add points to AStar2D
 	for point:AstarPoint in all_points:
 		astar.add_point(point.get_index(), point.position)
+		if point.is_chair:
+			available_seats.append(point.position)
 	
 	# Connect all the AStar points to each other
 	for point:AstarPoint in all_points:

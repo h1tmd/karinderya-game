@@ -1,14 +1,16 @@
 extends CharacterBody2D
 class_name Customer
 
-var speed = 300
+var speed = 250
 var order = {}
 var order_done = false
-
+var seat
 var path = []
 
 func _ready() -> void:
 	generate_order()
+	position = Global.exit_loc
+	go_to(Global.order_loc)
 
 # place/generate order
 func generate_order():
@@ -54,8 +56,17 @@ func receive_order(order_received: Dictionary):
 		_:
 			print(">:(")
 	order_done = true
+	
+	if Global.available_seats[0]:
+		seat = Global.available_seats.pop_at(0)
+		go_to(seat)
+	
+	# *eating*
+	await get_tree().create_timer(10).timeout
+	go_to(Global.exit_loc)
 
-func move_along_path(target_position: Vector2):
+
+func go_to(target_position: Vector2):
 	path.clear()
 	path = Global.astar.get_point_path(
 		Global.astar.get_closest_point(position), 
@@ -70,11 +81,4 @@ func _process(delta: float) -> void:
 			position = path[0]
 			path.remove_at(0)
 
-func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("click"):
-		move_along_path(get_global_mouse_position())
-
-# path
-#func find_seat():
-	
 # timer

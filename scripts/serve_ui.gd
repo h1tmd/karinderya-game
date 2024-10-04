@@ -31,3 +31,6 @@ func _on_button_pressed():
 	var cust : Customer = Global.current_customer
 	if cust:
 		cust.receive_order(order)
+		Global.current_customer = null
+		for dish_served in dishes_served:
+			dish_served.get_parent().queue_free()
