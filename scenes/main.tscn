@@ -1,16 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8sbjr4h22ptn"]
+[gd_scene load_steps=8 format=3 uid="uid://c8sbjr4h22ptn"]
 
 [ext_resource type="PackedScene" uid="uid://ciaoc3hpfpjof" path="res://scenes/layout.tscn" id="1_ptahu"]
 [ext_resource type="PackedScene" uid="uid://df77bu4rije41" path="res://scenes/player.tscn" id="2_royxq"]
 [ext_resource type="PackedScene" uid="uid://dw2uugi5lsy75" path="res://scenes/customer.tscn" id="3_rxjuf"]
 [ext_resource type="PackedScene" uid="uid://ckjhd6s0wljtq" path="res://scenes/serve_ui.tscn" id="4_b70ts"]
+[ext_resource type="Script" path="res://scenes/path_follow_2d.gd" id="4_c4s8h"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_f0vtk"]
+vertices = PackedVector2Array(1867.06, 552.367, 1889.89, 529.477, 1884.1, 1051.99, 1863.94, 1044.98, 184.672, 1051, 1336.88, 1046.02, 1315.13, 1045.4, 219.898, 1027.9, 741.742, 1033.11, 701.773, 466.578, 1343.13, 532.617, 172.953, 494.047, -9.67969, 493.062, -1.22656, 425.438, 225.898, 436.523, 174, 719.953, 775.117, 1024.63, 768.867, 518.68, 1308.88, 535.297)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5), PackedInt32Array(6, 5, 4, 7, 8), PackedInt32Array(9, 1, 0, 10), PackedInt32Array(11, 12, 13, 14), PackedInt32Array(15, 11, 14, 7, 4), PackedInt32Array(16, 6, 8), PackedInt32Array(16, 8, 9, 17), PackedInt32Array(17, 9, 10, 18), PackedInt32Array(18, 10, 5, 6)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1900, 520, 1894, 1062, 175, 1061, 164, 720, 163, 504, -21, 503, -10, 415, 236, 427, 230, 1018, 731, 1023, 691, 456)])
+agent_radius = 1.0
+
+[sub_resource type="Curve2D" id="Curve2D_fqaaa"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1770, -26, 0, 0, 0, 0, -54, -30)
+}
+point_count = 2
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
-
-[node name="Customer" parent="." instance=ExtResource("3_rxjuf")]
-position = Vector2(719, 487)
-scale = Vector2(0.5, 0.5)
 
 [node name="Layout" parent="." instance=ExtResource("1_ptahu")]
 y_sort_enabled = true
@@ -24,3 +33,35 @@ acceleration = 10
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Serve UI" parent="CanvasLayer" instance=ExtResource("4_b70ts")]
+visible = false
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_f0vtk")
+use_edge_connections = false
+travel_cost = 0.0
+
+[node name="Polygon2D" type="Polygon2D" parent="NavigationRegion2D"]
+polygon = PackedVector2Array(1299, 545, 1305, 1035, 785, 1015, 779, 529)
+
+[node name="Polygon2D2" type="Polygon2D" parent="NavigationRegion2D"]
+position = Vector2(0, -7.67346)
+scale = Vector2(1, 1.01361)
+polygon = PackedVector2Array(1857, 562.024, 1854, 1028.67, 1347, 1029.66, 1353, 543.279)
+
+[node name="Path2D" type="Path2D" parent="."]
+y_sort_enabled = true
+position = Vector2(719, 487)
+scale = Vector2(0.5, 0.5)
+curve = SubResource("Curve2D_fqaaa")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-1770, -26)
+rotation = 0.00660056
+rotates = false
+loop = false
+script = ExtResource("4_c4s8h")
+
+[node name="Customer" parent="Path2D/PathFollow2D" instance=ExtResource("3_rxjuf")]
+y_sort_enabled = true
+rotation = -0.00660056
+collision_mask = 0

@@ -9,9 +9,9 @@ var dish_name : String = ""
 var dish_image : Texture
 var mouse_over = false
 
-func set_data(dish_name : String, dish_image : Texture):
-	self.dish_name = dish_name
-	self.dish_image = dish_image
+func set_data(dishname : String, dishimage : Texture):
+	self.dish_name = dishname
+	self.dish_image = dishimage
 
 func _ready():
 	label.text = dish_name

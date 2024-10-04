@@ -7,7 +7,7 @@ var mouse_offset = Vector2.ZERO
 var group_name
 
 func _ready():
-	var selected = true
+	selected = true
 	area_2d.add_to_group(group_name)
 
 func _process(delta):
