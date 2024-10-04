@@ -1,10 +1,12 @@
 extends CharacterBody2D
 class_name Customer
 
-@onready var nav = $NavigationAgent2D
 var speed = 300
 var order = {}
 var order_done = false
+
+var astar = AStar2D.new()
+var path = []
 
 func _ready() -> void:
 	generate_order()
@@ -54,13 +56,7 @@ func receive_order(order_received: Dictionary):
 			print(">:(")
 	order_done = true
 
-func _physics_process(delta):
-	var direction = Vector2()
-	if order_done:
-		nav.target_position = get_global_mouse_position()
-		direction = nav.get_next_path_position() - global_position
-		direction = direction.normalized()
-		position = position + direction * speed * delta
+#func _physics_process(delta):
 # path
 #func find_seat():
 	

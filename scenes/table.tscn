@@ -8,6 +8,7 @@ size = Vector2(376, 824)
 
 [node name="Table" type="StaticBody2D"]
 y_sort_enabled = true
+metadata/_edit_vertical_guides_ = [-216.0, -192.0, 200.0, 224.0]
 
 [node name="TableSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_y0qb4")
@@ -18,22 +19,22 @@ position = Vector2(2, 368)
 shape = SubResource("RectangleShape2D_k27g1")
 
 [node name="Chair" parent="." instance=ExtResource("2_b66i7")]
-position = Vector2(-332, 147)
+position = Vector2(-320, 128)
 
 [node name="Chair2" parent="." instance=ExtResource("2_b66i7")]
-position = Vector2(-322, 465)
+position = Vector2(-320, 440)
 
 [node name="Chair3" parent="." instance=ExtResource("2_b66i7")]
-position = Vector2(-337, 749)
+position = Vector2(-320, 752)
 
 [node name="Chair4" parent="." instance=ExtResource("2_b66i7")]
-position = Vector2(327, 131)
+position = Vector2(328, 128)
 flipped = true
 
 [node name="Chair5" parent="." instance=ExtResource("2_b66i7")]
-position = Vector2(341, 440)
+position = Vector2(328, 440)
 flipped = true
 
 [node name="Chair6" parent="." instance=ExtResource("2_b66i7")]
-position = Vector2(337, 756)
+position = Vector2(328, 752)
 flipped = true

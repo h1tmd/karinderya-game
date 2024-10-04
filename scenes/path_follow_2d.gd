@@ -1,4 +1,4 @@
-extends PathFollow2D
+xtends PathFollow2D
 
 var speed = 0.2
 
