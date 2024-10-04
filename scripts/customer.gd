@@ -5,7 +5,6 @@ var speed = 300
 var order = {}
 var order_done = false
 
-var astar = AStar2D.new()
 var path = []
 
 func _ready() -> void:
@@ -56,7 +55,25 @@ func receive_order(order_received: Dictionary):
 			print(">:(")
 	order_done = true
 
-#func _physics_process(delta):
+func move_along_path(target_position: Vector2):
+	path.clear()
+	path = Global.astar.get_point_path(
+		Global.astar.get_closest_point(position), 
+		Global.astar.get_closest_point(target_position)
+	)
+
+func _process(delta: float) -> void:
+	if path.size() > 0:
+		var move_velocity = position.direction_to(path[0]) * speed * delta
+		position += move_velocity
+		if position.distance_to(path[0]) < speed * delta:
+			position = path[0]
+			path.remove_at(0)
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("click"):
+		move_along_path(get_global_mouse_position())
+
 # path
 #func find_seat():
 	

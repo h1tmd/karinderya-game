@@ -1,30 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://orpc6ca4kevq"]
+[gd_scene load_steps=2 format=3 uid="uid://orpc6ca4kevq"]
 
-[ext_resource type="PackedScene" uid="uid://df77bu4rije41" path="res://scenes/player.tscn" id="1_0seei"]
-[ext_resource type="PackedScene" uid="uid://cx7e7mgq8ns5f" path="res://scenes/dish_serving.tscn" id="3_b3eb5"]
-[ext_resource type="Script" path="res://testinteractable.gd" id="3_v2sxh"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_iq8i8"]
-radius = 87.0517
+[ext_resource type="PackedScene" uid="uid://dw2uugi5lsy75" path="res://scenes/customer.tscn" id="2_ct5wd"]
 
 [node name="testarea" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_0seei")]
-position = Vector2(229, 293)
-
-[node name="testinteractable" type="Node2D" parent="."]
-position = Vector2(834, 318)
-script = ExtResource("3_v2sxh")
-
-[node name="Area2D" type="Area2D" parent="testinteractable"]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="testinteractable/Area2D"]
-shape = SubResource("CircleShape2D_iq8i8")
-
-[node name="Dish Serving" parent="." instance=ExtResource("3_b3eb5")]
-position = Vector2(559, 536)
-
-[connection signal="area_entered" from="testinteractable/Area2D" to="testinteractable" method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="testinteractable/Area2D" to="testinteractable" method="_on_area_2d_area_exited"]
+[node name="Customer" parent="." instance=ExtResource("2_ct5wd")]
+scale = Vector2(0.5, 0.5)
