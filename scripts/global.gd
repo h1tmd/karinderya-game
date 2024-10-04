@@ -3,7 +3,7 @@ extends Node
 # List of Dishes available
 var dishes = []
 # Current customer being served
-var current_customer
+var current_customer : Customer
 # A* for pathfinding
 var astar = AStar2D.new()
 
