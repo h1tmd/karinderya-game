@@ -6,6 +6,7 @@ var dishes = []
 var current_customer : Customer
 # A* for pathfinding
 var astar = AStar2D.new()
+
 # Seats available
 var available_seats = []
 
@@ -43,3 +44,4 @@ func generate_astar():
 	for point:AstarPoint in all_points:
 		for connection in point.connections:
 			astar.connect_points(point.get_index(), connection.get_index())
+	print(astar.get_closest_point(exit_loc))

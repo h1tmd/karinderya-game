@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8sbjr4h22ptn"]
+[gd_scene load_steps=6 format=3 uid="uid://c8sbjr4h22ptn"]
 
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_gky2s"]
 [ext_resource type="PackedScene" uid="uid://ciaoc3hpfpjof" path="res://scenes/layout.tscn" id="1_ptahu"]
 [ext_resource type="PackedScene" uid="uid://df77bu4rije41" path="res://scenes/player.tscn" id="2_royxq"]
 [ext_resource type="PackedScene" uid="uid://dw2uugi5lsy75" path="res://scenes/customer.tscn" id="3_rxjuf"]
@@ -7,6 +8,8 @@
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_gky2s")
+customer = ExtResource("3_rxjuf")
 
 [node name="Layout" parent="." instance=ExtResource("1_ptahu")]
 y_sort_enabled = true
@@ -18,8 +21,7 @@ speed = 600
 acceleration = 10
 
 [node name="Customer" parent="." instance=ExtResource("3_rxjuf")]
-position = Vector2(-170, 309)
-scale = Vector2(0.5, 0.5)
+position = Vector2(-199, 409)
 collision_mask = 0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
