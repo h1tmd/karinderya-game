@@ -1,6 +1,9 @@
 extends CharacterBody2D
 class_name Customer
 
+@export var standing_sprite: Texture
+@export var sitting_sprite: Texture
+
 @onready var person_radar: Area2D = $"Person Radar"
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
@@ -52,7 +55,7 @@ func receive_order(order_received: Dictionary):
 			if key not in order:
 				# extra dish not ordered
 				mistakes += 1
-
+	
 	match mistakes:
 		1:
 			print(":)")
@@ -65,10 +68,17 @@ func receive_order(order_received: Dictionary):
 	if Global.available_seats[0]:
 		seat = Global.available_seats.pop_at(0)
 		go_to(seat)
+	# if no more seats
+	
+	while position != seat:
+		await get_tree().process_frame
+	sprite_2d.texture = sitting_sprite
 	
 	# *eating*
 	await get_tree().create_timer(10).timeout
 	done_eating = true
+	sprite_2d.texture = standing_sprite
+	Global.available_seats.push_front(seat)
 	go_to(Global.exit_loc)
 
 
