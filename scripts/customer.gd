@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name Customer
 
 @onready var person_radar: Area2D = $"Person Radar"
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 var speed = 250
 var order = {}
@@ -90,6 +91,10 @@ func _process(delta: float) -> void:
 		if position.distance_to(path[0]) < speed * delta:
 			position = path[0]
 			path.remove_at(0)
+		if move_velocity.x > 0:
+			sprite_2d.flip_h = false
+		elif move_velocity.x < 0:
+			sprite_2d.flip_h = true
 
 
 func _on_person_radar_body_entered(body: Node2D) -> void:
