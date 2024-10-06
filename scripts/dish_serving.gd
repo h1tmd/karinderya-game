@@ -34,12 +34,12 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.name == "Serving Area":
+	if area.name == "Serving Area" and selected:
 		modulate.a = 1
 		scale = Vector2(1, 1)
 
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
-	if area.name == "Serving Area":
+	if area.name == "Serving Area" and selected:
 		modulate.a = 0.5
 		scale = Vector2(0.9, 0.9)

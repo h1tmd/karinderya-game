@@ -66,17 +66,21 @@ func receive_order(order_received: Dictionary):
 			print(">:(")
 	order_done = true
 	
+	# wait for seats
+	while Global.available_seats.is_empty():
+		await get_tree().process_frame
+	
 	if Global.available_seats[0]:
 		seat = Global.available_seats.pop_at(0)
 		go_to(seat)
-	# if no more seats
-	
-	while position != seat:
-		await get_tree().process_frame
+
+
+# Called when customer reaches a chair
+func seat_and_eat():
 	sprite_2d.texture = sitting_sprite
+	var time_eating = randi_range(10, 20)
+	await get_tree().create_timer(time_eating).timeout
 	
-	# *eating*
-	await get_tree().create_timer(10).timeout
 	done_eating = true
 	sprite_2d.texture = standing_sprite
 	Global.available_seats.push_front(seat)

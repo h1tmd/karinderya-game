@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://4ncr3fkvo2sq"]
+[gd_scene load_steps=5 format=3 uid="uid://4ncr3fkvo2sq"]
 
 [ext_resource type="Texture2D" uid="uid://7ymmq8i82xhe" path="res://assets/chair.png" id="1_nwtpe"]
 [ext_resource type="Script" path="res://scripts/chair.gd" id="1_vghsm"]
@@ -6,6 +6,9 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7bxmn"]
 radius = 37.0
 height = 198.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3dcx7"]
+radius = 26.0192
 
 [node name="Chair" type="StaticBody2D"]
 script = ExtResource("1_vghsm")
@@ -18,3 +21,14 @@ offset = Vector2(0, -130)
 position = Vector2(0, -11)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_7bxmn")
+
+[node name="Chair Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chair Area"]
+shape = SubResource("CircleShape2D_3dcx7")
+
+[node name="Food On Table" type="Node2D" parent="."]
+position = Vector2(241, -118)
+scale = Vector2(0.6, 0.6)
+
+[connection signal="body_entered" from="Chair Area" to="." method="_on_chair_area_body_entered"]

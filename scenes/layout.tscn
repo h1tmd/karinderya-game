@@ -66,6 +66,7 @@ position = Vector2(2076, 1208)
 position = Vector2(3168, 1216)
 
 [node name="OrderArea" type="Area2D" parent="."]
+collision_layer = 0
 script = ExtResource("6_011k2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OrderArea"]
