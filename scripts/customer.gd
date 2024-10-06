@@ -8,6 +8,8 @@ class_name Customer
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var food_holder: Node2D = $FoodHolder
 
+signal done_signal(chair_location)
+
 var speed = 250
 var order = {}
 var path = []
@@ -82,8 +84,8 @@ func seat_and_eat():
 	await get_tree().create_timer(time_eating).timeout
 	
 	done_eating = true
+	done_signal.emit(seat)
 	sprite_2d.texture = standing_sprite
-	Global.available_seats.push_front(seat)
 	go_to(Global.exit_loc)
 
 

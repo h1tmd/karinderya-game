@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cr20e56bjh4l2"]
+
+[ext_resource type="Texture2D" uid="uid://cc84svtvj6gch" path="res://assets/dirtyplate.png" id="1_bj31q"]
+
+[node name="Dirty Plate" type="Sprite2D"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_bj31q")
