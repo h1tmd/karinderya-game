@@ -1,6 +1,8 @@
 extends Control
+
 @onready var grid_container: GridContainer = $ColorRect/HSplitContainer/ScrollContainer/GridContainer
-@onready var serving_area = $"ColorRect/HSplitContainer/Panel/Serving Area"
+@onready var serving_area: Area2D = $"ColorRect/HSplitContainer/MarginContainer/Panel/Serving Area"
+@onready var dishes_node: Node2D = $ColorRect/HSplitContainer/MarginContainer/Panel/DishesNode
 
 
 func _ready() -> void:
@@ -15,7 +17,7 @@ func load_dishes():
 	var dish_scn = load(("res://scenes/dish_item.tscn"))
 	for dish:Dish in Global.dishes:
 		var dish_item : DishItem = dish_scn.instantiate()
-		dish_item.set_data(dish.name, dish.image)
+		dish_item.set_data(dish.name, dish.image, dishes_node)
 		grid_container.add_child(dish_item)
 
 func _on_button_pressed():
@@ -32,5 +34,6 @@ func _on_button_pressed():
 	if cust:
 		cust.receive_order(order)
 		Global.current_customer = null
-		for dish_served in dishes_served:
-			dish_served.get_parent().queue_free()
+		for child: DishServing in dishes_node.get_children():
+			child.reparent(cust.food_holder, false)
+			child.z_index = 10

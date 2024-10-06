@@ -6,6 +6,7 @@ class_name Customer
 
 @onready var person_radar: Area2D = $"Person Radar"
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var food_holder: Node2D = $FoodHolder
 
 var speed = 250
 var order = {}
@@ -113,7 +114,7 @@ func _on_person_radar_body_entered(body: Node2D) -> void:
 func _on_person_radar_body_exited(body: Node2D) -> void:
 	person_in_front = check_front()
 
-func check_front():
+func check_front() -> bool:
 	var bodies = person_radar.get_overlapping_bodies()
 	for body in bodies:
 		# Stop if person in front is a customer that has not yet ordered

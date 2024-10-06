@@ -31,3 +31,15 @@ func _input(event: InputEvent) -> void:
 			if area.name == "Serving Area":
 				return
 		queue_free()
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.name == "Serving Area":
+		modulate.a = 1
+		scale = Vector2(1, 1)
+
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	if area.name == "Serving Area":
+		modulate.a = 0.5
+		scale = Vector2(0.9, 0.9)
