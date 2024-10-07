@@ -28,7 +28,7 @@ shape = SubResource("CapsuleShape2D_7bxmn")
 shape = SubResource("CircleShape2D_3dcx7")
 
 [node name="Food On Table" type="Node2D" parent="."]
-position = Vector2(241, -118)
+position = Vector2(241, -154)
 scale = Vector2(0.6, 0.6)
 
 [connection signal="body_entered" from="Chair Area" to="." method="_on_chair_area_body_entered"]

@@ -20,7 +20,7 @@ speed = 600
 acceleration = 10
 
 [node name="Customer" parent="." instance=ExtResource("3_rxjuf")]
-position = Vector2(-199, 409)
+position = Vector2(-298, 301)
 collision_mask = 0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

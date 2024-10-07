@@ -116,15 +116,18 @@ func _process(delta: float) -> void:
 
 func _on_person_radar_body_entered(body: Node2D) -> void:
 	person_in_front = check_front()
+	print(check_front())
 
 func _on_person_radar_body_exited(body: Node2D) -> void:
 	person_in_front = check_front()
 
+
 func check_front() -> bool:
 	var bodies = person_radar.get_overlapping_bodies()
+	print(bodies)
 	for body in bodies:
 		# Stop if person in front is a customer that has not yet ordered
-		if not done_eating and body is Customer:
+		if not done_eating and body is Customer and body != self:
 			if not body.order_done:
 				return true
 		if body is Player:
