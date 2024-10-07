@@ -1,13 +1,17 @@
 extends StaticBody2D
 
+@onready var serve_ui = $"CanvasLayer/Serve UI"
 var can_interact = false
 
 func _on_area_2d_area_entered(area):
-	can_interact = true
+	if area.name == "InteractReach":
+		can_interact = true
 
 func _on_area_2d_area_exited(area: Area2D):
-	can_interact = false
+	if area.name == "InteractReach":
+		can_interact = false
+		serve_ui.hide()
 
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("interact") and can_interact:
-		pass
+		serve_ui.visible = not serve_ui.visible

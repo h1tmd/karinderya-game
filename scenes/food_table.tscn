@@ -1,13 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://vsr8j68ajo2p"]
+[gd_scene load_steps=6 format=3 uid="uid://vsr8j68ajo2p"]
 
 [ext_resource type="Texture2D" uid="uid://cumcef2ah66s4" path="res://assets/foodtable.png" id="1_ultsb"]
 [ext_resource type="Script" path="res://scripts/food_table.gd" id="1_vl3ya"]
+[ext_resource type="PackedScene" uid="uid://ckjhd6s0wljtq" path="res://scenes/serve_ui.tscn" id="3_ai3ti"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_px4kx"]
 size = Vector2(2000, 371)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_50whi"]
-size = Vector2(1997, 492)
+size = Vector2(1144, 100)
 
 [node name="FoodTable" type="StaticBody2D"]
 script = ExtResource("1_vl3ya")
@@ -24,8 +25,13 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-0.5, 26)
+position = Vector2(-211, -170)
 shape = SubResource("RectangleShape2D_50whi")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Serve UI" parent="CanvasLayer" instance=ExtResource("3_ai3ti")]
+visible = false
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
