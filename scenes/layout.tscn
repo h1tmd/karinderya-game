@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ciaoc3hpfpjof"]
+[gd_scene load_steps=12 format=3 uid="uid://ciaoc3hpfpjof"]
 
 [ext_resource type="Texture2D" uid="uid://dvr1eijygxevg" path="res://assets/room.png" id="1_oeiqx"]
 [ext_resource type="Texture2D" uid="uid://oxlvqv3e2dwl" path="res://assets/leftwall.png" id="2_j4qqj"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://qojy8o7tvagu" path="res://assets/sign.png" id="4_thymj"]
 [ext_resource type="PackedScene" uid="uid://t665gqdx8ug1" path="res://scenes/table.tscn" id="5_bi7te"]
 [ext_resource type="Script" path="res://scripts/order_area.gd" id="6_011k2"]
+[ext_resource type="PackedScene" uid="uid://cl6m2d3tmqoog" path="res://scenes/sink.tscn" id="8_mcwtw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eeemq"]
 radius = 104.0
@@ -75,5 +76,8 @@ shape = SubResource("CircleShape2D_041ym")
 
 [node name="FoodTable" parent="." instance=ExtResource("2_pyccu")]
 position = Vector2(1884, 642)
+
+[node name="Sink" parent="." instance=ExtResource("8_mcwtw")]
+position = Vector2(3522, 78)
 
 [connection signal="body_entered" from="OrderArea" to="OrderArea" method="_on_body_entered"]
