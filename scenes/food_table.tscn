@@ -1,8 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://vsr8j68ajo2p"]
+[gd_scene load_steps=8 format=3 uid="uid://vsr8j68ajo2p"]
 
 [ext_resource type="Texture2D" uid="uid://cumcef2ah66s4" path="res://assets/foodtable.png" id="1_ultsb"]
 [ext_resource type="Script" path="res://scripts/food_table.gd" id="1_vl3ya"]
+[ext_resource type="Shader" path="res://outline.gdshader" id="2_mmlah"]
 [ext_resource type="PackedScene" uid="uid://ckjhd6s0wljtq" path="res://scenes/serve_ui.tscn" id="3_ai3ti"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8qcgj"]
+shader = ExtResource("2_mmlah")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_px4kx"]
 size = Vector2(2000, 371)
@@ -14,6 +20,7 @@ size = Vector2(1144, 100)
 script = ExtResource("1_vl3ya")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_8qcgj")
 texture = ExtResource("1_ultsb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
