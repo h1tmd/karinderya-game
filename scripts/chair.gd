@@ -25,4 +25,9 @@ func on_customer_done(seat):
 	seat_location = seat
 	for node in food_on_table.get_children():
 		node.queue_free()
-	food_on_table.add_child(DIRTY_PLATE.instantiate())
+	var dirty_plate = DIRTY_PLATE.instantiate()
+	dirty_plate.connect("plate_taken", on_plate_taken)
+	food_on_table.add_child(dirty_plate)
+
+func on_plate_taken():
+	Global.available_seats.push_front(seat_location)

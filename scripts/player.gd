@@ -4,9 +4,12 @@ class_name Player
 @export var speed = 400
 @export var friction = 10
 @export var acceleration = 5
-var direction = Vector2.ZERO
+
 @onready var interact_reach: Area2D = $InteractReach
 @onready var sprite_2d = $Sprite2D
+@onready var plate_holder: Node2D = $PlateHolder
+
+var direction = Vector2.ZERO
 
 func _process(_delta):
 	direction = Input.get_vector("left","right","up","down")

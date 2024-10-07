@@ -22,6 +22,8 @@ func load_dishes():
 
 func _on_button_pressed():
 	var dishes_served = serving_area.get_overlapping_areas()
+	if dishes_served.is_empty():
+		return
 	var order = {}
 	for dish_served : Area2D in dishes_served:
 		var dish = dish_served.get_groups()[0]
@@ -36,4 +38,4 @@ func _on_button_pressed():
 		Global.current_customer = null
 		for child: DishServing in dishes_node.get_children():
 			child.reparent(cust.food_holder, false)
-			child.z_index = 10
+			

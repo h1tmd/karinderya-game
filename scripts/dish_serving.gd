@@ -4,7 +4,7 @@ class_name DishServing
 @onready var area_2d: Area2D = $Area2D
 var selected = true
 var mouse_offset = Vector2.ZERO
-var group_name
+var group_name = ""
 
 func _ready():
 	selected = true

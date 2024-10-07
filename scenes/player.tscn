@@ -25,3 +25,7 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractReach"]
 position = Vector2(161.75, 0)
 shape = SubResource("RectangleShape2D_mnahm")
+
+[node name="PlateHolder" type="Node2D" parent="."]
+position = Vector2(0, -144)
+scale = Vector2(0.5, 0.5)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c8sbjr4h22ptn"]
 
-[ext_resource type="Script" path="res://scenes/main.gd" id="1_gky2s"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_gky2s"]
 [ext_resource type="PackedScene" uid="uid://ciaoc3hpfpjof" path="res://scenes/layout.tscn" id="1_ptahu"]
 [ext_resource type="PackedScene" uid="uid://df77bu4rije41" path="res://scenes/player.tscn" id="2_royxq"]
 [ext_resource type="PackedScene" uid="uid://dw2uugi5lsy75" path="res://scenes/customer.tscn" id="3_rxjuf"]
@@ -15,7 +15,6 @@ customer = ExtResource("3_rxjuf")
 y_sort_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_royxq")]
-y_sort_enabled = true
 position = Vector2(288, 200)
 speed = 600
 acceleration = 10
