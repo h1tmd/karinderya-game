@@ -44,7 +44,6 @@ func receive_order(order_received: Dictionary):
 	
 	if order == order_received:
 		print(":))")
-		return
 	else:
 		for key in order:
 			if key in order_received:
@@ -58,14 +57,14 @@ func receive_order(order_received: Dictionary):
 			if key not in order:
 				# extra dish not ordered
 				mistakes += 1
-	
-	match mistakes:
-		1:
-			print(":)")
-		2:
-			print(":(")
-		_:
-			print(">:(")
+		
+		match mistakes:
+			1:
+				print(":)")
+			2:
+				print(":(")
+			_:
+				print(">:(")
 	order_done = true
 	
 	# wait for seats
@@ -123,6 +122,7 @@ func _on_person_radar_body_exited(body: Node2D) -> void:
 
 func check_front() -> bool:
 	var bodies = person_radar.get_overlapping_bodies()
+
 
 	for body in bodies:
 		# Stop if person in front is a customer that has not yet ordered

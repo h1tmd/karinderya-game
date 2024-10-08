@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dish" load_steps=3 format=3 uid="uid://b3l35vjdjpbdo"]
+
+[ext_resource type="Texture2D" uid="uid://b4uayug0m7igq" path="res://assets/rice.png" id="1_h7um5"]
+[ext_resource type="Script" path="res://scripts/res_dish.gd" id="1_nji6b"]
+
+[resource]
+script = ExtResource("1_nji6b")
+image = ExtResource("1_h7um5")
+name = "Rice"
+price = 15.0

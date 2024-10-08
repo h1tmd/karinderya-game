@@ -28,6 +28,8 @@ func _on_mouse_exited():
 func _input(event):
 	if event.is_action_pressed("click") and mouse_over:
 		var dish_serving : DishServing = load("res://scenes/dish_serving.tscn").instantiate()
-		dish_serving.set_area_group(dish_name)
+		dish_serving.texture = dish_image
+		if dish_name != "Plate":
+			dish_serving.set_area_group(dish_name)
 		dishes_node.add_child(dish_serving)
 		dish_serving.global_position = get_global_mouse_position()

@@ -8,7 +8,8 @@ var group_name = ""
 
 func _ready():
 	selected = true
-	area_2d.add_to_group(group_name)
+	if not group_name.is_empty():
+		area_2d.add_to_group(group_name)
 
 func _process(delta):
 	if selected:
@@ -16,6 +17,7 @@ func _process(delta):
 
 func set_area_group(name):
 	self.group_name = name
+
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton:
@@ -36,10 +38,10 @@ func _input(event: InputEvent) -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.name == "Serving Area" and selected:
 		modulate.a = 1
-		scale = Vector2(1, 1)
+		scale = Vector2(0.6, 0.6)
 
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.name == "Serving Area" and selected:
 		modulate.a = 0.5
-		scale = Vector2(0.9, 0.9)
+		scale = Vector2(0.5, 0.5)

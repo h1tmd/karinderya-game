@@ -19,6 +19,7 @@ func _ready() -> void:
 	generate_astar()
 
 func read_dishes():
+	dishes.append(load("res://rice.tres"))
 	var dir = DirAccess.open("res://dishes/")
 	if dir:
 		dir.list_dir_begin()
