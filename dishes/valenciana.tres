@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dish" load_steps=3 format=3 uid="uid://b5h7dt4a2iinn"]
+
+[ext_resource type="Script" path="res://scripts/res_dish.gd" id="1_hmubk"]
+[ext_resource type="Texture2D" uid="uid://dvjpg688br6ia" path="res://assets/dishes/valenciana.png" id="1_or775"]
+
+[resource]
+script = ExtResource("1_hmubk")
+image = ExtResource("1_or775")
+name = "Valenciana"
+price = 45.0

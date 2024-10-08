@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dish" load_steps=3 format=3 uid="uid://dgf45yo2q12rb"]
+
+[ext_resource type="Texture2D" uid="uid://cugw8pjasmswf" path="res://assets/dishes/kbl.png" id="1_uy2bo"]
+[ext_resource type="Script" path="res://scripts/res_dish.gd" id="1_vdjtg"]
+
+[resource]
+script = ExtResource("1_vdjtg")
+image = ExtResource("1_uy2bo")
+name = "Kadyos, Baboy, Langka"
+price = 60.0

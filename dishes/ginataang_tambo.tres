@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dish" load_steps=3 format=3 uid="uid://culuau0rsx6mp"]
+
+[ext_resource type="Texture2D" uid="uid://b7vqllt4trpri" path="res://assets/dishes/ginataangtambo.png" id="1_hxram"]
+[ext_resource type="Script" path="res://scripts/res_dish.gd" id="1_nh0su"]
+
+[resource]
+script = ExtResource("1_nh0su")
+image = ExtResource("1_hxram")
+name = "Ginataan nga Tambo"
+price = 50.0

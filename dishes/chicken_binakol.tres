@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dish" load_steps=3 format=3 uid="uid://be26q7iwkndmx"]
+
+[ext_resource type="Texture2D" uid="uid://dk544mafvwmto" path="res://assets/dishes/chickenbinakol.png" id="1_2rsr7"]
+[ext_resource type="Script" path="res://scripts/res_dish.gd" id="1_6plvl"]
+
+[resource]
+script = ExtResource("1_6plvl")
+image = ExtResource("1_2rsr7")
+name = "Chicken Binakol"
+price = 50.0

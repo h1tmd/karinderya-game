@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dish" load_steps=3 format=3 uid="uid://t0pvpggl31oo"]
+
+[ext_resource type="Script" path="res://scripts/res_dish.gd" id="1_lghmf"]
+[ext_resource type="Texture2D" uid="uid://t4v3lyngjfjv" path="res://assets/dishes/chickeninsasal.png" id="1_xh7gh"]
+
+[resource]
+script = ExtResource("1_lghmf")
+image = ExtResource("1_xh7gh")
+name = "Chicken Inasal"
+price = 50.0

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dish" load_steps=3 format=3 uid="uid://dvd4qlnqoius1"]
+
+[ext_resource type="Texture2D" uid="uid://bmt5u5rsit4wv" path="res://assets/dishes/dinuguan.png" id="1_44ad1"]
+[ext_resource type="Script" path="res://scripts/res_dish.gd" id="1_gvbtx"]
+
+[resource]
+script = ExtResource("1_gvbtx")
+image = ExtResource("1_44ad1")
+name = "Dinuguan"
+price = 50.0

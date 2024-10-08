@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dish" load_steps=3 format=3 uid="uid://cbsxa6u0if3u0"]
+
+[ext_resource type="Script" path="res://scripts/res_dish.gd" id="1_s2lao"]
+[ext_resource type="Texture2D" uid="uid://b4jbj6avpwwxb" path="res://assets/dishes/apan-apan.png" id="1_yxd5b"]
+
+[resource]
+script = ExtResource("1_s2lao")
+image = ExtResource("1_yxd5b")
+name = "Apan-apan"
+price = 30.0

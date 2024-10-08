@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dish" load_steps=3 format=3 uid="uid://ddgpkxnslduv7"]
+
+[ext_resource type="Script" path="res://scripts/res_dish.gd" id="1_2sbmu"]
+[ext_resource type="Texture2D" uid="uid://c43wehxsovwa2" path="res://assets/dishes/pancitmolo.png" id="1_q433n"]
+
+[resource]
+script = ExtResource("1_2sbmu")
+image = ExtResource("1_q433n")
+name = "Pancit Molo"
+price = 55.0
