@@ -6,9 +6,10 @@ var dishes = []
 var current_customer : Customer
 # A* for pathfinding
 var astar = AStar2D.new()
-
 # Seats available
 var available_seats = []
+# Currently selected dish
+var currently_selected:DishServing = null
 
 const order_loc = Vector2(716, 483)
 const exit_loc = Vector2(-89, 483)
