@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dish" load_steps=3 format=3 uid="uid://brl2yn4b01tdc"]
+
+[ext_resource type="Texture2D" uid="uid://6gnijq74j8rv" path="res://assets/dishes/adobongtakway.png" id="1_fhe5k"]
+[ext_resource type="Script" path="res://scripts/res_dish.gd" id="1_oqjb7"]
+
+[resource]
+script = ExtResource("1_oqjb7")
+image = ExtResource("1_fhe5k")
+name = "Adobong Takway"
+price = 45.0

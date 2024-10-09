@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dish" load_steps=3 format=3 uid="uid://bgudrp0cvi7g0"]
+
+[ext_resource type="Texture2D" uid="uid://cggp0puttrweg" path="res://assets/dishes/pinamalhanngaisda.png" id="1_ptn4u"]
+[ext_resource type="Script" path="res://scripts/res_dish.gd" id="1_r6qpc"]
+
+[resource]
+script = ExtResource("1_r6qpc")
+image = ExtResource("1_ptn4u")
+name = "Pinamalhan nga Isda"
+price = 30.0

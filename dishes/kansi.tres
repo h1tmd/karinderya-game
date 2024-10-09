@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dish" load_steps=3 format=3 uid="uid://cmmd6igdjh884"]
+
+[ext_resource type="Texture2D" uid="uid://cqqvcjkvitltt" path="res://assets/dishes/kansi.png" id="1_45ae5"]
+[ext_resource type="Script" path="res://scripts/res_dish.gd" id="1_lso6s"]
+
+[resource]
+script = ExtResource("1_lso6s")
+image = ExtResource("1_45ae5")
+name = "Kansi"
+price = 50.0

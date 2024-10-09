@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmf86t4xcsi0"
-path="res://.godot/imported/sinigang.png-1aed2d9aee33d8d8662516c35656c7fb.ctex"
+uid="uid://eidd7nwd5bip"
+path="res://.godot/imported/laswa.png-d8ba600b44cce470210873773ec47043.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/dishes/sinigang.png"
-dest_files=["res://.godot/imported/sinigang.png-1aed2d9aee33d8d8662516c35656c7fb.ctex"]
+source_file="res://assets/dishes/laswa.png"
+dest_files=["res://.godot/imported/laswa.png-d8ba600b44cce470210873773ec47043.ctex"]
 
 [params]
 

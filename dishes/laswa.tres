@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dish" load_steps=3 format=3 uid="uid://cd0goafxecg0r"]
+
+[ext_resource type="Texture2D" uid="uid://eidd7nwd5bip" path="res://assets/dishes/laswa.png" id="1_gh7t8"]
+[ext_resource type="Script" path="res://scripts/res_dish.gd" id="1_u0ixe"]
+
+[resource]
+script = ExtResource("1_u0ixe")
+image = ExtResource("1_gh7t8")
+name = "Laswa"
+price = 40.0

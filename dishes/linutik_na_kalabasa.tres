@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dish" load_steps=3 format=3 uid="uid://clte2oduglmdx"]
+
+[ext_resource type="Texture2D" uid="uid://j54bve5v6g6l" path="res://assets/dishes/linutikngakalabasa.png" id="1_qgb26"]
+[ext_resource type="Script" path="res://scripts/res_dish.gd" id="1_srkss"]
+
+[resource]
+script = ExtResource("1_srkss")
+image = ExtResource("1_qgb26")
+name = "Linutik na Kalabasa"
+price = 50.0
