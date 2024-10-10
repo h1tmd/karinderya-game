@@ -8,3 +8,4 @@ script = ExtResource("1_gvbtx")
 image = ExtResource("1_44ad1")
 name = "Dinuguan"
 price = 50.0
+is_bowl = true

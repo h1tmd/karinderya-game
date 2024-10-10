@@ -8,3 +8,4 @@ script = ExtResource("1_rt5pt")
 image = ExtResource("1_6xtil")
 name = "Batchoy"
 price = 150.0
+is_bowl = true

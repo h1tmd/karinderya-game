@@ -8,3 +8,4 @@ script = ExtResource("1_lso6s")
 image = ExtResource("1_45ae5")
 name = "Kansi"
 price = 50.0
+is_bowl = true

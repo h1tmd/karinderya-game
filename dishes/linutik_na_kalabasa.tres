@@ -8,3 +8,4 @@ script = ExtResource("1_srkss")
 image = ExtResource("1_qgb26")
 name = "Linutik na Kalabasa"
 price = 50.0
+is_bowl = true

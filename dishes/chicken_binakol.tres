@@ -8,3 +8,4 @@ script = ExtResource("1_6plvl")
 image = ExtResource("1_2rsr7")
 name = "Chicken Binakol"
 price = 50.0
+is_bowl = true

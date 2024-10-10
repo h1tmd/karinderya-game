@@ -8,3 +8,4 @@ script = ExtResource("1_vdjtg")
 image = ExtResource("1_uy2bo")
 name = "Kadyos, Baboy, Langka"
 price = 60.0
+is_bowl = true

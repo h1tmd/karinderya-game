@@ -23,11 +23,22 @@ func _on_chair_area_body_entered(body: Node2D) -> void:
 
 func on_customer_done(seat):
 	seat_location = seat
-	for node in food_on_table.get_children():
+	for node: Sprite2D in food_on_table.get_children():
+		var dirty_plate = DIRTY_PLATE.instantiate()
+		if node is DishServing:
+			if node.dish_data.name == "Rice":
+				node.queue_free()
+				continue
+			else:
+				dirty_plate.is_bowl = node.dish_data.is_bowl
+		elif node.name != "Plate":
+			print("Error identifiying food on table child")
+			return
+		dirty_plate.position = node.position
+		dirty_plate.connect("plate_taken", on_plate_taken)
 		node.queue_free()
-	var dirty_plate = DIRTY_PLATE.instantiate()
-	dirty_plate.connect("plate_taken", on_plate_taken)
-	food_on_table.add_child(dirty_plate)
+		food_on_table.add_child(dirty_plate)
 
 func on_plate_taken():
-	Global.available_seats.push_front(seat_location)
+	if food_on_table.get_child_count() == 0 and seat_location not in Global.available_seats:
+		Global.available_seats.push_front(seat_location)

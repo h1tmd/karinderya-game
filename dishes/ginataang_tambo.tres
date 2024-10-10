@@ -8,3 +8,4 @@ script = ExtResource("1_nh0su")
 image = ExtResource("1_hxram")
 name = "Ginataan nga Tambo"
 price = 50.0
+is_bowl = true

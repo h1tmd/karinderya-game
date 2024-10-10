@@ -27,9 +27,6 @@ func _on_mouse_exited():
 func _input(event):
 	if event.is_action_pressed("click") and mouse_over:
 		var dish_serving: DishServing
-		#if dish_data.name == "Rice":
-			#dish_serving = load("res://scenes/rice.tscn").instantiate()
-		#else:
 		dish_serving = load("res://scenes/dish_serving.tscn").instantiate()
 		dish_serving.set_data(dish_data)
 		dishes_node.add_child(dish_serving)

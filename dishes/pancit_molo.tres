@@ -8,3 +8,4 @@ script = ExtResource("1_2sbmu")
 image = ExtResource("1_q433n")
 name = "Pancit Molo"
 price = 55.0
+is_bowl = true
