@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/serve_ui.gd" id="1_ppxco"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tfjti"]
-size = Vector2(248, 151)
+size = Vector2(102, 44)
 
 [node name="Serve UI" type="Control"]
 layout_mode = 3
@@ -57,7 +57,7 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/HSplitContainer/MarginContainer/Panel/Serving Area"]
-position = Vector2(201, 127)
+position = Vector2(201, 150)
 shape = SubResource("RectangleShape2D_tfjti")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ColorRect/HSplitContainer"]

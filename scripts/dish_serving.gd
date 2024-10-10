@@ -14,11 +14,13 @@ func set_data(data: Dish):
 
 
 func _ready():
-	selected = true
 	if dish_data:
 		texture = dish_data.image
 		if dish_data.name == "Rice":
 			area_name = "Plate Area"
+	selected = true
+	modulate.a = 0.5
+	scale = Vector2(0.5, 0.5)
 
 
 func _process(_delta):

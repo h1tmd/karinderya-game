@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://d0fnxwhqf68im" path="res://assets/plate.png" id="1_sj8ql"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sekum"]
-radius = 128.333
-height = 390.0
+radius = 46.6667
+height = 113.333
 
 [node name="Plate" type="Sprite2D"]
 position = Vector2(0, -175)
