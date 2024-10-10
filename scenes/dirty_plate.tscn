@@ -1,12 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://cr20e56bjh4l2"]
+[gd_scene load_steps=6 format=3 uid="uid://cr20e56bjh4l2"]
 
 [ext_resource type="Texture2D" uid="uid://cc84svtvj6gch" path="res://assets/dirtyplate.png" id="1_bj31q"]
+[ext_resource type="Shader" path="res://outline.gdshader" id="1_ncht2"]
 [ext_resource type="Script" path="res://scripts/dirty_plate.gd" id="2_2mcp8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ww0ym"]
+resource_local_to_scene = true
+shader = ExtResource("1_ncht2")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p4my7"]
 size = Vector2(442.5, 365)
 
 [node name="Dirty Plate" type="Sprite2D"]
+material = SubResource("ShaderMaterial_ww0ym")
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_bj31q")
 script = ExtResource("2_2mcp8")

@@ -6,7 +6,7 @@ var can_interact = false
 
 func _on_area_2d_area_entered(area):
 	if area.name == "InteractReach":
-		sprite_2d.material.set_shader_parameter("line_thickness", 8)
+		sprite_2d.material.set_shader_parameter("line_thickness", 15)
 		can_interact = true
 
 func _on_area_2d_area_exited(area: Area2D):

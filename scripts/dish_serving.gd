@@ -50,10 +50,12 @@ func _input(_event: InputEvent) -> void:
 
 func _on_area_2d_mouse_entered() -> void:
 	mouse_over = true
+	material.set_shader_parameter("line_thickness", 15)
 
 
 func _on_area_2d_mouse_exited() -> void:
 	mouse_over = false
+	material.set_shader_parameter("line_thickness", 0)
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:

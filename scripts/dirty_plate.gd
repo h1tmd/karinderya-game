@@ -8,10 +8,12 @@ signal plate_taken
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.name == "InteractReach":
+		material.set_shader_parameter("line_thickness", 30)
 		can_interact = true
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.name == "InteractReach":
+		material.set_shader_parameter("line_thickness", 0)
 		can_interact = false
 
 func _unhandled_input(event: InputEvent) -> void:
