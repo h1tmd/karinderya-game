@@ -18,7 +18,7 @@ func _on_chair_area_body_entered(body: Node2D) -> void:
 	if body is Customer:
 		body.seat_and_eat()
 		body.connect("done_signal", on_customer_done)
-		for dish : DishServing in body.food_holder.get_children():
+		for dish : Node2D in body.food_holder.get_children():
 			dish.call_deferred("reparent", food_on_table, false)
 
 func on_customer_done(seat):
