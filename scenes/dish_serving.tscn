@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cx7e7mgq8ns5f"]
+[gd_scene load_steps=7 format=3 uid="uid://cx7e7mgq8ns5f"]
 
 [ext_resource type="Texture2D" uid="uid://6gnijq74j8rv" path="res://assets/dishes/adobongtakway.png" id="1_ig4it"]
 [ext_resource type="Shader" path="res://outline.gdshader" id="1_u1gnx"]
@@ -7,12 +7,16 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cps08"]
 resource_local_to_scene = true
 shader = ExtResource("1_u1gnx")
-shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_color = Color(1, 0.982, 0.555, 0.918)
 shader_parameter/line_thickness = 0.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b05yq"]
 radius = 123.333
 height = 353.333
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7qylv"]
+radius = 100.0
+height = 206.667
 
 [node name="Dish Serving" type="Sprite2D"]
 material = SubResource("ShaderMaterial_cps08")
@@ -29,6 +33,11 @@ collision_mask = 4
 position = Vector2(0, 10)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_b05yq")
+
+[node name="Rice Collision" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_7qylv")
+disabled = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
