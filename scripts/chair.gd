@@ -40,5 +40,5 @@ func on_customer_done(seat):
 		food_on_table.add_child(dirty_plate)
 
 func on_plate_taken():
-	if food_on_table.get_child_count() == 0 and seat_location not in Global.available_seats:
-		Global.available_seats.push_front(seat_location)
+	if food_on_table.get_child_count() == 0 and seat_location not in GameState.available_seats:
+		GameState.available_seats.push_front(seat_location)

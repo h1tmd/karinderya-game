@@ -68,11 +68,11 @@ func receive_order(order_received: Dictionary):
 	order_done = true
 	
 	# wait for seats
-	while Global.available_seats.is_empty():
+	while GameState.available_seats.is_empty():
 		await get_tree().process_frame
 	
-	if Global.available_seats[0]:
-		seat = Global.available_seats.pop_at(0)
+	if GameState.available_seats[0]:
+		seat = GameState.available_seats.pop_at(0)
 		go_to(seat)
 
 

@@ -6,8 +6,6 @@ var dishes = []
 var current_customer : Customer
 # A* for pathfinding
 var astar = AStar2D.new()
-# Seats available
-var available_seats = []
 
 const order_loc = Vector2(716, 483)
 const exit_loc = Vector2(-89, 483)
@@ -38,10 +36,9 @@ func generate_astar():
 	for point:AstarPoint in all_points:
 		astar.add_point(point.get_index(), point.position)
 		if point.is_chair:
-			available_seats.append(point.position)
+			GameState.available_seats.append(point.position)
 	
 	# Connect all the AStar points to each other
 	for point:AstarPoint in all_points:
 		for connection in point.connections:
 			astar.connect_points(point.get_index(), connection.get_index())
-	print(astar.get_closest_point(exit_loc))
