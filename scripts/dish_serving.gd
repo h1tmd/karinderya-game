@@ -5,6 +5,8 @@ class_name DishServing
 @onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 @onready var rice_collision: CollisionShape2D = $"Area2D/Rice Collision"
 
+static var currently_selected: DishServing = null
+
 var mouse_offset = Vector2.ZERO
 var area_name = "Serving Area"
 var mouse_over = false
@@ -27,7 +29,7 @@ func _ready():
 			collision_shape_2d.disabled = true
 			rice_collision.disabled = false
 	selected = true
-	Global.currently_selected = self
+	currently_selected = self
 	scale = Vector2(0.5, 0.5)
 	material.set_shader_parameter("line_color", red_color)
 	material.set_shader_parameter("line_thickness", 15)
@@ -43,8 +45,8 @@ func _process(delta):
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("click") and mouse_over:
-		if Global.currently_selected == null:
-			Global.currently_selected = self
+		if currently_selected == null:
+			currently_selected = self
 			mouse_offset = global_position - get_global_mouse_position()
 			selected = true
 			get_parent().move_child(self, -1)
@@ -52,7 +54,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_released("click") and selected:
-		Global.currently_selected = null
+		currently_selected = null
 		selected = false
 		var areas = area_2d.get_overlapping_areas()
 		for area in areas:
@@ -62,7 +64,7 @@ func _input(_event: InputEvent) -> void:
 
 
 func _on_area_2d_mouse_entered() -> void:
-	if Global.currently_selected == null:
+	if currently_selected == null:
 		mouse_over = true
 		material.set_shader_parameter("line_thickness", 15)
 
