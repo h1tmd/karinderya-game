@@ -26,6 +26,7 @@ func add_plate():
 func _on_button_pressed():
 	# Make order dictionary
 	var order = {}
+	var plates_used = 1
 	var dishes_served = dishes_node.get_children()
 	if dishes_served.is_empty():
 		return
@@ -33,12 +34,18 @@ func _on_button_pressed():
 		# if plate, skip
 		if dish_served is not DishServing:
 			continue
+		
 		var dish = dish_served.dish_data.name
+		if dish != "Rice":
+			plates_used += 1
 		if dish not in order:
 			order[dish] = 1
 		else:
 			order[dish] += 1
+	
+	GameState.total_plates -= plates_used
 	print(order)
+	print("Total plates: " + str(GameState.total_plates) + " (-" + str(plates_used) + ")")
 
 	# Pass to customer
 	var cust: Customer = Global.current_customer

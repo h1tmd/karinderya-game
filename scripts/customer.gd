@@ -19,7 +19,6 @@ var done_eating = false
 var person_in_front = false
 
 func _ready() -> void:
-	generate_order()
 	position = Global.exit_loc
 	go_to(Global.order_loc)
 
@@ -66,6 +65,7 @@ func receive_order(order_received: Dictionary):
 			_:
 				print(">:(")
 	order_done = true
+	print()
 	
 	# wait for seats
 	while GameState.available_seats.is_empty():
