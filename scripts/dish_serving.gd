@@ -29,10 +29,11 @@ func _ready():
 			collision_shape_2d.disabled = true
 			rice_collision.disabled = false
 	selected = true
+	mouse_over = true
 	currently_selected = self
 	scale = Vector2(0.5, 0.5)
 	material.set_shader_parameter("line_color", red_color)
-	material.set_shader_parameter("line_thickness", 15)
+	show_highlight()
 
 
 func _process(delta):
@@ -44,12 +45,20 @@ func _process(delta):
 		)
 
 func _unhandled_input(_event: InputEvent) -> void:
+	
 	if Input.is_action_just_pressed("click") and mouse_over:
-		if currently_selected == null:
-			currently_selected = self
-			mouse_offset = global_position - get_global_mouse_position()
-			selected = true
-			get_parent().move_child(self, -1)
+		# This is for a bug on mobile where mouse
+		# entered does not trigger
+		if not mouse_over:
+			await area_2d.mouse_entered
+		
+		if mouse_over:
+			if currently_selected == null:
+				currently_selected = self
+				mouse_offset = global_position - get_global_mouse_position()
+				selected = true
+				show_highlight()
+				get_parent().move_child(self, -1)
 
 
 func _input(_event: InputEvent) -> void:
@@ -64,14 +73,12 @@ func _input(_event: InputEvent) -> void:
 
 
 func _on_area_2d_mouse_entered() -> void:
-	if currently_selected == null:
-		mouse_over = true
-		material.set_shader_parameter("line_thickness", 15)
+	mouse_over = true
 
 
 func _on_area_2d_mouse_exited() -> void:
-	mouse_over = false
 	if not selected:
+		mouse_over = false
 		material.set_shader_parameter("line_thickness", 0)
 
 
@@ -85,3 +92,6 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.name == area_name and selected:
 		scale = Vector2(0.5, 0.5)
 		material.set_shader_parameter("line_color", red_color)
+
+func show_highlight():
+	material.set_shader_parameter("line_thickness", 15)
