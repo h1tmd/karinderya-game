@@ -46,11 +46,10 @@ func _process(delta):
 
 func _unhandled_input(_event: InputEvent) -> void:
 	
-	if Input.is_action_just_pressed("click") and mouse_over:
-		# This is for a bug on mobile where mouse
-		# entered does not trigger
-		if not mouse_over:
-			await area_2d.mouse_entered
+	if Input.is_action_just_pressed("click"):
+		# This is for a bug on mobile where input
+		# triggers before mouse enter
+		for i in range(2): await get_tree().physics_frame
 		
 		if mouse_over:
 			if currently_selected == null:
