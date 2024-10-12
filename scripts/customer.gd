@@ -11,6 +11,8 @@ class_name Customer
 signal done_signal(chair_location)
 
 var speed = 250
+var order_price = 0
+var time_eating = 0
 var order = {}
 var path = []
 var seat = Vector2.ZERO
@@ -26,51 +28,67 @@ func _ready() -> void:
 func generate_order():
 	# Generate randomly
 	randomize()
-	var meal : Dish = Global.dishes.pick_random()
+	var meal : Dish = Global.dishes.slice(1).pick_random()
 	var rice = randi_range(1, 3)
-	order = {meal.name: 1, "Rice": rice}
+	order = {meal: 1, Global.dishes[0]: rice}
 	
 	# Convert to a string
 	var order_str = ""
 	for i in order:
-		order_str += "%s: %s\n" % [i, order[i]]
+		order_str += "%s: %s\n" % [i.name, order[i]]
 	print(order_str)
+	
+	for dish: Dish in order:
+		order_price += dish.price * order[dish]
+	print("Order price: ", order_price)
 
 
 # receive order
 func receive_order(order_received: Dictionary):
 	var mistakes = 0
+	var payment = 0.0
 	
 	if order == order_received:
 		print(":))")
+		payment = order_price * 1.3
 	else:
-		for key in order:
-			if key in order_received:
+		for dish in order:
+			if dish in order_received:
 				# incorrect amount
-				if not order_received[key] >= order[key]:
+				if not order_received[dish] >= order[dish]:
 					mistakes += 1
 			else:
 				# ordered dish is missing
 				mistakes += 1
-		for key in order_received:
-			if key not in order:
+		for dish in order_received:
+			if dish not in order:
 				# extra dish not ordered
 				mistakes += 1
 		
 		match mistakes:
 			1:
 				print(":)")
+				payment = order_price * 1.1
 			2:
 				print(":(")
+				payment = order_price * 1
 			_:
 				print(">:(")
+				payment = order_price * 0.5
 	order_done = true
+	GameState.profit += payment
+	print("Paid: ", payment)
+	print("Total Profit :", GameState.profit)
 	print()
 	
 	# wait for seats
 	while GameState.available_seats.is_empty():
 		await get_tree().process_frame
 	
+
+	for dish in order_received:
+		time_eating += dish.price
+	print("Time to eat: ", time_eating)
 	if GameState.available_seats[0]:
 		seat = GameState.available_seats.pop_at(0)
 		go_to(seat)
@@ -79,7 +97,6 @@ func receive_order(order_received: Dictionary):
 # Called when customer reaches a chair
 func seat_and_eat():
 	sprite_2d.texture = sitting_sprite
-	var time_eating = randi_range(10, 20)
 	await get_tree().create_timer(time_eating).timeout
 	
 	done_eating = true

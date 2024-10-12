@@ -35,8 +35,8 @@ func _on_button_pressed():
 		if dish_served is not DishServing:
 			continue
 		
-		var dish = dish_served.dish_data.name
-		if dish != "Rice":
+		var dish = dish_served.dish_data
+		if dish.name != "Rice":
 			plates_used += 1
 		if dish not in order:
 			order[dish] = 1
@@ -44,7 +44,7 @@ func _on_button_pressed():
 			order[dish] += 1
 	
 	GameState.total_plates -= plates_used
-	print(order)
+	#print(order)
 	print("Total plates: " + str(GameState.total_plates) + " (-" + str(plates_used) + ")")
 
 	# Pass to customer
