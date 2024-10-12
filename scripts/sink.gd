@@ -4,6 +4,7 @@ extends StaticBody2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 var can_interact = false
+var plates = 0
 
 func _on_area_2d_area_entered(area):
 	if area.name == "InteractReach":
@@ -22,5 +23,11 @@ func _unhandled_input(event):
 			var plates_recieved = player.plate_holder.get_child_count()
 			for child in player.plate_holder.get_children():
 				child.queue_free()
-			GameState.total_plates += plates_recieved
-			print("Total plates: " + str(GameState.total_plates) + " (+" + str(plates_recieved) + ")")
+			plates += plates_recieved
+		else:
+			while can_interact and plates != 0:
+				await get_tree().create_timer(1).timeout
+				plates -= 1
+				GameState.total_plates += 1
+				print("Washed a plate.")
+			print("Total plates: " + str(GameState.total_plates))
