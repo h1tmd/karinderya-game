@@ -79,7 +79,6 @@ func receive_order(order_received: Dictionary):
 	GameState.profit += payment
 	print("Paid: ", payment)
 	print("Total Profit :", GameState.profit)
-	print()
 	
 	# wait for seats
 	while GameState.available_seats.is_empty():
@@ -89,6 +88,7 @@ func receive_order(order_received: Dictionary):
 	for dish in order_received:
 		time_eating += dish.price
 	print("Time to eat: ", time_eating)
+	print()
 	if GameState.available_seats[0]:
 		seat = GameState.available_seats.pop_at(0)
 		go_to(seat)
@@ -139,8 +139,7 @@ func _on_person_radar_body_exited(body: Node2D) -> void:
 
 func check_front() -> bool:
 	var bodies = person_radar.get_overlapping_bodies()
-
-
+	
 	for body in bodies:
 		# Stop if person in front is a customer that has not yet ordered
 		if not done_eating and body is Customer and body != self:

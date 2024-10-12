@@ -43,13 +43,18 @@ func _on_button_pressed():
 		else:
 			order[dish] += 1
 	
-	GameState.total_plates -= plates_used
-	#print(order)
-	print("Total plates: " + str(GameState.total_plates) + " (-" + str(plates_used) + ")")
-
 	# Pass to customer
 	var cust: Customer = Global.current_customer
 	if cust:
+		if order.is_empty():
+			print("Order is empty!")
+			return
+		if plates_used > GameState.total_plates:
+			print("Not enough plates!")
+			return
+		GameState.total_plates -= plates_used
+		print("Total plates: " + str(GameState.total_plates) + " (-" + str(plates_used) + ")")
+
 		cust.receive_order(order)
 		Global.current_customer = null
 		for child: Node2D in dishes_node.get_children():
