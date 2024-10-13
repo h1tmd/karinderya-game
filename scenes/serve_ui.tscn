@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckjhd6s0wljtq"]
+[gd_scene load_steps=10 format=3 uid="uid://ckjhd6s0wljtq"]
 
 [ext_resource type="Script" path="res://scripts/serve_ui.gd" id="1_ppxco"]
 [ext_resource type="Texture2D" uid="uid://cdm6icp5lerar" path="res://assets/interface/rect.png" id="2_q5qdh"]
@@ -7,6 +7,40 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tfjti"]
 size = Vector2(102, 44)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5xanv"]
+bg_color = Color(1, 0.92549, 0.47451, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bd650"]
+content_margin_right = 4.0
+bg_color = Color(0.690196, 0.552941, 0.231373, 1)
+border_width_left = 20
+border_color = Color(0.690196, 0.552941, 0.231373, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxdek"]
+content_margin_right = 4.0
+bg_color = Color(0.690196, 0.552941, 0.231373, 1)
+border_width_left = 10
+border_color = Color(0.690196, 0.552941, 0.231373, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_3fp0n"]
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_5xanv")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_5xanv")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_5xanv")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_bd650")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_rxdek")
 
 [node name="Serve UI" type="Control"]
 layout_mode = 3
@@ -43,7 +77,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 40.0
 offset_top = 49.0
-offset_right = -49.0
+offset_right = -62.0
 offset_bottom = -50.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -77,6 +111,7 @@ shape = SubResource("RectangleShape2D_tfjti")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="NinePatchRect/HSplitContainer"]
 layout_mode = 2
+theme = SubResource("Theme_3fp0n")
 
 [node name="GridContainer" type="GridContainer" parent="NinePatchRect/HSplitContainer/ScrollContainer"]
 layout_mode = 2
