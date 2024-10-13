@@ -5,6 +5,9 @@ extends StaticBody2D
 @onready var timer: Timer = $Timer
 @onready var timer_circle: TextureProgressBar = $"Timer Circle"
 
+@export var sink_sprite: Texture2D
+@export var sink_dishes_sprite: Texture2D
+
 var can_interact = false
 var plates: int = 0
 
@@ -28,6 +31,7 @@ func _unhandled_input(event):
 				child.queue_free()
 			print("Put plates: ", plates_recieved)
 			plates += plates_recieved
+			sprite_2d.texture = sink_dishes_sprite
 		else:
 			timer.start(plates)
 			timer_circle.show()
@@ -37,4 +41,6 @@ func _unhandled_input(event):
 				GameState.total_plates += 1
 				print("Washed a plate.")
 			timer_circle.hide()
+			if plates == 0:
+				sprite_2d.texture = sink_sprite
 			print("Total plates: " + str(GameState.total_plates))

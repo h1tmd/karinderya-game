@@ -78,6 +78,6 @@ shape = SubResource("CircleShape2D_041ym")
 position = Vector2(1884, 642)
 
 [node name="Sink" parent="." instance=ExtResource("8_mcwtw")]
-position = Vector2(3522, 78)
+position = Vector2(3736, 436)
 
 [connection signal="body_entered" from="OrderArea" to="OrderArea" method="_on_body_entered"]
