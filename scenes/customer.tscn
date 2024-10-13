@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dw2uugi5lsy75"]
+[gd_scene load_steps=8 format=3 uid="uid://dw2uugi5lsy75"]
 
 [ext_resource type="Script" path="res://scripts/customer.gd" id="1_1q51h"]
 [ext_resource type="Texture2D" uid="uid://bmwew740mxsuq" path="res://assets/customer.png" id="1_p1q35"]
 [ext_resource type="Texture2D" uid="uid://c2xne5m74na17" path="res://assets/customersit.png" id="2_uxs27"]
 [ext_resource type="PackedScene" uid="uid://dgoao8mg6y0wh" path="res://scenes/order_bubble.tscn" id="4_ukqqe"]
 [ext_resource type="PackedScene" uid="uid://bi850x05aqfab" path="res://scenes/timer_circle.tscn" id="5_7av64"]
-[ext_resource type="Script" path="res://scripts/timer_circle.gd" id="6_05uid"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rv5l4"]
 radius = 50.4876
@@ -53,7 +52,6 @@ offset_left = 78.0
 offset_top = -284.0
 offset_right = 255.0
 offset_bottom = -107.0
-script = ExtResource("6_05uid")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

@@ -157,3 +157,6 @@ func check_front() -> bool:
 		if body is Player:
 			return true
 	return false
+
+func show_order(show: bool):
+	order_bubble.show_full(show)

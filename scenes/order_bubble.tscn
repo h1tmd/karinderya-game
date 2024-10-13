@@ -17,7 +17,7 @@ font_color = Color(0, 0, 0, 1)
 [node name="Order Bubble" type="PanelContainer"]
 custom_minimum_size = Vector2(500, 185)
 offset_right = 423.0
-offset_bottom = 271.0
+offset_bottom = 217.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_08jaj")
@@ -31,7 +31,6 @@ theme_override_constants/margin_left = 10
 custom_minimum_size = Vector2(280, 0)
 layout_mode = 2
 text = "1x order
-2x order
-"
+2x another order"
 label_settings = SubResource("LabelSettings_4j0ga")
 autowrap_mode = 2
