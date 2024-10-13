@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgoao8mg6y0wh"]
+
+[ext_resource type="Texture2D" uid="uid://d21nxm0pni7gt" path="res://assets/interface/bubble.png" id="1_j15up"]
+[ext_resource type="Script" path="res://scripts/order_bubble.gd" id="2_fg0qx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_08jaj"]
+texture = ExtResource("1_j15up")
+texture_margin_left = 94.0
+texture_margin_top = 61.0
+texture_margin_right = 39.0
+texture_margin_bottom = 55.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_4j0ga"]
+font_size = 80
+font_color = Color(0, 0, 0, 1)
+
+[node name="Order Bubble" type="PanelContainer"]
+custom_minimum_size = Vector2(500, 185)
+offset_right = 423.0
+offset_bottom = 271.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_08jaj")
+script = ExtResource("2_fg0qx")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+
+[node name="Label" type="Label" parent="MarginContainer"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+text = "1x order
+2x order
+"
+label_settings = SubResource("LabelSettings_4j0ga")
+autowrap_mode = 2

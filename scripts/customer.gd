@@ -7,6 +7,7 @@ class_name Customer
 @onready var person_radar: Area2D = $"Person Radar"
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var food_holder: Node2D = $FoodHolder
+@onready var order_bubble: PanelContainer = $"Order Bubble"
 
 signal done_signal(chair_location)
 
@@ -23,6 +24,7 @@ var person_in_front = false
 func _ready() -> void:
 	position = Global.exit_loc
 	go_to(Global.order_loc)
+	order_bubble.hide()
 
 # place/generate order
 func generate_order():
@@ -30,13 +32,14 @@ func generate_order():
 	randomize()
 	var meal : Dish = Global.dishes.slice(1).pick_random()
 	var rice = randi_range(1, 3)
-	order = {meal: 1, Global.dishes[0]: rice}
+	order = {Global.dishes[0]: rice, meal: 1}
 	
 	# Convert to a string
 	var order_str = ""
 	for i in order:
-		order_str += "%s: %s\n" % [i.name, order[i]]
-	print(order_str)
+		order_str += "%sx %s\n" % [order[i], i.name]
+	order_bubble.set_order(order_str)
+	order_bubble.show()
 	
 	for dish: Dish in order:
 		order_price += dish.price * order[dish]
@@ -47,6 +50,7 @@ func generate_order():
 func receive_order(order_received: Dictionary):
 	var mistakes = 0
 	var payment = 0.0
+	order_bubble.hide()
 	
 	if order == order_received:
 		print(":))")

@@ -7,7 +7,7 @@ var current_customer : Customer
 # A* for pathfinding
 var astar = AStar2D.new()
 
-const order_loc = Vector2(716, 483)
+const order_loc = Vector2(672, 481)
 const exit_loc = Vector2(-89, 483)
 
 

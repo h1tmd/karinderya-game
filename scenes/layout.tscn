@@ -71,7 +71,7 @@ collision_layer = 0
 script = ExtResource("6_011k2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OrderArea"]
-position = Vector2(1432, 962)
+position = Vector2(1344, 962)
 shape = SubResource("CircleShape2D_041ym")
 
 [node name="FoodTable" parent="." instance=ExtResource("2_pyccu")]
