@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://btfohxh7003rl"]
+
+[ext_resource type="Script" path="res://scripts/stats_ui.gd" id="1_43t5o"]
+[ext_resource type="Texture2D" uid="uid://d0fnxwhqf68im" path="res://assets/plate.png" id="1_ibimd"]
+[ext_resource type="Texture2D" uid="uid://oc6i7ciij18c" path="res://assets/interface/pesosign.png" id="2_f6cae"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bcc8t"]
+font_size = 45
+outline_size = 30
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5fb53"]
+font_size = 45
+outline_size = 30
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Stats UI" type="MarginContainer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -136.0
+offset_bottom = 58.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 24
+script = ExtResource("1_43t5o")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 2
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_ibimd")
+expand_mode = 3
+
+[node name="Plate Number" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "36"
+label_settings = SubResource("LabelSettings_bcc8t")
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_f6cae")
+expand_mode = 3
+
+[node name="Total Money" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "0.00"
+label_settings = SubResource("LabelSettings_5fb53")
