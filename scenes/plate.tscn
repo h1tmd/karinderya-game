@@ -7,7 +7,7 @@ radius = 46.6667
 height = 113.333
 
 [node name="Plate" type="Sprite2D"]
-position = Vector2(0, -175)
+position = Vector2(0, -100)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_sj8ql")
 

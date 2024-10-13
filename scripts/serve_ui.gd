@@ -1,7 +1,7 @@
 extends Control
 
-@onready var grid_container: GridContainer = $ColorRect/HSplitContainer/ScrollContainer/GridContainer
-@onready var dishes_node: Node2D = $ColorRect/HSplitContainer/MarginContainer/Panel/DishesNode
+@onready var grid_container: GridContainer = $NinePatchRect/HSplitContainer/ScrollContainer/GridContainer
+@onready var dishes_node: Node2D = $NinePatchRect/HSplitContainer/MarginContainer/Panel/DishesNode
 
 
 func _ready() -> void:

@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1eye0bn7omsf"]
+
+[ext_resource type="Texture2D" uid="uid://bjj0owksvppwh" path="res://assets/interface/buttonnormal.png" id="1_e7gwj"]
+[ext_resource type="Texture2D" uid="uid://cf67ay3psods3" path="res://assets/interface/buttonpressed.png" id="2_cwksc"]
+[ext_resource type="Script" path="res://scripts/custom_button.gd" id="3_rn7te"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_27ekb"]
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
+[node name="CustomButton" type="TextureButton"]
+anchors_preset = -1
+anchor_right = 0.15
+anchor_bottom = 0.189815
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_e7gwj")
+texture_pressed = ExtResource("2_cwksc")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("3_rn7te")
+metadata/_edit_use_anchors_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CenterContainer"]
+layout_mode = 2
+text = "Serve!"
+label_settings = SubResource("LabelSettings_27ekb")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]

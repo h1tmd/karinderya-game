@@ -1,8 +1,8 @@
-extends PanelContainer
+extends TextureRect
 class_name DishItem
 
-@onready var texture_rect = $MarginContainer/VBoxContainer/TextureRect
-@onready var label = $MarginContainer/VBoxContainer/Label
+@onready var texture_rect: TextureRect = $MarginContainer/VBoxContainer/TextureRect
+@onready var label: Label = $MarginContainer/VBoxContainer/Label
 
 
 var dishes_node: Node2D

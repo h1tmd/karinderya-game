@@ -1,41 +1,56 @@
-[gd_scene load_steps=3 format=3 uid="uid://pgoxq8n8pb50"]
+[gd_scene load_steps=4 format=3 uid="uid://pgoxq8n8pb50"]
 
+[ext_resource type="Texture2D" uid="uid://bxcvprajumwh1" path="res://assets/interface/itembg.png" id="1_7bo4e"]
 [ext_resource type="Script" path="res://scripts/dish_item.gd" id="1_ola3k"]
 [ext_resource type="Texture2D" uid="uid://cxca5sdre87xj" path="res://assets/dishes/batchoy.png" id="2_u6m8q"]
 
-[node name="DishItem" type="PanelContainer"]
-anchors_preset = -1
-anchor_right = 0.203125
-anchor_bottom = 0.384259
-size_flags_horizontal = 3
-size_flags_vertical = 3
-mouse_filter = 1
+[node name="DishItem" type="TextureRect"]
+custom_minimum_size = Vector2(176, 198)
+offset_right = 176.0
+offset_bottom = 198.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 mouse_default_cursor_shape = 2
+texture = ExtResource("1_7bo4e")
+expand_mode = 3
+stretch_mode = 5
 script = ExtResource("1_ola3k")
-metadata/_edit_use_anchors_ = true
+metadata/_edit_vertical_guides_ = [256.0]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 30
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
+metadata/_edit_vertical_guides_ = [257.0]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = -20
+alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("2_u6m8q")
-expand_mode = 2
+expand_mode = 5
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(136, 0)
 layout_mode = 2
-text = "Name"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -20
+theme_override_font_sizes/font_size = 38
+text = "Name
+Name"
 horizontal_alignment = 1
+autowrap_mode = 2
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

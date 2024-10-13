@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://ckjhd6s0wljtq"]
+[gd_scene load_steps=6 format=3 uid="uid://ckjhd6s0wljtq"]
 
 [ext_resource type="Script" path="res://scripts/serve_ui.gd" id="1_ppxco"]
+[ext_resource type="Texture2D" uid="uid://cdm6icp5lerar" path="res://assets/interface/rect.png" id="2_q5qdh"]
+[ext_resource type="Texture2D" uid="uid://c8mbe8jta81e8" path="res://assets/interface/tray.png" id="3_juqtc"]
+[ext_resource type="PackedScene" uid="uid://c1eye0bn7omsf" path="res://scenes/custom_button.tscn" id="4_wspkd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tfjti"]
 size = Vector2(102, 44)
@@ -16,71 +19,77 @@ mouse_filter = 1
 script = ExtResource("1_ppxco")
 metadata/_edit_horizontal_guides_ = [354.0]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -934.0
+offset_left = -956.0
 offset_top = 75.0
-offset_right = -46.0
-offset_bottom = 579.0
+offset_right = -23.0
+offset_bottom = 732.0
 grow_horizontal = 0
 mouse_filter = 1
-color = Color(1, 0.698486, 0.59375, 1)
+texture = ExtResource("2_q5qdh")
+patch_margin_left = 49
+patch_margin_top = 54
+patch_margin_right = 49
+patch_margin_bottom = 53
 
-[node name="HSplitContainer" type="HSplitContainer" parent="ColorRect"]
+[node name="HSplitContainer" type="HSplitContainer" parent="NinePatchRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 49.0
+offset_right = -49.0
+offset_bottom = -50.0
 grow_horizontal = 2
 grow_vertical = 2
-split_offset = 400
+split_offset = 380
 dragger_visibility = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="ColorRect/HSplitContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect/HSplitContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_bottom = 100
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 15
 
-[node name="Panel" type="Panel" parent="ColorRect/HSplitContainer/MarginContainer"]
+[node name="Panel" type="TextureRect" parent="NinePatchRect/HSplitContainer/MarginContainer"]
 layout_mode = 2
-mouse_filter = 1
+texture = ExtResource("3_juqtc")
+expand_mode = 3
+stretch_mode = 5
 
-[node name="DishesNode" type="Node2D" parent="ColorRect/HSplitContainer/MarginContainer/Panel"]
-position = Vector2(202, 167)
+[node name="DishesNode" type="Node2D" parent="NinePatchRect/HSplitContainer/MarginContainer/Panel"]
+z_index = 1
+position = Vector2(195, 219)
 
-[node name="Serving Area" type="Area2D" parent="ColorRect/HSplitContainer/MarginContainer/Panel"]
+[node name="Serving Area" type="Area2D" parent="NinePatchRect/HSplitContainer/MarginContainer/Panel"]
 collision_layer = 4
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/HSplitContainer/MarginContainer/Panel/Serving Area"]
-position = Vector2(201, 150)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NinePatchRect/HSplitContainer/MarginContainer/Panel/Serving Area"]
+position = Vector2(201, 348)
 shape = SubResource("RectangleShape2D_tfjti")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect/HSplitContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="NinePatchRect/HSplitContainer"]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="ColorRect/HSplitContainer/ScrollContainer"]
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect/HSplitContainer/ScrollContainer"]
 layout_mode = 2
-theme_override_constants/h_separation = 24
+theme_override_constants/h_separation = 10
 columns = 2
 
-[node name="Button" type="Button" parent="ColorRect"]
+[node name="CustomButton" parent="." instance=ExtResource("4_wspkd")]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -185.0
-offset_top = 23.0
-offset_right = -12.0
-offset_bottom = 118.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "Serve!"
+anchor_left = 0.854688
+anchor_top = 0.664815
+anchor_right = 0.985417
+anchor_bottom = 0.861111
+grow_horizontal = 1
+grow_vertical = 1
 
-[connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CustomButton" to="." method="_on_button_pressed"]
