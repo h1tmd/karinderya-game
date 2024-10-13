@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://btfohxh7003rl"]
 
 [ext_resource type="Script" path="res://scripts/stats_ui.gd" id="1_43t5o"]
-[ext_resource type="Texture2D" uid="uid://d0fnxwhqf68im" path="res://assets/plate.png" id="1_ibimd"]
+[ext_resource type="Texture2D" uid="uid://cawmnwyywc23e" path="res://assets/interface/plateicon.png" id="2_birwu"]
 [ext_resource type="Texture2D" uid="uid://oc6i7ciij18c" path="res://assets/interface/pesosign.png" id="2_f6cae"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bcc8t"]
@@ -32,7 +32,7 @@ alignment = 2
 
 [node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("1_ibimd")
+texture = ExtResource("2_birwu")
 expand_mode = 3
 
 [node name="Plate Number" type="Label" parent="HBoxContainer"]
