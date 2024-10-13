@@ -23,6 +23,7 @@ func _unhandled_input(event):
 			var plates_recieved = player.plate_holder.get_child_count()
 			for child in player.plate_holder.get_children():
 				child.queue_free()
+			print("Put plates: ", plates_recieved)
 			plates += plates_recieved
 		else:
 			while can_interact and plates != 0:
