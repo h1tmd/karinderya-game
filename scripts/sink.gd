@@ -2,9 +2,11 @@ extends StaticBody2D
 
 @onready var area_2d = $Area2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var timer: Timer = $Timer
+@onready var timer_circle: TextureProgressBar = $"Timer Circle"
 
 var can_interact = false
-var plates = 0
+var plates: int = 0
 
 func _on_area_2d_area_entered(area):
 	if area.name == "InteractReach":
@@ -15,6 +17,7 @@ func _on_area_2d_area_exited(area):
 	if area.name == "InteractReach":
 		sprite_2d.material.set_shader_parameter("line_thickness", 0)
 		can_interact = false
+		timer_circle.hide()
 
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("interact") and can_interact:
@@ -26,9 +29,12 @@ func _unhandled_input(event):
 			print("Put plates: ", plates_recieved)
 			plates += plates_recieved
 		else:
+			timer.start(plates)
+			timer_circle.show()
 			while can_interact and plates != 0:
 				await get_tree().create_timer(1).timeout
 				plates -= 1
 				GameState.total_plates += 1
 				print("Washed a plate.")
+			timer_circle.hide()
 			print("Total plates: " + str(GameState.total_plates))

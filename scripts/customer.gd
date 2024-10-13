@@ -8,6 +8,8 @@ class_name Customer
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var food_holder: Node2D = $FoodHolder
 @onready var order_bubble: PanelContainer = $"Order Bubble"
+@onready var timer: Timer = $Timer
+@onready var timer_circle: TextureProgressBar = $"Timer Circle"
 
 signal done_signal(chair_location)
 
@@ -101,7 +103,10 @@ func receive_order(order_received: Dictionary):
 # Called when customer reaches a chair
 func seat_and_eat():
 	sprite_2d.texture = sitting_sprite
-	await get_tree().create_timer(time_eating).timeout
+	timer.start(time_eating)
+	timer_circle.show()
+	await timer.timeout
+	timer_circle.hide()
 	
 	done_eating = true
 	done_signal.emit(seat)

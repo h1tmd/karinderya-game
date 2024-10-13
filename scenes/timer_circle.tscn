@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bi850x05aqfab"]
+
+[ext_resource type="Texture2D" uid="uid://b5rnmvlvj2ca5" path="res://assets/interface/circleprogressunder.png" id="1_ust3b"]
+[ext_resource type="Texture2D" uid="uid://bafu7jna1qlem" path="res://assets/interface/circleprogress.png" id="2_g1ron"]
+[ext_resource type="Script" path="res://scripts/timer_circle.gd" id="3_hkaax"]
+
+[node name="Timer Circle" type="TextureProgressBar"]
+z_index = 1
+offset_right = 177.0
+offset_bottom = 177.0
+scale = Vector2(0.8, 0.8)
+fill_mode = 4
+texture_under = ExtResource("1_ust3b")
+texture_progress = ExtResource("2_g1ron")
+tint_under = Color(0.501022, 0.770867, 0.777344, 1)
+script = ExtResource("3_hkaax")
