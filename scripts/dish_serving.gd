@@ -78,7 +78,7 @@ func _on_area_2d_mouse_entered() -> void:
 func _on_area_2d_mouse_exited() -> void:
 	if not selected:
 		mouse_over = false
-		material.set_shader_parameter("line_thickness", 0)
+		hide_highlight()
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
@@ -94,3 +94,6 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 
 func show_highlight():
 	material.set_shader_parameter("line_thickness", 15)
+
+func hide_highlight():
+	material.set_shader_parameter("line_thickness", 0)

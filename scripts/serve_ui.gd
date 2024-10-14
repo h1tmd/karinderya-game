@@ -58,6 +58,9 @@ func _on_button_pressed():
 		cust.receive_order(order)
 		Global.current_customer = null
 		for child: Node2D in dishes_node.get_children():
+			if child is DishServing:
+				child.selected = false
+				child.hide_highlight()
 			child.scale = Vector2(0.8, 0.8)
 			child.reparent(cust.food_holder, false)
 		add_plate()
