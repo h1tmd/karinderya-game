@@ -1,11 +1,14 @@
 extends CharacterBody2D
 class_name Customer
 
-@export var standing_sprite: Texture
-@export var sitting_sprite: Texture
+@export var head_sprites: Array[Texture]
+@export var body_sprites: Array[Texture]
+
+#@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var head: Sprite2D = $Head
+@onready var body: Sprite2D = $Body
 
 @onready var person_radar: Area2D = $"Person Radar"
-@onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var food_holder: Node2D = $FoodHolder
 @onready var order_bubble: PanelContainer = $"Order Bubble"
 @onready var timer: Timer = $Timer
@@ -102,7 +105,7 @@ func receive_order(order_received: Dictionary):
 
 # Called when customer reaches a chair
 func seat_and_eat():
-	sprite_2d.texture = sitting_sprite
+	#sprite_2d.texture = sitting_sprite
 	timer.start(time_eating)
 	timer_circle.show()
 	await timer.timeout
@@ -110,7 +113,7 @@ func seat_and_eat():
 	
 	done_eating = true
 	done_signal.emit(seat)
-	sprite_2d.texture = standing_sprite
+	#sprite_2d.texture = standing_sprite
 	go_to(Global.exit_loc)
 
 
@@ -134,9 +137,12 @@ func _process(delta: float) -> void:
 			position = path[0]
 			path.remove_at(0)
 		if move_velocity.x > 0:
-			sprite_2d.flip_h = false
+			pass
+			head.flip_h = false
+			body.flip_h = false
 		elif move_velocity.x < 0:
-			sprite_2d.flip_h = true
+			head.flip_h = true
+			body.flip_h = true
 
 
 func _on_person_radar_body_entered(body: Node2D) -> void:
