@@ -2,7 +2,7 @@ extends Control
 
 @onready var grid_container: GridContainer = $NinePatchRect/HSplitContainer/ScrollContainer/GridContainer
 @onready var dishes_node: Node2D = $NinePatchRect/HSplitContainer/MarginContainer/Panel/DishesNode
-
+@onready var custom_button: TextureButton = $CustomButton
 
 func _ready() -> void:
 	hide()
@@ -26,18 +26,12 @@ func add_plate():
 func _on_button_pressed():
 	# Make order dictionary
 	var order = {}
-	var plates_used = 1
 	var dishes_served = dishes_node.get_children()
-	if dishes_served.is_empty():
-		return
 	for dish_served: Sprite2D in dishes_served:
 		# if plate, skip
 		if dish_served is not DishServing:
 			continue
-		
 		var dish = dish_served.dish_data
-		if dish.name != "Rice":
-			plates_used += 1
 		if dish not in order:
 			order[dish] = 1
 		else:
@@ -46,15 +40,7 @@ func _on_button_pressed():
 	# Pass to customer
 	var cust: Customer = Global.current_customer
 	if cust:
-		if order.is_empty():
-			print("Order is empty!")
-			return
-		if plates_used > GameState.total_plates:
-			print("Not enough plates!")
-			return
-		GameState.total_plates -= plates_used
-		print("Total plates: " + str(GameState.total_plates) + " (-" + str(plates_used) + ")")
-
+		GameState.total_plates -= plate_counter()
 		cust.receive_order(order)
 		Global.current_customer = null
 		for child: Node2D in dishes_node.get_children():
@@ -64,3 +50,24 @@ func _on_button_pressed():
 			child.scale = Vector2(0.8, 0.8)
 			child.reparent(cust.food_holder, false)
 		add_plate()
+
+
+func _on_dishes_node_child_order_changed() -> void:
+	if dishes_node.get_child_count() <= 1:
+		custom_button.disabled = true
+	elif plate_counter() > GameState.total_plates:
+		custom_button.disabled = true
+	else:
+		custom_button.disabled = false
+
+
+func plate_counter() -> int:
+	var plates = 0
+	for dish_served in dishes_node.get_children():
+		# if plate, skip
+		if dish_served is not DishServing:
+			plates += 1
+			continue
+		elif dish_served.dish_data.name != "Rice":
+			plates += 1
+	return plates

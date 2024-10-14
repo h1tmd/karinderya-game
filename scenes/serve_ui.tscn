@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://ckjhd6s0wljtq"]
+[gd_scene load_steps=11 format=3 uid="uid://ckjhd6s0wljtq"]
 
 [ext_resource type="Script" path="res://scripts/serve_ui.gd" id="1_ppxco"]
 [ext_resource type="Texture2D" uid="uid://cdm6icp5lerar" path="res://assets/interface/rect.png" id="2_q5qdh"]
 [ext_resource type="Texture2D" uid="uid://c8mbe8jta81e8" path="res://assets/interface/tray.png" id="3_juqtc"]
 [ext_resource type="PackedScene" uid="uid://c1eye0bn7omsf" path="res://scenes/custom_button.tscn" id="4_wspkd"]
+[ext_resource type="Texture2D" uid="uid://cugi38s0aptsl" path="res://assets/interface/buttondisabled.png" id="5_xu85t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tfjti"]
 size = Vector2(102, 44)
@@ -126,5 +127,7 @@ anchor_right = 0.985417
 anchor_bottom = 0.861111
 grow_horizontal = 1
 grow_vertical = 1
+texture_disabled = ExtResource("5_xu85t")
 
+[connection signal="child_order_changed" from="NinePatchRect/HSplitContainer/MarginContainer/Panel/DishesNode" to="." method="_on_dishes_node_child_order_changed"]
 [connection signal="pressed" from="CustomButton" to="." method="_on_button_pressed"]

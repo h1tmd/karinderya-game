@@ -21,16 +21,6 @@ func read_dishes():
 	for file in files:
 		var dish_data : Dish = load("res://dishes/" + file)
 		dishes.append(dish_data)
-	#var dir = DirAccess.open("res://dishes/")
-	#if dir:
-		#dir.list_dir_begin()
-		#var file = dir.get_next()
-		#while file != "":
-			#var dish_data : Dish = load("res://dishes/" + file)
-			#dishes.append(dish_data)
-			#file = dir.get_next()
-	#else:
-		#print("Error in opening path")
 
 func generate_astar():
 	var astar_points_container : Node2D = load("res://scenes/astar_points.tscn").instantiate()
