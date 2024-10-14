@@ -4,7 +4,6 @@ class_name Customer
 @export var head_sprites: Array[Texture]
 @export var body_sprites: Array[Texture]
 
-#@onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var head: Sprite2D = $Head
 @onready var body: Sprite2D = $Body
 
@@ -25,6 +24,13 @@ var seat = Vector2.ZERO
 var order_done = false
 var done_eating = false
 var person_in_front = false
+
+const DEFAULT = 0
+const HAPPY = 1
+const SATISFIED = 2
+const SAD = 3
+const ANGRY = 4
+const EAT = 5
 
 func _ready() -> void:
 	position = Global.exit_loc
@@ -59,6 +65,7 @@ func receive_order(order_received: Dictionary):
 	
 	if order == order_received:
 		print(":))")
+		head.texture = head_sprites[HAPPY]
 		payment = order_price * 1.3
 	else:
 		for dish in order:
@@ -77,12 +84,15 @@ func receive_order(order_received: Dictionary):
 		match mistakes:
 			1:
 				print(":)")
+				head.texture = head_sprites[SATISFIED]
 				payment = order_price * 1.1
 			2:
 				print(":(")
+				head.texture = head_sprites[SAD]
 				payment = order_price * 1
 			_:
 				print(">:(")
+				head.texture = head_sprites[ANGRY]
 				payment = order_price * 0.5
 	order_done = true
 	GameState.profit += payment
@@ -106,6 +116,8 @@ func receive_order(order_received: Dictionary):
 # Called when customer reaches a chair
 func seat_and_eat():
 	#sprite_2d.texture = sitting_sprite
+	head.texture = head_sprites[EAT]
+	body.texture = body_sprites[1]
 	timer.start(time_eating)
 	timer_circle.show()
 	await timer.timeout
@@ -114,6 +126,8 @@ func seat_and_eat():
 	done_eating = true
 	done_signal.emit(seat)
 	#sprite_2d.texture = standing_sprite
+	head.texture = head_sprites[DEFAULT]
+	body.texture = body_sprites[0]
 	go_to(Global.exit_loc)
 
 
