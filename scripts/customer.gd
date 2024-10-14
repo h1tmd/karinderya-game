@@ -139,9 +139,14 @@ func seat_and_eat():
 func go_to(target_position: Vector2):
 	path.clear()
 	if done_eating:
+		Global.astar.set_point_disabled(36, false)
 		Global.astar.set_point_disabled(1, true)
+	elif order_done:
+		Global.astar.set_point_disabled(36, true)
+		Global.astar.set_point_disabled(1, false)
 	else:
 		Global.astar.set_point_disabled(1, false)
+		Global.astar.set_point_disabled(36, false)
 	path = Global.astar.get_point_path(
 		Global.astar.get_closest_point(position), 
 		Global.astar.get_closest_point(target_position)
