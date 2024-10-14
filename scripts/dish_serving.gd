@@ -41,7 +41,7 @@ func _process(delta):
 		global_position = lerp(
 			global_position, 
 			get_global_mouse_position() + mouse_offset, 
-			delta / 0.1
+			delta / 0.05
 		)
 
 func _unhandled_input(_event: InputEvent) -> void:
