@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ciaoc3hpfpjof"]
+[gd_scene load_steps=14 format=3 uid="uid://ciaoc3hpfpjof"]
 
 [ext_resource type="Texture2D" uid="uid://dvr1eijygxevg" path="res://assets/room.png" id="1_oeiqx"]
 [ext_resource type="Texture2D" uid="uid://oxlvqv3e2dwl" path="res://assets/leftwall.png" id="2_j4qqj"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://t665gqdx8ug1" path="res://scenes/table.tscn" id="5_bi7te"]
 [ext_resource type="Script" path="res://scripts/order_area.gd" id="6_011k2"]
 [ext_resource type="PackedScene" uid="uid://cl6m2d3tmqoog" path="res://scenes/sink.tscn" id="8_mcwtw"]
+[ext_resource type="Texture2D" uid="uid://c4gnj6f1ur7ny" path="res://assets/sidetable.png" id="9_v0fxn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eeemq"]
 radius = 104.0
@@ -19,6 +20,9 @@ size = Vector2(190, 120)
 [sub_resource type="CircleShape2D" id="CircleShape2D_041ym"]
 radius = 64.0312
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_drnj1"]
+size = Vector2(328, 482)
+
 [node name="Layout" type="Node2D"]
 scale = Vector2(0.5, 0.5)
 
@@ -29,7 +33,7 @@ texture = ExtResource("1_oeiqx")
 centered = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room"]
-polygon = PackedVector2Array(-32, 764, 82, 758, 82, 68, 400, 68, 398, 2, 618, 2, 614, 64, 934, 66, 940, 178, 964, 210, 1010, 222, 1062, 200, 1076, 182, 1082, 70, 1162, 70, 1162, 212, 1490, 214, 1614, 210, 2134, 202, 2140, 78, 2396, 76, 2398, 232, 2902, 222, 2894, 920, 3254, 918, 3254, 74, 3836, 74, 3840, 2158, 80, 2158, 86, 1052, -2, 1050, 2, 764, -60, 746, -16, 858, -20, 2156, -16, 2264, 3974, 2286, 3938, -46, -28, -30)
+polygon = PackedVector2Array(-32, 764, 82, 758, 82, 68, 400, 68, 398, 2, 618, 2, 614, 64, 934, 66, 940, 178, 964, 210, 1010, 222, 1062, 200, 1076, 182, 1082, 70, 1162, 70, 1162, 212, 1490, 214, 1614, 210, 2134, 202, 2140, 78, 2396, 76, 2402, 208, 2418, 226, 2830, 228, 2852, 202, 2852, 76, 3254, 74, 3836, 74, 3840, 2158, 80, 2158, 86, 1052, -2, 1050, 2, 764, -60, 746, -16, 858, -20, 2156, -16, 2264, 3974, 2286, 3938, -46, -28, -30)
 
 [node name="Wall" type="Sprite2D" parent="."]
 position = Vector2(46, 1506)
@@ -79,5 +83,15 @@ position = Vector2(1884, 642)
 
 [node name="Sink" parent="." instance=ExtResource("8_mcwtw")]
 position = Vector2(3736, 436)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(3052, 604)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("9_v0fxn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-8, 69)
+shape = SubResource("RectangleShape2D_drnj1")
 
 [connection signal="body_entered" from="OrderArea" to="OrderArea" method="_on_body_entered"]
