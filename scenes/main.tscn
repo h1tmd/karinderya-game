@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8sbjr4h22ptn"]
+[gd_scene load_steps=11 format=3 uid="uid://c8sbjr4h22ptn"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_gky2s"]
 [ext_resource type="PackedScene" uid="uid://ciaoc3hpfpjof" path="res://scenes/layout.tscn" id="1_ptahu"]
 [ext_resource type="PackedScene" uid="uid://df77bu4rije41" path="res://scenes/player.tscn" id="2_royxq"]
 [ext_resource type="PackedScene" uid="uid://dw2uugi5lsy75" path="res://scenes/customer.tscn" id="3_rxjuf"]
-[ext_resource type="PackedScene" path="res://scenes/stats_ui.tscn" id="5_4xcc7"]
+[ext_resource type="PackedScene" uid="uid://btfohxh7003rl" path="res://scenes/stats_ui.tscn" id="5_4xcc7"]
+[ext_resource type="Texture2D" uid="uid://d1sw1qe850eyw" path="res://assets/interface/timeprogressunder.png" id="6_7rw5d"]
+[ext_resource type="Texture2D" uid="uid://dorv5t1eknoho" path="res://assets/interface/timeprogressover.png" id="7_587rj"]
+[ext_resource type="Texture2D" uid="uid://pclefjw2kia4" path="res://assets/interface/timeprogress.png" id="8_cb16f"]
+[ext_resource type="Script" path="res://scripts/timer_progress.gd" id="9_8a104"]
+[ext_resource type="Texture2D" uid="uid://r7fyrieshiwt" path="res://assets/interface/timeicon.png" id="9_e7uqa"]
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
@@ -26,3 +31,44 @@ collision_mask = 0
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Stats UI" parent="CanvasLayer" instance=ExtResource("5_4xcc7")]
+
+[node name="TimerProgress" type="TextureProgressBar" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -572.0
+offset_top = -40.0
+offset_right = 421.0
+offset_bottom = 14.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+value = 80.0
+texture_under = ExtResource("6_7rw5d")
+texture_over = ExtResource("7_587rj")
+texture_progress = ExtResource("8_cb16f")
+tint_under = Color(0.675781, 0.675781, 0.675781, 1)
+tint_progress = Color(0.435419, 0.9375, 0.3479, 1)
+script = ExtResource("9_8a104")
+
+[node name="Timer" type="Timer" parent="CanvasLayer"]
+wait_time = 300.0
+one_shot = true
+autostart = true
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -69.9999
+offset_top = -67.9999
+offset_right = 105.0
+offset_bottom = 141.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_e7uqa")
