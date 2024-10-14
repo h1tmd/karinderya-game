@@ -31,11 +31,16 @@ const SATISFIED = 2
 const SAD = 3
 const ANGRY = 4
 const EAT = 5
+const COLORS = [
+	Color(0.928, 0.375, 0.341), Color(0.998, 0.661, 0.365), Color(0.891, 0.853, 0.292), 
+	Color(0.563, 0.957, 0.546), Color(0.497, 0.562, 0.949), Color(0.924, 0.582, 0.926) 
+]
 
 func _ready() -> void:
 	position = Global.exit_loc
 	go_to(Global.order_loc)
 	order_bubble.hide()
+	body.modulate = COLORS.pick_random()
 
 # place/generate order
 func generate_order():
