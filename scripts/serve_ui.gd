@@ -53,12 +53,13 @@ func _on_button_pressed():
 
 
 func _on_dishes_node_child_order_changed() -> void:
-	if dishes_node.get_child_count() <= 1:
-		custom_button.disabled = true
-	elif plate_counter() > GameState.total_plates:
-		custom_button.disabled = true
-	else:
-		custom_button.disabled = false
+	if is_instance_valid(custom_button):
+		if dishes_node.get_child_count() <= 1:
+			custom_button.disabled = true
+		elif plate_counter() > GameState.total_plates:
+			custom_button.disabled = true
+		else:
+			custom_button.disabled = false
 
 
 func plate_counter() -> int:
