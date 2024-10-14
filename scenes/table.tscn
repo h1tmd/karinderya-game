@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://4ncr3fkvo2sq" path="res://scenes/chair.tscn" id="2_b66i7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k27g1"]
-size = Vector2(376, 824)
+size = Vector2(376, 786)
 
 [node name="Table" type="StaticBody2D"]
 y_sort_enabled = true
@@ -15,7 +15,7 @@ texture = ExtResource("1_y0qb4")
 offset = Vector2(0, 300)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 368)
+position = Vector2(2, 387)
 shape = SubResource("RectangleShape2D_k27g1")
 
 [node name="Chair" parent="." instance=ExtResource("2_b66i7")]
