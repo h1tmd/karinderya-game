@@ -10,6 +10,7 @@ extends StaticBody2D
 
 var can_interact = false
 var plates: int = 0
+var washing = false
 
 func _on_area_2d_area_entered(area):
 	if area.name == "InteractReach":
@@ -32,7 +33,8 @@ func _unhandled_input(event):
 			print("Put plates: ", plates_recieved)
 			plates += plates_recieved
 			sprite_2d.texture = sink_dishes_sprite
-		else:
+		elif not washing:
+			washing = true
 			timer.start(plates * 0.8)
 			timer_circle.show()
 			while can_interact and plates != 0:
@@ -41,6 +43,7 @@ func _unhandled_input(event):
 				GameState.total_plates += 1
 				print("Washed a plate.")
 			timer_circle.hide()
+			washing = false
 			if plates == 0:
 				sprite_2d.texture = sink_sprite
 			print("Total plates: " + str(GameState.total_plates))
