@@ -58,8 +58,10 @@ func _on_dishes_node_child_order_changed() -> void:
 			custom_button.disabled = true
 		elif plate_counter() > GameState.total_plates:
 			custom_button.disabled = true
+			GameState.ui_node.change_plates_text_color(true)
 		else:
 			custom_button.disabled = false
+			GameState.ui_node.change_plates_text_color(false)
 
 
 func plate_counter() -> int:
