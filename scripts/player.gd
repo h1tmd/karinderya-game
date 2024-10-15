@@ -30,7 +30,7 @@ func _physics_process(delta):
 
 
 func _on_plate_holder_child_entered_tree(node: Node) -> void:
-	current_speed = max(speed - (plate_holder.get_child_count() * 30), 240)
+	current_speed = max(speed - (plate_holder.get_child_count() * 20), 160)
 
 
 func _on_plate_holder_child_exiting_tree(node: Node) -> void:
