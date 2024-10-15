@@ -42,8 +42,8 @@ func generate_astar():
 
 # Return number 1-3 using weighted randomness 
 func weighted_random() -> int:
-	const weight1 = 0.5
-	const weight2 = 0.8
+	const weight1 = 0.7
+	const weight2 = 0.9
 	var rng = randf_range(0, 1)
 	if rng < weight1:
 		return 1
