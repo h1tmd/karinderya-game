@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dw2uugi5lsy75"]
+[gd_scene load_steps=15 format=3 uid="uid://dw2uugi5lsy75"]
 
 [ext_resource type="Script" path="res://scripts/customer.gd" id="1_1q51h"]
 [ext_resource type="Texture2D" uid="uid://btub1ih7f8467" path="res://assets/customer_head_happy.png" id="3_030y4"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://kqkjiwoeflm2" path="res://assets/customer_head_sad.png" id="5_v5kba"]
 [ext_resource type="Texture2D" uid="uid://c02fbhxftiml0" path="res://assets/customer_head_angry.png" id="6_mikfm"]
 [ext_resource type="Texture2D" uid="uid://dgrkbdo2rsnk0" path="res://assets/customer_head_eat.png" id="7_810s0"]
+[ext_resource type="Texture2D" uid="uid://bqms7lfessvmv" path="res://assets/customer_head_fuming.png" id="7_ad1xr"]
 [ext_resource type="Texture2D" uid="uid://tu6ief0f5gve" path="res://assets/customer_body_sit.png" id="9_1ouun"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rv5l4"]
@@ -21,7 +22,7 @@ size = Vector2(233.5, 205)
 [node name="Customer" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_1q51h")
-head_sprites = Array[Texture]([ExtResource("4_unvbp"), ExtResource("3_030y4"), ExtResource("4_n8egi"), ExtResource("5_v5kba"), ExtResource("6_mikfm"), ExtResource("7_810s0")])
+head_sprites = Array[Texture]([ExtResource("4_unvbp"), ExtResource("3_030y4"), ExtResource("4_n8egi"), ExtResource("5_v5kba"), ExtResource("6_mikfm"), ExtResource("7_ad1xr"), ExtResource("7_810s0")])
 body_sprites = Array[Texture]([ExtResource("5_gdtx8"), ExtResource("9_1ouun")])
 
 [node name="Head" type="Sprite2D" parent="."]
@@ -48,7 +49,6 @@ position = Vector2(0, -138)
 scale = Vector2(0.5, 0.5)
 
 [node name="Order Bubble" parent="." instance=ExtResource("4_ukqqe")]
-visible = false
 z_index = 1
 offset_left = 44.0
 offset_top = -376.0
@@ -61,6 +61,14 @@ offset_left = 78.0
 offset_top = -284.0
 offset_right = 255.0
 offset_bottom = -107.0
+
+[node name="Wait Timer" parent="." instance=ExtResource("5_7av64")]
+visible = false
+offset_left = 128.0
+offset_top = -436.0
+offset_right = 305.0
+offset_bottom = -259.0
+tint_under = Color(0.960938, 0.68821, 0.397888, 1)
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

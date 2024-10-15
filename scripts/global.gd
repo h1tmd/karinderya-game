@@ -37,6 +37,8 @@ func generate_astar():
 	for point:AstarPoint in all_points:
 		for connection in point.connections:
 			astar.connect_points(point.get_index(), connection.get_index())
+	
+	astar.disconnect_points(1, 36, false)
 
 # Return number 1-3 using weighted randomness 
 func weighted_random() -> int:
