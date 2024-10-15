@@ -21,3 +21,4 @@ func _unhandled_input(event):
 	if Input.is_action_just_pressed("interact") and can_interact:
 		serve_ui.visible = not serve_ui.visible
 		ui_visible.emit(serve_ui.visible)
+		serve_ui._on_dishes_node_child_order_changed()
