@@ -14,6 +14,7 @@ const exit_loc = Vector2(-89, 483)
 func _ready() -> void:
 	read_dishes()
 	generate_astar()
+	randomize()
 
 func read_dishes():
 	dishes.append(load("res://rice.tres"))
@@ -36,3 +37,15 @@ func generate_astar():
 	for point:AstarPoint in all_points:
 		for connection in point.connections:
 			astar.connect_points(point.get_index(), connection.get_index())
+
+# Return number 1-3 using weighted randomness 
+func weighted_random() -> int:
+	const weight1 = 0.5
+	const weight2 = 0.8
+	var rng = randf_range(0, 1)
+	if rng < weight1:
+		return 1
+	elif rng < weight2:
+		return 2
+	else:
+		return 3

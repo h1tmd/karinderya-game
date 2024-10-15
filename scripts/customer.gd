@@ -45,10 +45,18 @@ func _ready() -> void:
 # place/generate order
 func generate_order():
 	# Generate randomly
-	randomize()
 	var meal : Dish = Global.dishes.slice(1).pick_random()
-	var rice = randi_range(1, 3)
-	order = {Global.dishes[0]: rice, meal: 1}
+	var rice = Global.weighted_random()
+	var meal_quantity = Global.weighted_random()
+	if meal_quantity == 3:
+		# 2 Dishes
+		var new_meal = meal
+		while new_meal == meal:
+			new_meal = Global.dishes.slice(1).pick_random()
+		order = {Global.dishes[0]: rice, meal: 1, new_meal: 1}
+	else:
+		# 1 Dish
+		order = {Global.dishes[0]: rice, meal: meal_quantity}
 	
 	# Convert to a string
 	var order_str = ""
@@ -80,7 +88,7 @@ func receive_order(order_received: Dictionary):
 					mistakes += 1
 			else:
 				# ordered dish is missing
-				mistakes += 1
+				mistakes += 2
 		for dish in order_received:
 			if dish not in order:
 				# extra dish not ordered
@@ -90,15 +98,15 @@ func receive_order(order_received: Dictionary):
 			1:
 				print(":)")
 				head.texture = head_sprites[SATISFIED]
-				payment = order_price * 1.1
+				payment = order_price * 1.0
 			2:
 				print(":(")
 				head.texture = head_sprites[SAD]
-				payment = order_price * 1
+				payment = order_price * 0.8
 			_:
 				print(">:(")
 				head.texture = head_sprites[ANGRY]
-				payment = order_price * 0.5
+				payment = order_price * 0.0
 	order_done = true
 	GameState.profit += payment
 	print("Paid: ", payment)
