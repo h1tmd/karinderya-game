@@ -70,7 +70,7 @@ func generate_order():
 	for dish: Dish in order:
 		order_price += dish.price * order[dish]
 	print("Order price: ", order_price)
-	order_str += "(₱ %01.2f)" % order_price
+	order_str += "[ ₱ %01.2f ]" % order_price
 	order_bubble.set_order(order_str)
 	order_bubble.show()
 	
