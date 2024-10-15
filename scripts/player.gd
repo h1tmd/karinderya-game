@@ -12,9 +12,6 @@ class_name Player
 
 var direction = Vector2.ZERO
 
-func _ready() -> void:
-	print(current_speed)
-
 func _process(_delta):
 	direction = Input.get_vector("left","right","up","down")
 	interact_reach.look_at(interact_reach.global_position + direction)
@@ -22,6 +19,7 @@ func _process(_delta):
 		sprite_2d.flip_h = true
 	elif direction.x < 0:
 		sprite_2d.flip_h = false
+
 
 func _physics_process(delta):
 	if direction.length() > 0:

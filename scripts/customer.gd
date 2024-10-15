@@ -118,7 +118,7 @@ func receive_order(order_received: Dictionary):
 	
 
 	for dish in order_received:
-		time_eating += dish.price
+		time_eating += dish.price * order_received[dish]
 	print("Time to eat: ", time_eating)
 	print()
 	if GameState.available_seats[0]:
@@ -128,7 +128,6 @@ func receive_order(order_received: Dictionary):
 
 # Called when customer reaches a chair
 func seat_and_eat():
-	#sprite_2d.texture = sitting_sprite
 	head.texture = head_sprites[EAT]
 	body.texture = body_sprites[1]
 	timer.start(time_eating)
@@ -138,7 +137,6 @@ func seat_and_eat():
 	
 	done_eating = true
 	done_signal.emit(seat)
-	#sprite_2d.texture = standing_sprite
 	head.texture = head_sprites[DEFAULT]
 	body.texture = body_sprites[0]
 	go_to(Global.exit_loc)
