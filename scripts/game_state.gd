@@ -33,3 +33,12 @@ var ui_node: Control = null
 func update_ui():
 	if ui_node:
 		ui_node.update()
+
+func reset():
+	profit = 0.0
+	available_plates = 36
+	total_plates = 0
+	total_customers = 0
+	ideal_profit = 0.0
+	available_seats = []
+	Global.generate_astar()

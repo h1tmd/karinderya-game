@@ -56,7 +56,7 @@ tint_progress = Color(0.435419, 0.9375, 0.3479, 1)
 script = ExtResource("9_8a104")
 
 [node name="Game Timer" type="Timer" parent="CanvasLayer"]
-wait_time = 30.0
+wait_time = 300.0
 one_shot = true
 autostart = true
 
