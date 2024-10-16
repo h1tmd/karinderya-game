@@ -5,6 +5,7 @@ extends Control
 @onready var customers = $MarginContainer/NinePatchRect/VBoxContainer/HBoxContainer2/Customers
 @onready var plates = $MarginContainer/NinePatchRect/VBoxContainer/HBoxContainer3/Plates
 
+var main = "res://scenes/main.tscn"
 
 func show_stats():
 	var recieved_rating
@@ -20,4 +21,5 @@ func show_stats():
 	plates.text = str(GameState.total_plates)
 
 func _on_custom_button_pressed():
-	pass # Scene change to new instance main
+	# insert transition
+	get_tree().reload_current_scene()

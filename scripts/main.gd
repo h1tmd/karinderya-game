@@ -1,21 +1,22 @@
 extends Node2D
 
 @export var customer: PackedScene
-@onready var timer: Timer = $CanvasLayer/Timer
+@onready var game_timer: Timer = $"CanvasLayer/Game Timer"
 @onready var end_screen = $"CanvasLayer/End Screen"
-
-
+@onready var serve_canvas: CanvasLayer = $"Layout/FoodTable/CanvasLayer"
 func _ready() -> void:
-	while timer.time_left != 0:
-		var game_time = (timer.wait_time - timer.time_left) / timer.wait_time
+	get_tree().paused = false
+	
+	while game_timer.time_left != 0:
+		var current_time = (game_timer.wait_time - game_timer.time_left) / game_timer.wait_time
 		var customer_interval
-		if game_time < 0.20:
+		if current_time < 0.20:
 			customer_interval = 15
-		elif game_time < 0.40:
+		elif current_time < 0.40:
 			customer_interval = 10
-		elif game_time < 0.60:
+		elif current_time < 0.60:
 			customer_interval = 9
-		elif game_time < 0.80:
+		elif current_time < 0.80:
 			customer_interval = 8
 		else:
 			customer_interval = 7
@@ -24,5 +25,7 @@ func _ready() -> void:
 		var cust := customer.instantiate()
 		add_child(cust)
 	get_tree().paused = true
+	if serve_canvas:
+		serve_canvas.hide()
 	end_screen.show_stats()
 	end_screen.show()

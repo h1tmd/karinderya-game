@@ -1,6 +1,6 @@
 extends TextureProgressBar
 
-@onready var timer: Timer = $"../Timer"
+@onready var game_timer: Timer = $"../Game Timer"
 
 func _process(delta: float) -> void:
-	value = (timer.wait_time - timer.time_left) / timer.wait_time * 100
+	value = (game_timer.wait_time - game_timer.time_left) / game_timer.wait_time * 100
