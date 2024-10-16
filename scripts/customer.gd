@@ -79,10 +79,10 @@ func generate_order():
 	timer.start(WAIT_TIME)
 	wait_timer.show()
 	
-	await get_tree().create_timer(WAIT_TIME / 2).timeout
+	await get_tree().create_timer(WAIT_TIME / 2.0).timeout
 	if order_done: return
 	head.texture = head_sprites[ANGRY] 
-	await get_tree().create_timer(WAIT_TIME / 4).timeout
+	await get_tree().create_timer(WAIT_TIME / 4.0).timeout
 	if order_done: return
 	head.texture = head_sprites[FUMING]
 	await timer.timeout
