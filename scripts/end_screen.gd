@@ -1,21 +1,26 @@
 extends Control
 
-@onready var rating = $MarginContainer/NinePatchRect/VBoxContainer/Rating
+@onready var star_container: HBoxContainer = %"Star Container"
 @onready var profit = $MarginContainer/NinePatchRect/VBoxContainer/HBoxContainer/Profit
 @onready var customers = $MarginContainer/NinePatchRect/VBoxContainer/HBoxContainer2/Customers
 @onready var plates = $MarginContainer/NinePatchRect/VBoxContainer/HBoxContainer3/Plates
-
-var main = "res://scenes/main.tscn"
+const STAR = preload("res://scenes/star.tscn")
 
 func show_stats():
-	var recieved_rating
-	if GameState.profit >= GameState.ideal_profit * 0.9:
-		recieved_rating = "3 STARS!"
-	elif GameState.profit >= GameState.ideal_profit * 0.5:
-		recieved_rating = "2 stars!"
+	var stars
+	if GameState.profit == GameState.ideal_profit:
+		stars = 5
+	elif GameState.profit >= GameState.ideal_profit * 0.95:
+		stars = 4
+	elif GameState.profit >= GameState.ideal_profit * 0.80:
+		stars = 3
+	elif GameState.profit >= GameState.ideal_profit * 0.70:
+		stars = 2
 	else:
-		recieved_rating = "1 star..."
-	rating.text = recieved_rating
+		stars = 1
+	for i in range(stars):
+		star_container.add_child(STAR.instantiate())
+	
 	profit.text = "₱ %01.2f" % GameState.profit
 	customers.text = str(GameState.total_customers)
 	plates.text = str(GameState.total_plates)

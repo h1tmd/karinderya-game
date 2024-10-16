@@ -68,11 +68,10 @@ text = "Time's Up!"
 label_settings = SubResource("LabelSettings_8mdkm")
 horizontal_alignment = 1
 
-[node name="Rating" type="Label" parent="MarginContainer/NinePatchRect/VBoxContainer"]
+[node name="Star Container" type="HBoxContainer" parent="MarginContainer/NinePatchRect/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-text = "1 Star"
-label_settings = SubResource("LabelSettings_8mdkm")
-horizontal_alignment = 1
+size_flags_horizontal = 4
 
 [node name="Label3" type="Label" parent="MarginContainer/NinePatchRect/VBoxContainer"]
 layout_mode = 2

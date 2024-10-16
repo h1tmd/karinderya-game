@@ -73,7 +73,6 @@ func generate_order():
 	order_str += "[ ₱ %01.2f ]" % order_price
 	order_bubble.set_order(order_str)
 	order_bubble.show()
-	GameState.ideal_profit += order_price * 1.3
 	
 	# Waiting
 	timer.start(WAIT_TIME)
@@ -87,6 +86,7 @@ func generate_order():
 	head.texture = head_sprites[FUMING]
 	await timer.timeout
 	if not order_done:
+		GameState.ideal_profit += order_price * 1.3
 		wait_timer.hide()
 		order_bubble.hide()
 		order_done = true
@@ -99,6 +99,7 @@ func receive_order(order_received: Dictionary):
 	var mistakes = 0
 	var payment = 0.0
 	order_bubble.hide()
+	GameState.ideal_profit += order_price * 1.3
 	
 	if not timer.is_stopped():
 		timer.stop()

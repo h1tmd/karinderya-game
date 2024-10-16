@@ -11,7 +11,7 @@ func _ready() -> void:
 	if GameState.profit != 0:
 		GameState.reset()
 
-	while game_timer.time_left != 0:
+	while game_timer.time_left > 15:
 		var current_time = (game_timer.wait_time - game_timer.time_left) / game_timer.wait_time
 		var customer_interval
 		if current_time < 0.20:

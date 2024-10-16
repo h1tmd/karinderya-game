@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://gay30uos8poy"]
+
+[ext_resource type="Texture2D" uid="uid://dvh3rfc21qa4e" path="res://assets/interface/star.png" id="1_18qcd"]
+
+[node name="Star" type="TextureRect"]
+custom_minimum_size = Vector2(0, 126)
+texture = ExtResource("1_18qcd")
+expand_mode = 3
+stretch_mode = 4
