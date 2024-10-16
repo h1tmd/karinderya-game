@@ -2,6 +2,8 @@ extends Node2D
 
 @export var customer: PackedScene
 @onready var timer: Timer = $CanvasLayer/Timer
+@onready var end_screen = $"CanvasLayer/End Screen"
+
 
 func _ready() -> void:
 	while timer.time_left != 0:
@@ -18,3 +20,5 @@ func _ready() -> void:
 		await get_tree().create_timer(customer_interval).timeout
 		var cust := customer.instantiate()
 		add_child(cust)
+	set_process(false)
+	end_screen.show()

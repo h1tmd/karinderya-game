@@ -1,0 +1,107 @@
+[gd_scene load_steps=5 format=3 uid="uid://w0r5jh035ntn"]
+
+[ext_resource type="Texture2D" uid="uid://cdm6icp5lerar" path="res://assets/interface/rect.png" id="1_nvx7a"]
+[ext_resource type="PackedScene" uid="uid://c1eye0bn7omsf" path="res://scenes/custom_button.tscn" id="2_xlhkw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8mdkm"]
+font_size = 100
+font_color = Color(0.166016, 0.154687, 0.128078, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4h5qx"]
+font_size = 70
+font_color = Color(0.166016, 0.154687, 0.128078, 1)
+
+[node name="End Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.121569, 0.121569, 0.121569, 0.619608)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 75
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 250
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_nvx7a")
+patch_margin_left = 58
+patch_margin_top = 59
+patch_margin_right = 56
+patch_margin_bottom = 65
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 206.0
+offset_top = 90.0
+offset_right = -196.0
+offset_bottom = -82.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MarginContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+text = "Time's Up!"
+label_settings = SubResource("LabelSettings_8mdkm")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+text = "1 Star"
+label_settings = SubResource("LabelSettings_8mdkm")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="MarginContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+text = "Stats"
+label_settings = SubResource("LabelSettings_4h5qx")
+
+[node name="Label4" type="Label" parent="MarginContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+text = "Total Money:"
+label_settings = SubResource("LabelSettings_4h5qx")
+
+[node name="Label5" type="Label" parent="MarginContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+text = "Number of Customers:"
+label_settings = SubResource("LabelSettings_4h5qx")
+
+[node name="Label6" type="Label" parent="MarginContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+text = "Number of Plates Served:"
+label_settings = SubResource("LabelSettings_4h5qx")
+
+[node name="CustomButton" parent="." instance=ExtResource("2_xlhkw")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -216.0
+offset_top = -240.0
+offset_right = 219.0
+offset_bottom = -38.0
+grow_vertical = 0
+label_text = "Play Again"
