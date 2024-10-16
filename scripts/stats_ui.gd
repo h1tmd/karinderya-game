@@ -10,7 +10,7 @@ func _ready() -> void:
 
 func update():
 	total_money.text = "%01.2f" % GameState.profit
-	plate_number.text = str(GameState.total_plates)
+	plate_number.text = str(GameState.available_plates)
 
 
 func change_plates_text_color(change: bool):

@@ -40,10 +40,10 @@ func _unhandled_input(event):
 			while can_interact and plates != 0:
 				await get_tree().create_timer(0.8).timeout
 				plates -= 1
-				GameState.total_plates += 1
+				GameState.available_plates += 1
 				print("Washed a plate.")
 			timer_circle.hide()
 			washing = false
 			if plates == 0:
 				sprite_2d.texture = sink_sprite
-			print("Total plates: " + str(GameState.total_plates))
+			print("Total plates: " + str(GameState.available_plates))

@@ -10,16 +10,22 @@ var profit: float:
 		update_ui()
 
 # Number of plates available
-var _total_plates: int = 36
-var total_plates: int:
+var _available_plates: int = 36
+var available_plates: int:
 	get:
-		return _total_plates
+		return _available_plates
 	set(value):
-		_total_plates = value
+		if value < _available_plates:
+			total_plates += _available_plates - value
+		_available_plates = value
 		update_ui()
 
 # Seats that customers can go
 var available_seats: Array[Vector2] = []
+
+# Stat vars
+var total_plates = 0
+var total_customers = 0
 
 var ui_node: Control = null
 

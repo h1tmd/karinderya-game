@@ -40,7 +40,7 @@ func _on_button_pressed():
 	# Pass to customer
 	var cust: Customer = Global.current_customer
 	if cust:
-		GameState.total_plates -= plate_counter()
+		GameState.available_plates -= plate_counter()
 		cust.receive_order(order)
 		Global.current_customer = null
 		for child: Node2D in dishes_node.get_children():
@@ -56,7 +56,7 @@ func _on_dishes_node_child_order_changed() -> void:
 	if is_instance_valid(custom_button):
 		if dishes_node.get_child_count() <= 1:
 			custom_button.disabled = true
-		elif plate_counter() > GameState.total_plates:
+		elif plate_counter() > GameState.available_plates:
 			custom_button.disabled = true
 			GameState.ui_node.change_plates_text_color(true)
 		else:
