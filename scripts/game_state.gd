@@ -24,8 +24,9 @@ var available_plates: int:
 var available_seats: Array[Vector2] = []
 
 # Stat vars
-var total_plates = 0
-var total_customers = 0
+var total_plates: int = 0
+var total_customers: int = 0
+var ideal_profit: float = 0.0
 
 var ui_node: Control = null
 

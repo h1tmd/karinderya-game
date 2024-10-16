@@ -73,6 +73,7 @@ func generate_order():
 	order_str += "[ ₱ %01.2f ]" % order_price
 	order_bubble.set_order(order_str)
 	order_bubble.show()
+	GameState.ideal_profit += order_price * 1.3
 	
 	# Waiting
 	timer.start(WAIT_TIME)

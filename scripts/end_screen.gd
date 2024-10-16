@@ -7,6 +7,14 @@ extends Control
 
 
 func show_stats():
+	var recieved_rating
+	if GameState.profit >= GameState.ideal_profit * 0.9:
+		recieved_rating = "3 STARS!"
+	elif GameState.profit >= GameState.ideal_profit * 0.5:
+		recieved_rating = "2 stars!"
+	else:
+		recieved_rating = "1 star..."
+	rating.text = recieved_rating
 	profit.text = "₱ %01.2f" % GameState.profit
 	customers.text = str(GameState.total_customers)
 	plates.text = str(GameState.total_plates)
