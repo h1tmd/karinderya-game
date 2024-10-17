@@ -28,6 +28,7 @@ func _ready() -> void:
 		GameState.total_customers += 1
 		var cust := customer.instantiate()
 		add_child(cust)
+	await game_timer.timeout
 	get_tree().paused = true
 	if serve_canvas:
 		serve_canvas.hide()
