@@ -27,6 +27,8 @@ var done_eating = false
 var walking_out = false
 var person_in_front = false
 
+static var current_customer: Customer = null
+
 const DEFAULT = 0
 const HAPPY = 1
 const SATISFIED = 2

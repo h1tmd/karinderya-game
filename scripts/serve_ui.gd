@@ -38,11 +38,11 @@ func _on_button_pressed():
 			order[dish] += 1
 	
 	# Pass to customer
-	var cust: Customer = Global.current_customer
+	var cust: Customer = Customer.current_customer
 	if cust:
 		GameState.available_plates -= plate_counter()
 		cust.receive_order(order)
-		Global.current_customer = null
+		Customer.current_customer = null
 		for child: Node2D in dishes_node.get_children():
 			if child is DishServing:
 				child.selected = false
