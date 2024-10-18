@@ -56,16 +56,14 @@ func _on_button_pressed():
 
 
 func _on_dishes_node_child_order_changed() -> void:
+	GameState.plates_placed = plate_counter()
 	if is_instance_valid(custom_button):
 		if dishes_node.get_child_count() <= 1:
 			custom_button.disabled = true
 		elif plate_counter() > GameState.available_plates:
 			custom_button.disabled = true
-			GameState.ui_node.change_plates_text_color(true)
 		else:
 			custom_button.disabled = false
-			GameState.ui_node.change_plates_text_color(false)
-
 
 func plate_counter() -> int:
 	var plates = 0

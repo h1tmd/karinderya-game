@@ -18,6 +18,8 @@ var available_plates: int:
 		if value < _available_plates:
 			total_plates += _available_plates - value
 		_available_plates = value
+		if value >= plates_placed:
+			ui_node.change_plates_text_color(false)
 		update_ui()
 
 # Seats that customers can go
@@ -29,10 +31,12 @@ var total_customers: int = 0
 var ideal_profit: float = 0.0
 
 var ui_node: Control = null
+var plates_placed: int  = 0
 
 func update_ui():
 	if ui_node:
 		ui_node.update()
+		ui_node.change_plates_text_color(plates_placed > available_plates)
 
 func reset():
 	profit = 0.0
