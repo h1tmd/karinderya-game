@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://cl6m2d3tmqoog"]
+[gd_scene load_steps=11 format=3 uid="uid://cl6m2d3tmqoog"]
 
 [ext_resource type="Texture2D" uid="uid://f2fgaamw4nsn" path="res://assets/sink.png" id="1_l8bvp"]
 [ext_resource type="Script" path="res://scripts/sink.gd" id="1_vfgh5"]
 [ext_resource type="Shader" path="res://outline.gdshader" id="2_s65fi"]
 [ext_resource type="Texture2D" uid="uid://70m76j0j550i" path="res://assets/sinkdishes.png" id="3_pldmj"]
-[ext_resource type="PackedScene" path="res://scenes/timer_circle.tscn" id="4_sgrm2"]
+[ext_resource type="PackedScene" uid="uid://bi850x05aqfab" path="res://scenes/timer_circle.tscn" id="4_sgrm2"]
+[ext_resource type="AudioStream" uid="uid://dnadrun68ag43" path="res://assets/audio/746447__gunrian__water_3.wav" id="6_o63fw"]
+[ext_resource type="AudioStream" uid="uid://dgyg7n3au88u5" path="res://assets/audio/634360__tsa05__pop-high-loud.wav" id="7_7qdns"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s4yr3"]
 resource_local_to_scene = true
@@ -48,6 +50,16 @@ offset_left = -47.0
 offset_top = -218.0
 offset_right = 130.0
 offset_bottom = -41.0
+
+[node name="SFX Receive Plates" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_o63fw")
+bus = &"SFX"
+
+[node name="SFX Wash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_7qdns")
+volume_db = -11.685
+pitch_scale = 1.32
+bus = &"SFX"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

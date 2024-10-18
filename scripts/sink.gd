@@ -4,6 +4,8 @@ extends StaticBody2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var timer: Timer = $Timer
 @onready var timer_circle: TextureProgressBar = $"Timer Circle"
+@onready var sfx_receive_plates: AudioStreamPlayer = $"SFX Receive Plates"
+@onready var sfx_wash: AudioStreamPlayer = $"SFX Wash"
 
 @export var sink_sprite: Texture2D
 @export var sink_dishes_sprite: Texture2D
@@ -32,6 +34,7 @@ func _unhandled_input(event):
 				child.queue_free()
 			print("Put plates: ", plates_recieved)
 			plates += plates_recieved
+			sfx_receive_plates.play()
 			sprite_2d.texture = sink_dishes_sprite
 		elif not washing:
 			washing = true
@@ -41,6 +44,7 @@ func _unhandled_input(event):
 				await get_tree().create_timer(0.8).timeout
 				plates -= 1
 				GameState.available_plates += 1
+				sfx_wash.play()
 				print("Washed a plate.")
 			timer_circle.hide()
 			washing = false

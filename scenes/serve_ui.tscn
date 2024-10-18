@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://ckjhd6s0wljtq"]
+[gd_scene load_steps=13 format=3 uid="uid://ckjhd6s0wljtq"]
 
 [ext_resource type="Script" path="res://scripts/serve_ui.gd" id="1_ppxco"]
 [ext_resource type="Texture2D" uid="uid://cdm6icp5lerar" path="res://assets/interface/rect.png" id="2_q5qdh"]
 [ext_resource type="Texture2D" uid="uid://c8mbe8jta81e8" path="res://assets/interface/tray.png" id="3_juqtc"]
 [ext_resource type="PackedScene" uid="uid://c1eye0bn7omsf" path="res://scenes/custom_button.tscn" id="4_wspkd"]
 [ext_resource type="Texture2D" uid="uid://cugi38s0aptsl" path="res://assets/interface/buttondisabled.png" id="5_xu85t"]
+[ext_resource type="AudioStream" uid="uid://iy8v2fksx4fg" path="res://assets/audio/513941__paleblood__call-bell-ring.wav" id="6_bu4rd"]
+[ext_resource type="AudioStream" uid="uid://tkakyoly1imi" path="res://assets/audio/515626__mrickey13__uiexitcancel.wav" id="7_l4u50"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tfjti"]
 size = Vector2(102, 44)
@@ -129,5 +131,17 @@ grow_horizontal = 1
 grow_vertical = 1
 texture_disabled = ExtResource("5_xu85t")
 
+[node name="SFX Bell" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_bu4rd")
+volume_db = -15.348
+pitch_scale = 1.08
+bus = &"SFX"
+
+[node name="SFX Drop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_l4u50")
+volume_db = -9.309
+bus = &"SFX"
+
+[connection signal="child_entered_tree" from="NinePatchRect/HSplitContainer/MarginContainer/Panel/DishesNode" to="." method="_on_dishes_node_child_entered_tree"]
 [connection signal="child_order_changed" from="NinePatchRect/HSplitContainer/MarginContainer/Panel/DishesNode" to="." method="_on_dishes_node_child_order_changed"]
 [connection signal="pressed" from="CustomButton" to="." method="_on_button_pressed"]

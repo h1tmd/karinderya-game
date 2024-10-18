@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cx7e7mgq8ns5f"]
+[gd_scene load_steps=9 format=3 uid="uid://cx7e7mgq8ns5f"]
 
 [ext_resource type="Texture2D" uid="uid://6gnijq74j8rv" path="res://assets/dishes/adobongtakway.png" id="1_ig4it"]
 [ext_resource type="Shader" path="res://outline.gdshader" id="1_u1gnx"]
 [ext_resource type="Script" path="res://scripts/dish_serving.gd" id="2_bt31h"]
+[ext_resource type="AudioStream" uid="uid://cvvadelsabw5v" path="res://assets/audio/96185__atlaslives__cup-on-table.wav" id="4_x7uvq"]
+[ext_resource type="AudioStream" uid="uid://biuemag3b7o6o" path="res://assets/audio/326658__150128__wet-thump-or-splash.wav" id="5_dn2fr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cps08"]
 resource_local_to_scene = true
@@ -38,6 +40,18 @@ shape = SubResource("CapsuleShape2D_b05yq")
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_7qylv")
 disabled = true
+
+[node name="SFX Place" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_x7uvq")
+volume_db = -12.0
+pitch_scale = 1.2
+bus = &"SFX"
+
+[node name="SFX Rice" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_dn2fr")
+volume_db = -10.0
+pitch_scale = 1.2
+bus = &"SFX"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

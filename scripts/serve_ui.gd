@@ -3,6 +3,8 @@ extends Control
 @onready var grid_container: GridContainer = $NinePatchRect/HSplitContainer/ScrollContainer/GridContainer
 @onready var dishes_node: Node2D = $NinePatchRect/HSplitContainer/MarginContainer/Panel/DishesNode
 @onready var custom_button: TextureButton = $CustomButton
+@onready var sfx_bell: AudioStreamPlayer = $"SFX Bell"
+@onready var sfx_drop: AudioStreamPlayer = $"SFX Drop"
 
 func _ready() -> void:
 	hide()
@@ -49,6 +51,7 @@ func _on_button_pressed():
 				child.hide_highlight()
 			child.scale = Vector2(0.8, 0.8)
 			child.reparent(cust.food_holder, false)
+		sfx_bell.play()
 		add_plate()
 
 
@@ -74,3 +77,12 @@ func plate_counter() -> int:
 		elif dish_served.dish_data.name != "Rice":
 			plates += 1
 	return plates
+
+
+func dish_dropped():
+	sfx_drop.play()
+
+
+func _on_dishes_node_child_entered_tree(node: Node) -> void:
+	if node is DishServing:
+		node.connect("dropped", dish_dropped)

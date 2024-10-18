@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cr20e56bjh4l2"]
+[gd_scene load_steps=7 format=3 uid="uid://cr20e56bjh4l2"]
 
 [ext_resource type="Texture2D" uid="uid://cc84svtvj6gch" path="res://assets/dirtyplate.png" id="1_bj31q"]
 [ext_resource type="Shader" path="res://outline.gdshader" id="1_ncht2"]
 [ext_resource type="Script" path="res://scripts/dirty_plate.gd" id="2_2mcp8"]
+[ext_resource type="AudioStream" uid="uid://ciqf2rgvbq8ls" path="res://assets/audio/463902__buzzatsea__fork-stabbing-food-eating-clinking-plate.wav" id="4_3r0lj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ww0ym"]
 resource_local_to_scene = true
@@ -25,6 +26,11 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_p4my7")
+
+[node name="SFX Get" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_3r0lj")
+volume_db = -12.0
+bus = &"SFX"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

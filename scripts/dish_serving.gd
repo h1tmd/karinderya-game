@@ -4,6 +4,10 @@ class_name DishServing
 @onready var area_2d: Area2D = $Area2D
 @onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 @onready var rice_collision: CollisionShape2D = $"Area2D/Rice Collision"
+@onready var sfx_place: AudioStreamPlayer = $"SFX Place"
+@onready var sfx_rice: AudioStreamPlayer = $"SFX Rice"
+
+signal dropped
 
 static var currently_selected: DishServing = null
 
@@ -67,7 +71,12 @@ func _input(_event: InputEvent) -> void:
 		var areas = area_2d.get_overlapping_areas()
 		for area in areas:
 			if area.name == area_name:
+				if dish_data.name == "Rice":
+					sfx_rice.play()
+				else:
+					sfx_place.play()
 				return
+		dropped.emit()
 		queue_free()
 
 

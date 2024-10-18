@@ -6,6 +6,7 @@ signal plate_taken
 
 @onready var area_2d: Area2D = $Area2D
 @onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
+@onready var sfx_get: AudioStreamPlayer = $"SFX Get"
 
 func _ready() -> void:
 	if is_bowl:
@@ -32,4 +33,5 @@ func _unhandled_input(event: InputEvent) -> void:
 			position.y = player.plate_holder.get_child(-1).position.y - 40
 		reparent(player.plate_holder, false)
 		collision_shape_2d.disabled = true
+		sfx_get.play()
 		plate_taken.emit()
