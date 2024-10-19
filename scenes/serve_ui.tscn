@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ckjhd6s0wljtq"]
+[gd_scene load_steps=14 format=3 uid="uid://ckjhd6s0wljtq"]
 
 [ext_resource type="Script" path="res://scripts/serve_ui.gd" id="1_ppxco"]
 [ext_resource type="Texture2D" uid="uid://cdm6icp5lerar" path="res://assets/interface/rect.png" id="2_q5qdh"]
@@ -10,6 +10,10 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tfjti"]
 size = Vector2(102, 44)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qspo1"]
+font_size = 40
+font_color = Color(0.231373, 0.231373, 0.231373, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5xanv"]
 bg_color = Color(1, 0.92549, 0.47451, 1)
@@ -111,6 +115,34 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NinePatchRect/HSplitContainer/MarginContainer/Panel/Serving Area"]
 position = Vector2(201, 348)
 shape = SubResource("RectangleShape2D_tfjti")
+
+[node name="Label" type="Label" parent="NinePatchRect/HSplitContainer/MarginContainer/Panel"]
+layout_mode = 1
+offset_left = -55.0
+offset_top = 164.0
+offset_right = 240.0
+offset_bottom = 227.0
+rotation = -0.856957
+text = "Rice"
+label_settings = SubResource("LabelSettings_qspo1")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="NinePatchRect/HSplitContainer/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -92.3645
+offset_top = -87.0
+offset_right = 91.6355
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Dishes Here"
+label_settings = SubResource("LabelSettings_qspo1")
+horizontal_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="NinePatchRect/HSplitContainer"]
 layout_mode = 2
