@@ -10,6 +10,8 @@ extends StaticBody2D
 @export var sink_sprite: Texture2D
 @export var sink_dishes_sprite: Texture2D
 
+signal interacted
+
 var can_interact = false
 var plates: int = 0
 var washing = false
@@ -36,7 +38,8 @@ func _unhandled_input(event):
 			plates += plates_recieved
 			sfx_receive_plates.play()
 			sprite_2d.texture = sink_dishes_sprite
-		elif not washing:
+			interacted.emit()
+		elif not washing and plates != 0:
 			washing = true
 			timer.start(plates * 0.8)
 			timer_circle.show()

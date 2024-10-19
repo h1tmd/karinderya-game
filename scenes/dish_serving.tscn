@@ -45,13 +45,11 @@ disabled = true
 stream = ExtResource("4_x7uvq")
 volume_db = -12.0
 pitch_scale = 1.2
-bus = &"SFX"
 
 [node name="SFX Rice" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_dn2fr")
 volume_db = -10.0
 pitch_scale = 1.2
-bus = &"SFX"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

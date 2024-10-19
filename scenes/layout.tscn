@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ciaoc3hpfpjof"]
+[gd_scene load_steps=18 format=3 uid="uid://ciaoc3hpfpjof"]
 
 [ext_resource type="Texture2D" uid="uid://dvr1eijygxevg" path="res://assets/room.png" id="1_oeiqx"]
 [ext_resource type="Texture2D" uid="uid://oxlvqv3e2dwl" path="res://assets/leftwall.png" id="2_j4qqj"]
@@ -7,8 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://qojy8o7tvagu" path="res://assets/sign.png" id="4_thymj"]
 [ext_resource type="PackedScene" uid="uid://t665gqdx8ug1" path="res://scenes/table.tscn" id="5_bi7te"]
 [ext_resource type="Script" path="res://scripts/order_area.gd" id="6_011k2"]
+[ext_resource type="PackedScene" uid="uid://cr20e56bjh4l2" path="res://scenes/dirty_plate.tscn" id="6_x28kr"]
+[ext_resource type="Shader" path="res://outline.gdshader" id="7_pjcpm"]
 [ext_resource type="PackedScene" uid="uid://cl6m2d3tmqoog" path="res://scenes/sink.tscn" id="8_mcwtw"]
 [ext_resource type="Texture2D" uid="uid://c4gnj6f1ur7ny" path="res://assets/sidetable.png" id="9_v0fxn"]
+[ext_resource type="PackedScene" uid="uid://cfrv63xxono2w" path="res://scenes/hint_popup.tscn" id="10_6rb86"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eeemq"]
 radius = 104.0
@@ -16,6 +19,12 @@ height = 364.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2gy24"]
 size = Vector2(190, 120)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5t5a0"]
+resource_local_to_scene = true
+shader = ExtResource("7_pjcpm")
+shader_parameter/line_color = Color(0.945, 0.918, 0.282, 0.918)
+shader_parameter/line_thickness = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_041ym"]
 radius = 64.0312
@@ -67,6 +76,16 @@ position = Vector2(950, 1216)
 [node name="Table2" parent="." instance=ExtResource("5_bi7te")]
 position = Vector2(2076, 1208)
 
+[node name="Hint Popup" parent="Table2/Chair" index="3" instance=ExtResource("10_6rb86")]
+offset_left = -22.0
+offset_top = -114.0
+offset_right = 331.0
+offset_bottom = 71.0
+hint_string = "2. Clean up tables"
+
+[node name="Dirty Plate" parent="Table2/Chair/Food On Table" index="0" instance=ExtResource("6_x28kr")]
+material = SubResource("ShaderMaterial_5t5a0")
+
 [node name="Table3" parent="." instance=ExtResource("5_bi7te")]
 position = Vector2(3168, 1216)
 
@@ -94,4 +113,9 @@ texture = ExtResource("9_v0fxn")
 position = Vector2(-8, 69)
 shape = SubResource("RectangleShape2D_drnj1")
 
+[connection signal="plate_taken" from="Table2/Chair/Food On Table/Dirty Plate" to="Table2/Chair" method="on_plate_taken"]
+[connection signal="plate_taken" from="Table2/Chair/Food On Table/Dirty Plate" to="Table2/Chair/Hint Popup" method="hide"]
 [connection signal="body_entered" from="OrderArea" to="OrderArea" method="_on_body_entered"]
+
+[editable path="Table2"]
+[editable path="Table2/Chair"]

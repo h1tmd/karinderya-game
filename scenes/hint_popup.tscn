@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfrv63xxono2w"]
+
+[ext_resource type="Texture2D" uid="uid://cqyax8vbc7ywj" path="res://assets/interface/smallrect.png" id="1_lin63"]
+[ext_resource type="Script" path="res://scripts/hint_popup.gd" id="2_32fsw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_085rt"]
+texture = ExtResource("1_lin63")
+texture_margin_left = 31.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_vk18t"]
+font_size = 70
+font_color = Color(0, 0, 0, 1)
+
+[node name="Hint Popup" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 185)
+offset_right = 353.0
+offset_bottom = 185.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_085rt")
+script = ExtResource("2_32fsw")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+
+[node name="Label" type="Label" parent="MarginContainer"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+text = "Hint here"
+label_settings = SubResource("LabelSettings_vk18t")

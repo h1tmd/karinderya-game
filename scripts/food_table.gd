@@ -5,6 +5,7 @@ extends StaticBody2D
 @onready var sfx_open_menu: AudioStreamPlayer = $"SFX Open Menu"
 
 signal ui_visible(is_visible: bool)
+signal interacted
 
 var can_interact = false
 
@@ -23,6 +24,7 @@ func _on_area_2d_area_exited(area: Area2D):
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("interact") and can_interact:
 		serve_ui.visible = not serve_ui.visible
+		interacted.emit()
 		ui_visible.emit(serve_ui.visible)
 		sfx_open_menu.play()
 		serve_ui._on_dishes_node_child_order_changed()
