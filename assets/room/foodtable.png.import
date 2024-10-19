@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://70m76j0j550i"
-path="res://.godot/imported/sinkdishes.png-168e634230088f7ae6526aebe2b0c09a.ctex"
+uid="uid://cumcef2ah66s4"
+path="res://.godot/imported/foodtable.png-75e5b3b2106bbc782cb1a86a8301225a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sinkdishes.png"
-dest_files=["res://.godot/imported/sinkdishes.png-168e634230088f7ae6526aebe2b0c09a.ctex"]
+source_file="res://assets/room/foodtable.png"
+dest_files=["res://.godot/imported/foodtable.png-75e5b3b2106bbc782cb1a86a8301225a.ctex"]
 
 [params]
 

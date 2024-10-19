@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tu6ief0f5gve"
-path="res://.godot/imported/customer_body_sit.png-84814f15579f4fd3e29038eed80123b9.ctex"
+uid="uid://70m76j0j550i"
+path="res://.godot/imported/sinkdishes.png-0085b11f13e380eed7b7dd96fa1ed2a3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/customer_body_sit.png"
-dest_files=["res://.godot/imported/customer_body_sit.png-84814f15579f4fd3e29038eed80123b9.ctex"]
+source_file="res://assets/room/sinkdishes.png"
+dest_files=["res://.godot/imported/sinkdishes.png-0085b11f13e380eed7b7dd96fa1ed2a3.ctex"]
 
 [params]
 

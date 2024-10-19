@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://oxlvqv3e2dwl"
-path="res://.godot/imported/leftwall.png-d59aed957cd1d95c67ffca30f7396d4e.ctex"
+uid="uid://7ymmq8i82xhe"
+path="res://.godot/imported/chair.png-7d3bf78001f000f7a96b4c06ebb49d7e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/leftwall.png"
-dest_files=["res://.godot/imported/leftwall.png-d59aed957cd1d95c67ffca30f7396d4e.ctex"]
+source_file="res://assets/room/chair.png"
+dest_files=["res://.godot/imported/chair.png-7d3bf78001f000f7a96b4c06ebb49d7e.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://t665gqdx8ug1"]
 
-[ext_resource type="Texture2D" uid="uid://7m8veh0wdy3n" path="res://assets/table.png" id="1_y0qb4"]
+[ext_resource type="Texture2D" uid="uid://7m8veh0wdy3n" path="res://assets/room/table.png" id="1_y0qb4"]
 [ext_resource type="PackedScene" uid="uid://4ncr3fkvo2sq" path="res://scenes/chair.tscn" id="2_b66i7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k27g1"]

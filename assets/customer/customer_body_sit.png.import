@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgrkbdo2rsnk0"
-path="res://.godot/imported/customer_head_eat.png-c96b2a2caa0f48f238a7815b07d24ac2.ctex"
+uid="uid://tu6ief0f5gve"
+path="res://.godot/imported/customer_body_sit.png-e8c71ecf09059dcc5f9a5e6269e5f438.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/customer_head_eat.png"
-dest_files=["res://.godot/imported/customer_head_eat.png-c96b2a2caa0f48f238a7815b07d24ac2.ctex"]
+source_file="res://assets/customer/customer_body_sit.png"
+dest_files=["res://.godot/imported/customer_body_sit.png-e8c71ecf09059dcc5f9a5e6269e5f438.ctex"]
 
 [params]
 

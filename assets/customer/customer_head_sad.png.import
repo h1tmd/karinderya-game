@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btub1ih7f8467"
-path="res://.godot/imported/customer_head_happy.png-810a2fdf3e4ecbf1cd8d9dd675b6bc45.ctex"
+uid="uid://kqkjiwoeflm2"
+path="res://.godot/imported/customer_head_sad.png-50bf5145e74725bd9a80762d2e4638c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/customer_head_happy.png"
-dest_files=["res://.godot/imported/customer_head_happy.png-810a2fdf3e4ecbf1cd8d9dd675b6bc45.ctex"]
+source_file="res://assets/customer/customer_head_sad.png"
+dest_files=["res://.godot/imported/customer_head_sad.png-50bf5145e74725bd9a80762d2e4638c4.ctex"]
 
 [params]
 

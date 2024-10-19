@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmwew740mxsuq"
-path="res://.godot/imported/customer.png-70f28c485cbada77aa2d328871a914e5.ctex"
+uid="uid://c02fbhxftiml0"
+path="res://.godot/imported/customer_head_angry.png-51a66a5f17b0ee7f3a68c42256131064.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/customer.png"
-dest_files=["res://.godot/imported/customer.png-70f28c485cbada77aa2d328871a914e5.ctex"]
+source_file="res://assets/customer/customer_head_angry.png"
+dest_files=["res://.godot/imported/customer_head_angry.png-51a66a5f17b0ee7f3a68c42256131064.ctex"]
 
 [params]
 
