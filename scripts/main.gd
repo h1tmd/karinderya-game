@@ -15,14 +15,17 @@ func _ready() -> void:
 		# Show menu
 		get_tree().paused = true
 		main_menu.show()
+		await main_menu.hidden
 	else:
 		get_tree().paused = false
-	
+	start()
+
+func start():
 	while game_timer.time_left > 15:
 		var current_time = (game_timer.wait_time - game_timer.time_left) / game_timer.wait_time
 		var customer_interval
 		if current_time < 0.20:
-			customer_interval = 15
+			customer_interval = 20
 		elif current_time < 0.40:
 			customer_interval = 10
 		elif current_time < 0.60:
