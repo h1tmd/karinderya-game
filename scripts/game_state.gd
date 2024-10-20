@@ -10,7 +10,7 @@ var profit: float:
 		update_ui()
 
 # Number of plates available
-var _available_plates: int = 36
+var _available_plates: int = 35
 var available_plates: int:
 	get:
 		return _available_plates
@@ -40,7 +40,7 @@ func update_ui():
 
 func reset():
 	profit = 0.0
-	available_plates = 36
+	available_plates = 35
 	total_plates = 0
 	total_customers = 0
 	ideal_profit = 0.0
