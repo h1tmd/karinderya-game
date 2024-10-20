@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3d5vewgpvuja"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_3dwbv"]
+[ext_resource type="Shader" path="res://blur.gdshader" id="1_cobnw"]
+[ext_resource type="PackedScene" uid="uid://c1eye0bn7omsf" path="res://scenes/custom_button.tscn" id="2_av0i0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wd3ci"]
+shader = ExtResource("1_cobnw")
+shader_parameter/blur_amount = 3.808
+shader_parameter/mix_amount = 0.513
+shader_parameter/color_over = Color(0.482609, 0.457915, 0.30845, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vjs55"]
+font_size = 200
+font_color = Color(1, 0.92549, 0.47451, 1)
+outline_size = 50
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_o72jm"]
+font_size = 70
+
+[node name="Main Menu" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3dwbv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_wd3ci")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Kaon Ta"
+label_settings = SubResource("LabelSettings_vjs55")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "\"Let's Eat\""
+label_settings = SubResource("LabelSettings_o72jm")
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="CustomButton" parent="CenterContainer/VBoxContainer" instance=ExtResource("2_av0i0")]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+label_text = "Play Game"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CustomButton" to="." method="_on_custom_button_pressed"]

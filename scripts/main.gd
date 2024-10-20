@@ -4,12 +4,19 @@ extends Node2D
 @onready var game_timer: Timer = $"CanvasLayer/Game Timer"
 @onready var end_screen = $"CanvasLayer/End Screen"
 @onready var serve_canvas: CanvasLayer = $"Layout/FoodTable/CanvasLayer"
+@onready var main_menu: Control = $"CanvasLayer/Main Menu"
 
+var start_game = false
 
 func _ready() -> void:
-	get_tree().paused = false
 	if GameState.profit != 0:
 		GameState.reset()
+	if not start_game:
+		# Show menu
+		get_tree().paused = true
+		main_menu.show()
+	else:
+		get_tree().paused = false
 	
 	while game_timer.time_left > 15:
 		var current_time = (game_timer.wait_time - game_timer.time_left) / game_timer.wait_time

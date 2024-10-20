@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c8sbjr4h22ptn"]
+[gd_scene load_steps=13 format=3 uid="uid://c8sbjr4h22ptn"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_gky2s"]
 [ext_resource type="PackedScene" uid="uid://ciaoc3hpfpjof" path="res://scenes/layout.tscn" id="1_ptahu"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://pclefjw2kia4" path="res://assets/interface/timeprogress.png" id="8_cb16f"]
 [ext_resource type="Script" path="res://scripts/timer_progress.gd" id="9_8a104"]
 [ext_resource type="Texture2D" uid="uid://r7fyrieshiwt" path="res://assets/interface/timeicon.png" id="9_e7uqa"]
+[ext_resource type="PackedScene" uid="uid://d3d5vewgpvuja" path="res://scenes/main_menu.tscn" id="12_dveia"]
 [ext_resource type="PackedScene" uid="uid://w0r5jh035ntn" path="res://scenes/end_screen.tscn" id="17_2ama2"]
 
 [node name="Main" type="Node2D"]
@@ -77,4 +78,7 @@ texture = ExtResource("9_e7uqa")
 
 [node name="End Screen" parent="CanvasLayer" instance=ExtResource("17_2ama2")]
 process_mode = 2
+visible = false
+
+[node name="Main Menu" parent="CanvasLayer" instance=ExtResource("12_dveia")]
 visible = false
