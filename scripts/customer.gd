@@ -16,7 +16,7 @@ class_name Customer
 
 signal done_signal(chair_location)
 
-var speed = 250
+var speed = 200
 var order_price = 0
 var time_eating = 0
 var order = {}
@@ -88,6 +88,7 @@ func generate_order():
 	head.texture = head_sprites[FUMING]
 	await timer.timeout
 	if not order_done:
+		current_customer = null
 		GameState.ideal_profit += order_price * 1.3
 		wait_timer.hide()
 		order_bubble.hide()
