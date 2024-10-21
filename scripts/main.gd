@@ -6,18 +6,18 @@ extends Node2D
 @onready var serve_canvas: CanvasLayer = $"Layout/FoodTable/CanvasLayer"
 @onready var main_menu: Control = $"CanvasLayer/Main Menu"
 
-var start_game = false
 
 func _ready() -> void:
 	if GameState.profit != 0:
 		GameState.reset()
-	if not start_game:
+	if not Global.start_immediately:
 		# Show menu
 		get_tree().paused = true
 		main_menu.show()
 		await main_menu.hidden
 	else:
 		get_tree().paused = false
+		Global.start_immediately = false
 	start()
 
 func start():

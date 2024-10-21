@@ -4,6 +4,7 @@ extends Node
 var dishes = []
 # A* for pathfinding
 var astar = AStar2D.new()
+var start_immediately = false
 
 const order_loc = Vector2(672, 481)
 const exit_loc = Vector2(-89, 483)
@@ -25,7 +26,7 @@ const diff = [
 		"wash_time": 1.0
 	},
 	{
-		# Challenging
+		# Challenge
 		"game_time": 300,
 		"cust_interval": [10, 8, 6, 5 ,5],
 		"cust_timer": 30,
