@@ -16,7 +16,7 @@ class_name Customer
 
 signal done_signal(chair_location)
 
-var speed = 200
+var speed = 250
 var order_price = 0
 var time_eating = 0
 var order = {}
