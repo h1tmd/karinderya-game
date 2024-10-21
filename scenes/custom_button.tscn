@@ -31,10 +31,18 @@ offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="CenterContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+expand_mode = 3
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer"]
 layout_mode = 2
 text = "Serve!"
 label_settings = SubResource("LabelSettings_27ekb")
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="button_up" from="." to="." method="_on_button_up"]
+[connection signal="toggled" from="." to="." method="_on_toggled"]
