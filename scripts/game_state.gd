@@ -25,6 +25,8 @@ var available_plates: int:
 # Seats that customers can go
 var available_seats: Array[Vector2] = []
 
+var current_difficulty: Dictionary = Global.diff[1]
+
 # Stat vars
 var total_plates: int = 0
 var total_customers: int = 0

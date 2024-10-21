@@ -29,9 +29,9 @@ const diff = [
 		# Challenge
 		"game_time": 300,
 		"cust_interval": [10, 8, 6, 5 ,5],
-		"cust_timer": 30,
-		"plate_weight": 30,
-		"wash_time": 1.0
+		"cust_timer": 20,
+		"plate_weight": 35,
+		"wash_time": 1.3
 	}
 ]
 

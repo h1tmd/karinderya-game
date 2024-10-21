@@ -10,7 +10,6 @@ var speed = 500
 var friction = 10
 var acceleration = 10
 var direction = Vector2.ZERO
-var plate_weight = 30
 
 func _process(_delta):
 	direction = Input.get_vector("left","right","up","down")
@@ -30,7 +29,10 @@ func _physics_process(delta):
 
 
 func _on_plate_holder_child_entered_tree(node: Node) -> void:
-	current_speed = max(speed - (plate_holder.get_child_count() * plate_weight), 160)
+	current_speed = max(
+		speed - (plate_holder.get_child_count() * GameState.current_difficulty["plate_weight"]), 
+		160
+	)
 
 
 func _on_plate_holder_child_exiting_tree(node: Node) -> void:

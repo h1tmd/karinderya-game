@@ -41,10 +41,10 @@ func _unhandled_input(event):
 			interacted.emit()
 		elif not washing and plates != 0:
 			washing = true
-			timer.start(plates * 0.8)
+			timer.start(plates * GameState.current_difficulty["wash_time"])
 			timer_circle.show()
 			while can_interact and plates != 0:
-				await get_tree().create_timer(0.8).timeout
+				await get_tree().create_timer(GameState.current_difficulty["wash_time"]).timeout
 				plates -= 1
 				GameState.available_plates += 1
 				sfx_wash.play()

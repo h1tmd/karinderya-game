@@ -40,7 +40,6 @@ const COLORS = [
 	Color(0.928, 0.375, 0.341), Color(0.998, 0.661, 0.365), Color(0.891, 0.853, 0.292), 
 	Color(0.563, 0.957, 0.546), Color(0.497, 0.562, 0.949), Color(0.924, 0.582, 0.926) 
 ]
-const WAIT_TIME = 30
 
 func _ready() -> void:
 	position = Global.exit_loc
@@ -77,13 +76,16 @@ func generate_order():
 	order_bubble.show()
 	
 	# Waiting
-	timer.start(WAIT_TIME)
+	var wait_time = GameState.current_difficulty["cust_timer"]
+	if wait_time == 0:
+		return
+	timer.start(wait_time)
 	wait_timer.show()
 	
-	await get_tree().create_timer(WAIT_TIME / 2.0).timeout
+	await get_tree().create_timer(wait_time / 2.0).timeout
 	if order_done: return
 	head.texture = head_sprites[ANGRY] 
-	await get_tree().create_timer(WAIT_TIME / 4.0).timeout
+	await get_tree().create_timer(wait_time / 4.0).timeout
 	if order_done: return
 	head.texture = head_sprites[FUMING]
 	await timer.timeout
