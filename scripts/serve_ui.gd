@@ -2,7 +2,7 @@ extends Control
 
 @onready var grid_container: GridContainer = $NinePatchRect/HSplitContainer/ScrollContainer/GridContainer
 @onready var dishes_node: Node2D = $NinePatchRect/HSplitContainer/MarginContainer/Panel/DishesNode
-@onready var custom_button: TextureButton = $CustomButton
+@onready var serve_button: TextureButton = $"HBoxContainer/Serve Button"
 @onready var sfx_bell: AudioStreamPlayer = $"SFX Bell"
 @onready var sfx_drop: AudioStreamPlayer = $"SFX Drop"
 
@@ -57,13 +57,13 @@ func _on_button_pressed():
 
 func _on_dishes_node_child_order_changed() -> void:
 	GameState.plates_placed = plate_counter()
-	if is_instance_valid(custom_button):
+	if is_instance_valid(serve_button):
 		if dishes_node.get_child_count() <= 1:
-			custom_button.disabled = true
+			serve_button.disabled = true
 		elif plate_counter() > GameState.available_plates:
-			custom_button.disabled = true
+			serve_button.disabled = true
 		else:
-			custom_button.disabled = false
+			serve_button.disabled = false
 
 func plate_counter() -> int:
 	var plates = 0

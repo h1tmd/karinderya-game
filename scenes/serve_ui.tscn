@@ -153,27 +153,47 @@ layout_mode = 2
 theme_override_constants/h_separation = 10
 columns = 2
 
-[node name="CustomButton" parent="." instance=ExtResource("4_wspkd")]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
-anchor_left = 0.854688
-anchor_top = 0.664815
-anchor_right = 0.985417
-anchor_bottom = 0.861111
-grow_horizontal = 1
-grow_vertical = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -937.0
+offset_top = 204.0
+offset_right = -40.0
+offset_bottom = 383.0
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 2
+
+[node name="Cancel Button" parent="HBoxContainer" instance=ExtResource("4_wspkd")]
+self_modulate = Color(0.926087, 0.528727, 0.454991, 1)
+custom_minimum_size = Vector2(280, 90)
+layout_mode = 2
+texture_disabled = ExtResource("5_xu85t")
+label_text = "Close"
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+
+[node name="Serve Button" parent="HBoxContainer" instance=ExtResource("4_wspkd")]
+custom_minimum_size = Vector2(280, 90)
+layout_mode = 2
 texture_disabled = ExtResource("5_xu85t")
 
 [node name="SFX Bell" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_bu4rd")
 volume_db = -15.348
 pitch_scale = 1.08
-bus = &"SFX"
 
 [node name="SFX Drop" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_l4u50")
 volume_db = -9.309
-bus = &"SFX"
 
 [connection signal="child_entered_tree" from="NinePatchRect/HSplitContainer/MarginContainer/Panel/DishesNode" to="." method="_on_dishes_node_child_entered_tree"]
 [connection signal="child_order_changed" from="NinePatchRect/HSplitContainer/MarginContainer/Panel/DishesNode" to="." method="_on_dishes_node_child_order_changed"]
-[connection signal="pressed" from="CustomButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Cancel Button" to="." method="hide"]
+[connection signal="pressed" from="HBoxContainer/Serve Button" to="." method="_on_button_pressed"]
