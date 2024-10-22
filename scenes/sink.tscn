@@ -35,7 +35,7 @@ position = Vector2(19.5, 94.5)
 shape = SubResource("RectangleShape2D_uarev")
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 0
+collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -68,5 +68,5 @@ offset_bottom = -86.0
 hint_string = "3. Wash plates here"
 
 [connection signal="interacted" from="." to="Hint Popup" method="hide"]
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
