@@ -47,6 +47,7 @@ func _on_button_pressed():
 		Customer.current_customer = null
 		for child: Node2D in dishes_node.get_children():
 			if child is DishServing:
+				child.area_2d.hide()
 				child.selected = false
 				child.hide_highlight()
 			child.scale = Vector2(0.8, 0.8)
