@@ -6,11 +6,13 @@ class_name Player
 @onready var plate_holder: Node2D = $PlateHolder
 @onready var current_speed = speed
 
-var speed = 500
+var speed = 450
 var friction = 10
 var acceleration = 10
 var direction = Vector2.ZERO
-var path = []
+var current_path = []
+var queued_path = []
+var move_velocity = Vector2.ZERO
 
 func _process(delta):
 	direction = Input.get_vector("left","right","up","down")
@@ -19,21 +21,16 @@ func _process(delta):
 		sprite_2d.flip_h = true
 	elif direction.x < 0:
 		sprite_2d.flip_h = false
-	if path.size() > 0:
-		var move_velocity = position.direction_to(path[0]) * speed * delta
+	
+	if current_path.size() > 0:
+		move_velocity = position.direction_to(current_path[0]) * speed * delta
 		position += move_velocity
-		if position.distance_to(path[0]) < speed * delta:
-			position = path[0]
-			path.remove_at(0)
-
-
-
-func _physics_process(delta):
-	if direction.length() > 0:
-		velocity = velocity.lerp(direction.normalized() * current_speed, delta * acceleration)
-	else:
-		velocity = velocity.lerp(Vector2.ZERO, delta * friction)
-	move_and_slide()
+		if position.distance_to(current_path[0]) < speed * delta:
+			position = current_path[0]
+			current_path.remove_at(0)
+	elif not queued_path.is_empty():
+		current_path = queued_path
+		queued_path = []
 
 
 func _on_plate_holder_child_entered_tree(node: Node) -> void:
@@ -48,10 +45,14 @@ func _on_plate_holder_child_exiting_tree(node: Node) -> void:
 
 
 func go_to(target_position: Vector2):
-	# wait until player reaches a point before changing path
-	path.clear()
-	path = Global.player_astar.get_point_path(
-		Global.player_astar.get_closest_point(position), 
+	queued_path.clear()
+	var current_destination
+	if not current_path.is_empty():
+		current_destination = current_path[-1]
+	else:
+		current_destination = position
+	queued_path = Global.player_astar.get_point_path(
+		Global.player_astar.get_closest_point(current_destination), 
 		Global.player_astar.get_closest_point(target_position)
 	)
 
