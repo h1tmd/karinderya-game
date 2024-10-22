@@ -87,3 +87,4 @@ func _on_player_pickup_area_body_entered(body: Node2D) -> void:
 			dirty_plate.collision_shape_2d.set_deferred("disabled", true)
 			sfx_get.play()
 			GameState.available_seats.push_front(seat_location)
+			pickup_plates = false
