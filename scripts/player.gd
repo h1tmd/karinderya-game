@@ -27,13 +27,13 @@ func _process(delta):
 		#sprite_2d.flip_h = false
 	
 	if current_path.size() > 0:
-		var move_velocity = position.direction_to(current_path[0]) * speed * delta
+		var move_velocity = position.direction_to(current_path[0]) * current_speed * delta
 		if move_velocity.x > 0:
 			sprite_2d.flip_h = true
 		elif move_velocity.x < 0:
 			sprite_2d.flip_h = false
 		position += move_velocity
-		if position.distance_to(current_path[0]) < speed * delta:
+		if position.distance_to(current_path[0]) < current_speed * delta:
 			position = current_path[0]
 			current_path.remove_at(0)
 		if current_path.is_empty():

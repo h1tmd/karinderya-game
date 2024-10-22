@@ -17,7 +17,7 @@ const diff = [
 		"game_time": 360,
 		"cust_interval": [20, 10, 10, 10 ,10],
 		"cust_timer": 0,
-		"plate_weight": 20,
+		"plate_weight": 15,
 		"wash_time": 0.6
 	},
 	{
@@ -25,7 +25,7 @@ const diff = [
 		"game_time": 300,
 		"cust_interval": [20, 10, 9, 8 ,7],
 		"cust_timer": 30,
-		"plate_weight": 30,
+		"plate_weight": 20,
 		"wash_time": 1.0
 	},
 	{
