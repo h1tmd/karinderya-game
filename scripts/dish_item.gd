@@ -8,7 +8,6 @@ class_name DishItem
 var dishes_node: Node2D
 var mouse_over = false
 var dish_data: Dish
-var scrolling = false
 
 
 func set_data(data: Dish, dish_node: Node2D):
@@ -26,14 +25,7 @@ func _on_mouse_exited():
 	mouse_over = false
 
 func _input(event):
-	if event is InputEventScreenDrag:
-		if event.velocity.abs().y > 300:
-			scrolling = true
-		else:
-			scrolling = false
 	if Input.is_action_just_pressed("click") and mouse_over:
-		if scrolling:
-			return
 		var dish_serving: DishServing
 		dish_serving = load("res://scenes/dish_serving.tscn").instantiate()
 		dish_serving.set_data(dish_data)
