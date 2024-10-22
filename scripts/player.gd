@@ -57,5 +57,5 @@ func go_to(target_position: Vector2):
 	)
 
 func _unhandled_input(event):
-	if Input.is_action_just_pressed("click"):
+	if Input.is_action_just_pressed("serve"):
 		go_to(get_global_mouse_position())

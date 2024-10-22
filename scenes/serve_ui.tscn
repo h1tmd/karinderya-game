@@ -147,6 +147,7 @@ horizontal_alignment = 1
 [node name="ScrollContainer" type="ScrollContainer" parent="NinePatchRect/HSplitContainer"]
 layout_mode = 2
 theme = SubResource("Theme_3fp0n")
+horizontal_scroll_mode = 0
 
 [node name="GridContainer" type="GridContainer" parent="NinePatchRect/HSplitContainer/ScrollContainer"]
 layout_mode = 2
