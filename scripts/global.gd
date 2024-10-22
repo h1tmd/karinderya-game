@@ -5,8 +5,9 @@ var dishes = []
 # A* for pathfinding
 var customer_astar: AStar2D
 var player_astar: AStar2D
-
+# End screen replay or main menu
 var start_immediately = false
+var player: Player = null
 
 const order_loc = Vector2(672, 481)
 const exit_loc = Vector2(-89, 483)
@@ -53,7 +54,7 @@ func read_dishes():
 		var dish_data : Dish = load("res://dishes/" + file)
 		dishes.append(dish_data)
 
-func generate_astar(astar_points_container: Node2D):
+func generate_astar(astar_points_container: Node2D) -> AStar2D:
 	#var astar_points_container : Node2D = load("res://scenes/customer_astar_points.tscn").instantiate()
 	var all_points = astar_points_container.get_children()
 	var astar: AStar2D = AStar2D.new()
