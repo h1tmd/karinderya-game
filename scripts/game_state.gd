@@ -47,4 +47,3 @@ func reset():
 	total_customers = 0
 	ideal_profit = 0.0
 	available_seats = []
-	Global.generate_astar()

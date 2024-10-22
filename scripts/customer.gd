@@ -178,9 +178,9 @@ func seat_and_eat():
 
 func go_to(target_position: Vector2):
 	path.clear()
-	path = Global.astar.get_point_path(
-		Global.astar.get_closest_point(position), 
-		Global.astar.get_closest_point(target_position)
+	path = Global.customer_astar.get_point_path(
+		Global.customer_astar.get_closest_point(position), 
+		Global.customer_astar.get_closest_point(target_position)
 	)
 
 func _process(delta: float) -> void:

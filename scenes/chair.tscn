@@ -7,8 +7,8 @@
 radius = 37.0
 height = 198.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3dcx7"]
-radius = 26.0192
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o44k8"]
+size = Vector2(68, 12)
 
 [node name="Chair" type="StaticBody2D"]
 script = ExtResource("1_vghsm")
@@ -25,7 +25,7 @@ shape = SubResource("CapsuleShape2D_7bxmn")
 [node name="Chair Area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chair Area"]
-shape = SubResource("CircleShape2D_3dcx7")
+shape = SubResource("RectangleShape2D_o44k8")
 
 [node name="Food On Table" type="Node2D" parent="."]
 position = Vector2(241, -206)

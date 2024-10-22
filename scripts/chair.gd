@@ -14,7 +14,7 @@ func _ready():
 		sprite_2d.flip_h = true
 		food_on_table.position.x = -(food_on_table.position.x)
 	if food_on_table.get_child_count() != 0:
-		var seat_point = Global.astar.get_point_position(Global.astar.get_closest_point(global_position))
+		var seat_point = Global.customer_astar.get_point_position(Global.customer_astar.get_closest_point(global_position))
 		GameState.available_seats.erase(seat_point)
 		seat_location = seat_point
 

@@ -10,14 +10,22 @@ var speed = 500
 var friction = 10
 var acceleration = 10
 var direction = Vector2.ZERO
+var path = []
 
-func _process(_delta):
+func _process(delta):
 	direction = Input.get_vector("left","right","up","down")
 	interact_reach.look_at(interact_reach.global_position + direction)
 	if direction.x > 0:
 		sprite_2d.flip_h = true
 	elif direction.x < 0:
 		sprite_2d.flip_h = false
+	if path.size() > 0:
+		var move_velocity = position.direction_to(path[0]) * speed * delta
+		position += move_velocity
+		if position.distance_to(path[0]) < speed * delta:
+			position = path[0]
+			path.remove_at(0)
+
 
 
 func _physics_process(delta):
@@ -37,3 +45,16 @@ func _on_plate_holder_child_entered_tree(node: Node) -> void:
 
 func _on_plate_holder_child_exiting_tree(node: Node) -> void:
 	current_speed = speed
+
+
+func go_to(target_position: Vector2):
+	# wait until player reaches a point before changing path
+	path.clear()
+	path = Global.player_astar.get_point_path(
+		Global.player_astar.get_closest_point(position), 
+		Global.player_astar.get_closest_point(target_position)
+	)
+
+func _unhandled_input(event):
+	if Input.is_action_just_pressed("click"):
+		go_to(get_global_mouse_position())

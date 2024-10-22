@@ -3,7 +3,9 @@ extends Node
 # List of Dishes available
 var dishes = []
 # A* for pathfinding
-var astar = AStar2D.new()
+var customer_astar: AStar2D
+var player_astar: AStar2D
+
 var start_immediately = false
 
 const order_loc = Vector2(672, 481)
@@ -34,11 +36,14 @@ const diff = [
 		"wash_time": 1.3
 	}
 ]
-
+const player_astar_points = preload("res://scenes/player_astar_points.tscn")
+const customer_astar_points = preload("res://scenes/customer_astar_points.tscn")
 
 func _ready() -> void:
 	read_dishes()
-	generate_astar()
+	player_astar = generate_astar(player_astar_points.instantiate())
+	customer_astar = generate_astar(customer_astar_points.instantiate())
+	customer_astar.disconnect_points(1, 36, false)
 	randomize()
 
 func read_dishes():
@@ -48,9 +53,10 @@ func read_dishes():
 		var dish_data : Dish = load("res://dishes/" + file)
 		dishes.append(dish_data)
 
-func generate_astar():
-	var astar_points_container : Node2D = load("res://scenes/astar_points.tscn").instantiate()
+func generate_astar(astar_points_container: Node2D):
+	#var astar_points_container : Node2D = load("res://scenes/customer_astar_points.tscn").instantiate()
 	var all_points = astar_points_container.get_children()
+	var astar: AStar2D = AStar2D.new()
 	
 	# Add points to AStar2D
 	for point:AstarPoint in all_points:
@@ -62,8 +68,7 @@ func generate_astar():
 	for point:AstarPoint in all_points:
 		for connection in point.connections:
 			astar.connect_points(point.get_index(), connection.get_index())
-	
-	astar.disconnect_points(1, 36, false)
+	return astar
 
 # Return number 1-3 using weighted randomness 
 func weighted_random() -> int:

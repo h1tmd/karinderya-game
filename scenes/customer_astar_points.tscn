@@ -1,0 +1,171 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf6pgttqqvw1p"]
+
+[ext_resource type="PackedScene" uid="uid://bq17cv2xbugd6" path="res://scenes/astar_point.tscn" id="1_knkod"]
+
+[node name="Customer Astar Points" type="Node2D"]
+
+[node name="AstarPoint" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(-89, 483)
+connections = [NodePath("../AstarPoint37")]
+
+[node name="AstarPoint2" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(672, 481)
+connections = [NodePath("../AstarPoint3")]
+
+[node name="AstarPoint3" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(792, 686)
+connections = [NodePath("../AstarPoint4"), NodePath("../AstarPoint5"), NodePath("../AstarPoint6")]
+
+[node name="AstarPoint4" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(626, 686)
+connections = [NodePath("../AstarPoint3")]
+is_chair = true
+
+[node name="AstarPoint5" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(892, 679)
+connections = [NodePath("../AstarPoint3")]
+is_chair = true
+
+[node name="AstarPoint6" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(792, 841)
+connections = [NodePath("../AstarPoint7"), NodePath("../AstarPoint8"), NodePath("../AstarPoint9")]
+
+[node name="AstarPoint7" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(626, 836)
+connections = [NodePath("../AstarPoint6")]
+is_chair = true
+
+[node name="AstarPoint8" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(892, 832)
+connections = [NodePath("../AstarPoint6")]
+is_chair = true
+
+[node name="AstarPoint9" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(792, 995)
+connections = [NodePath("../AstarPoint10"), NodePath("../AstarPoint11"), NodePath("../AstarPoint12")]
+
+[node name="AstarPoint10" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(626, 990)
+connections = [NodePath("../AstarPoint9")]
+is_chair = true
+
+[node name="AstarPoint11" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(892, 990)
+connections = [NodePath("../AstarPoint9")]
+is_chair = true
+
+[node name="AstarPoint12" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(792, 1050)
+connections = [NodePath("../AstarPoint13"), NodePath("../AstarPoint20")]
+
+[node name="AstarPoint13" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(238, 1045)
+connections = [NodePath("../AstarPoint14")]
+
+[node name="AstarPoint14" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(238, 990)
+connections = [NodePath("../AstarPoint15"), NodePath("../AstarPoint16")]
+
+[node name="AstarPoint15" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(324, 990)
+connections = [NodePath("../AstarPoint14")]
+is_chair = true
+
+[node name="AstarPoint16" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(236, 836)
+connections = [NodePath("../AstarPoint17"), NodePath("../AstarPoint18")]
+
+[node name="AstarPoint17" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(324, 836)
+connections = [NodePath("../AstarPoint16")]
+is_chair = true
+
+[node name="AstarPoint18" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(238, 679)
+connections = [NodePath("../AstarPoint19"), NodePath("../AstarPoint37")]
+
+[node name="AstarPoint19" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(324, 682)
+connections = [NodePath("../AstarPoint18")]
+is_chair = true
+
+[node name="AstarPoint20" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(1344, 1045)
+connections = [NodePath("../AstarPoint12"), NodePath("../AstarPoint21"), NodePath("../AstarPoint30")]
+
+[node name="AstarPoint21" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(1346, 990)
+connections = [NodePath("../AstarPoint20"), NodePath("../AstarPoint22"), NodePath("../AstarPoint23"), NodePath("../AstarPoint24")]
+
+[node name="AstarPoint22" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(1202, 990)
+connections = [NodePath("../AstarPoint21")]
+is_chair = true
+
+[node name="AstarPoint23" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(1437, 990)
+connections = [NodePath("../AstarPoint21")]
+is_chair = true
+
+[node name="AstarPoint24" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(1347, 834)
+connections = [NodePath("../AstarPoint21"), NodePath("../AstarPoint25"), NodePath("../AstarPoint26"), NodePath("../AstarPoint27")]
+
+[node name="AstarPoint25" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(1202, 834)
+connections = [NodePath("../AstarPoint24")]
+is_chair = true
+
+[node name="AstarPoint26" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(1437, 836)
+connections = [NodePath("../AstarPoint24")]
+is_chair = true
+
+[node name="AstarPoint27" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(1344, 676)
+connections = [NodePath("../AstarPoint24"), NodePath("../AstarPoint28"), NodePath("../AstarPoint29")]
+
+[node name="AstarPoint28" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(1202, 676)
+connections = [NodePath("../AstarPoint27")]
+is_chair = true
+
+[node name="AstarPoint29" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(1437, 679)
+connections = [NodePath("../AstarPoint27")]
+is_chair = true
+
+[node name="AstarPoint30" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(1888, 1042)
+connections = [NodePath("../AstarPoint20"), NodePath("../AstarPoint31")]
+
+[node name="AstarPoint31" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(1888, 987)
+connections = [NodePath("../AstarPoint30"), NodePath("../AstarPoint32"), NodePath("../AstarPoint33")]
+
+[node name="AstarPoint32" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(1748, 990)
+connections = [NodePath("../AstarPoint31")]
+is_chair = true
+
+[node name="AstarPoint33" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(1888, 833)
+connections = [NodePath("../AstarPoint31"), NodePath("../AstarPoint34"), NodePath("../AstarPoint35")]
+
+[node name="AstarPoint34" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(1748, 836)
+connections = [NodePath("../AstarPoint33")]
+is_chair = true
+
+[node name="AstarPoint35" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(1888, 678)
+connections = [NodePath("../AstarPoint33"), NodePath("../AstarPoint36")]
+
+[node name="AstarPoint36" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(1748, 681)
+connections = [NodePath("../AstarPoint35")]
+is_chair = true
+
+[node name="AstarPoint37" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
+position = Vector2(238, 483)
+connections = [NodePath("../AstarPoint2")]
