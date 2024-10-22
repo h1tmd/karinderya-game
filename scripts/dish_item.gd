@@ -25,7 +25,8 @@ func _on_mouse_exited():
 	mouse_over = false
 
 func _input(event):
-	if Input.is_action_just_pressed("click") and mouse_over:
+	if event.is_action_pressed("click") and mouse_over:
+		print(dish_data.name, "created")
 		var dish_serving: DishServing
 		dish_serving = load("res://scenes/dish_serving.tscn").instantiate()
 		dish_serving.set_data(dish_data)
