@@ -16,7 +16,7 @@ shader_parameter/line_thickness = 0.0
 size = Vector2(2000, 371)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_50whi"]
-size = Vector2(1144, 100)
+size = Vector2(1999, 491)
 
 [node name="FoodTable" type="StaticBody2D"]
 script = ExtResource("1_vl3ya")
@@ -34,7 +34,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-211, -170)
+position = Vector2(4.5, 25.5)
 shape = SubResource("RectangleShape2D_50whi")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -53,5 +53,5 @@ offset_bottom = -105.0
 hint_string = "1. Serve orders here."
 
 [connection signal="interacted" from="." to="Hint Popup" method="hide"]
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
