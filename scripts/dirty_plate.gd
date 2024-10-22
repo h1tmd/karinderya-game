@@ -1,4 +1,5 @@
 extends Sprite2D
+class_name DirtyPlate
 
 var is_bowl = false
 var can_interact = false
@@ -15,12 +16,12 @@ func _ready() -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.name == "InteractReach":
-		material.set_shader_parameter("line_thickness", 30)
+		highlight(true)
 		can_interact = true
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.name == "InteractReach":
-		material.set_shader_parameter("line_thickness", 0)
+		highlight(false)
 		can_interact = false
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -38,3 +39,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		collision_shape_2d.disabled = true
 		sfx_get.play()
 		plate_taken.emit()
+
+func highlight(value: bool):
+	if value:
+		material.set_shader_parameter("line_thickness", 30)
+	else:
+		material.set_shader_parameter("line_thickness", 0)

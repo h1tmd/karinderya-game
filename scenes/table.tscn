@@ -28,13 +28,13 @@ position = Vector2(-320, 440)
 position = Vector2(-320, 752)
 
 [node name="Chair4" parent="." instance=ExtResource("2_b66i7")]
-position = Vector2(328, 128)
+position = Vector2(346, 128)
 flipped = true
 
 [node name="Chair5" parent="." instance=ExtResource("2_b66i7")]
-position = Vector2(328, 440)
+position = Vector2(346, 440)
 flipped = true
 
 [node name="Chair6" parent="." instance=ExtResource("2_b66i7")]
-position = Vector2(328, 752)
+position = Vector2(346, 752)
 flipped = true

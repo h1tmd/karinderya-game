@@ -123,6 +123,7 @@ shape = SubResource("RectangleShape2D_drnj1")
 [node name="AstarPoint" parent="Node2D" instance=ExtResource("13_7ynet")]
 position = Vector2(1488, 512)
 
+[connection signal="highlight_signal" from="Table2/Chair" to="Table2/Chair/Food On Table/Dirty Plate" method="highlight"]
 [connection signal="plate_taken" from="Table2/Chair/Food On Table/Dirty Plate" to="Table2/Chair" method="on_plate_taken"]
 [connection signal="plate_taken" from="Table2/Chair/Food On Table/Dirty Plate" to="Table2/Chair/Hint Popup" method="hide"]
 [connection signal="body_entered" from="OrderArea" to="OrderArea" method="_on_body_entered"]

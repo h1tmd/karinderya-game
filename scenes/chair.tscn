@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://4ncr3fkvo2sq"]
+[gd_scene load_steps=8 format=3 uid="uid://4ncr3fkvo2sq"]
 
 [ext_resource type="Texture2D" uid="uid://7ymmq8i82xhe" path="res://assets/room/chair.png" id="1_nwtpe"]
 [ext_resource type="Script" path="res://scripts/chair.gd" id="1_vghsm"]
+[ext_resource type="AudioStream" uid="uid://ciqf2rgvbq8ls" path="res://assets/audio/463902__buzzatsea__fork-stabbing-food-eating-clinking-plate.wav" id="3_8j0a5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7bxmn"]
 radius = 37.0
@@ -9,6 +10,12 @@ height = 198.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o44k8"]
 size = Vector2(68, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gu67a"]
+size = Vector2(181, 212)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tav2u"]
+radius = 264.068
 
 [node name="Chair" type="StaticBody2D"]
 script = ExtResource("1_vghsm")
@@ -31,4 +38,27 @@ shape = SubResource("RectangleShape2D_o44k8")
 position = Vector2(241, -206)
 scale = Vector2(0.5, 0.5)
 
+[node name="Click Area" type="Area2D" parent="."]
+position = Vector2(241, -206)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Click Area"]
+position = Vector2(-12.5, 0)
+shape = SubResource("RectangleShape2D_gu67a")
+
+[node name="Player Pickup Area" type="Area2D" parent="."]
+position = Vector2(241, -158)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player Pickup Area"]
+shape = SubResource("CircleShape2D_tav2u")
+
+[node name="SFX Get" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8j0a5")
+volume_db = -12.0
+bus = &"SFX"
+
 [connection signal="body_entered" from="Chair Area" to="." method="_on_chair_area_body_entered"]
+[connection signal="mouse_entered" from="Click Area" to="." method="_on_click_area_mouse_entered"]
+[connection signal="mouse_exited" from="Click Area" to="." method="_on_click_area_mouse_exited"]
+[connection signal="body_entered" from="Player Pickup Area" to="." method="_on_player_pickup_area_body_entered"]
