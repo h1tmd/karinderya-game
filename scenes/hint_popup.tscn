@@ -15,6 +15,7 @@ font_size = 70
 font_color = Color(0, 0, 0, 1)
 
 [node name="Hint Popup" type="PanelContainer"]
+z_index = 1
 custom_minimum_size = Vector2(0, 185)
 offset_right = 353.0
 offset_bottom = 185.0
