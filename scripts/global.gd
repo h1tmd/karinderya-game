@@ -11,7 +11,7 @@ var player: Player = null
 var seats = []
 
 const order_loc = Vector2(672, 481)
-const exit_loc = Vector2(-89, 483)
+const exit_loc = Vector2(-296, 483)
 const diff = [
 	{
 		# Comfy

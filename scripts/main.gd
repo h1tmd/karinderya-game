@@ -9,6 +9,7 @@ extends Node2D
 
 
 func _ready() -> void:
+	get_window()
 	if GameState.profit != 0:
 		GameState.reset()
 	if not Global.start_immediately:

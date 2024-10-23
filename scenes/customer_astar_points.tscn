@@ -5,7 +5,7 @@
 [node name="Customer Astar Points" type="Node2D"]
 
 [node name="AstarPoint" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
-position = Vector2(-89, 483)
+position = Vector2(-296, 483)
 connections = [NodePath("../AstarPoint37")]
 
 [node name="AstarPoint2" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_knkod")]
