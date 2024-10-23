@@ -25,20 +25,22 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 		can_interact = false
 
 func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("interact") and can_interact:
-		var player : Player 
-		for area in area_2d.get_overlapping_areas():
-			if area.get_parent() is Player:
-				player = area.get_parent()
-		if player == null:
-			return
-		position = Vector2.ZERO
-		if player.plate_holder.get_child_count() != 0:
-			position.y = player.plate_holder.get_child(-1).position.y - 80
-		reparent(player.plate_holder, false)
-		collision_shape_2d.disabled = true
-		sfx_get.play()
-		plate_taken.emit()
+	if Input.is_action_just_pressed("interact"):
+		for i in range(2): await get_tree().physics_frame
+		if can_interact:
+			var player : Player 
+			for area in area_2d.get_overlapping_areas():
+				if area.get_parent() is Player:
+					player = area.get_parent()
+			if player == null:
+				return
+			position = Vector2.ZERO
+			if player.plate_holder.get_child_count() != 0:
+				position.y = player.plate_holder.get_child(-1).position.y - 80
+			reparent(player.plate_holder, false)
+			collision_shape_2d.disabled = true
+			sfx_get.play()
+			plate_taken.emit()
 
 func highlight(value: bool):
 	if value:

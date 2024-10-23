@@ -55,10 +55,12 @@ func _process(delta):
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("click") and selectable:
-		selected = true
-		get_parent().move_child(self, -1)
-		mouse_offset = global_position - get_global_mouse_position()
+	if event.is_action_pressed("click"):
+		for i in range(2): await get_tree().physics_frame
+		if selectable:
+			selected = true
+			get_parent().move_child(self, -1)
+			mouse_offset = global_position - get_global_mouse_position()
 	elif event.is_action_released("click") and selected:
 		selected = false
 		if on_area:

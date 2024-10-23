@@ -12,11 +12,13 @@ var can_interact = false
 
 
 func _unhandled_input(event):
-	if Input.is_action_just_pressed("click") and can_interact:
-		Global.player.go_to(SERVE_LOCATION)
-		await Global.player.arrived
-		if Global.player.position == SERVE_LOCATION:
-			open_serve_ui()
+	if Input.is_action_just_pressed("click"):
+		for i in range(2): await get_tree().physics_frame
+		if can_interact:
+			Global.player.go_to(SERVE_LOCATION)
+			await Global.player.arrived
+			if Global.player.position == SERVE_LOCATION:
+				open_serve_ui()
 
 func _on_area_2d_mouse_entered() -> void:
 	can_interact = true

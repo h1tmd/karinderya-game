@@ -21,21 +21,23 @@ func _ready() -> void:
 	print(to_local(WASH_LOCATION))
 
 func _unhandled_input(event):
-	if Input.is_action_just_pressed("click") and can_interact:
-		Global.player.go_to(WASH_LOCATION)
-		await Global.player.arrived
-		if Global.player.position == WASH_LOCATION:
-			interacted.emit()
-			timer.start(plates * GameState.current_difficulty["wash_time"])
-			timer_circle.show()
-			while Global.player.position == WASH_LOCATION and plates != 0:
-				await get_tree().create_timer(GameState.current_difficulty["wash_time"]).timeout
-				plates -= 1
-				GameState.available_plates += 1
-				sfx_wash.play()
-			timer_circle.hide()
-			if plates == 0:
-				sprite_2d.texture = sink_sprite
+	if Input.is_action_just_pressed("click"):
+		for i in range(2): await get_tree().physics_frame
+		if can_interact:
+			Global.player.go_to(WASH_LOCATION)
+			await Global.player.arrived
+			if Global.player.position == WASH_LOCATION:
+				interacted.emit()
+				timer.start(plates * GameState.current_difficulty["wash_time"])
+				timer_circle.show()
+				while Global.player.position == WASH_LOCATION and plates != 0:
+					await get_tree().create_timer(GameState.current_difficulty["wash_time"]).timeout
+					plates -= 1
+					GameState.available_plates += 1
+					sfx_wash.play()
+				timer_circle.hide()
+				if plates == 0:
+					sprite_2d.texture = sink_sprite
 
 
 func _on_area_2d_mouse_entered() -> void:
