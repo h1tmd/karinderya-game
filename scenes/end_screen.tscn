@@ -1,8 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://w0r5jh035ntn"]
+[gd_scene load_steps=8 format=3 uid="uid://w0r5jh035ntn"]
 
 [ext_resource type="Script" path="res://scripts/end_screen.gd" id="1_jjb8y"]
 [ext_resource type="Texture2D" uid="uid://cdm6icp5lerar" path="res://assets/interface/rect.png" id="1_nvx7a"]
+[ext_resource type="Shader" path="res://blur.gdshader" id="2_1ufey"]
 [ext_resource type="PackedScene" uid="uid://c1eye0bn7omsf" path="res://scenes/custom_button.tscn" id="2_xlhkw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7p0io"]
+shader = ExtResource("2_1ufey")
+shader_parameter/blur_amount = 3.637
+shader_parameter/mix_amount = 0.333
+shader_parameter/color_over = null
 
 [sub_resource type="LabelSettings" id="LabelSettings_8mdkm"]
 font_size = 100
@@ -22,6 +29,7 @@ grow_vertical = 2
 script = ExtResource("1_jjb8y")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_7p0io")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -125,18 +133,31 @@ size_flags_horizontal = 10
 text = "5"
 label_settings = SubResource("LabelSettings_4h5qx")
 
-[node name="CustomButton" parent="." instance=ExtResource("2_xlhkw")]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -216.0
-offset_top = -240.0
-offset_right = 219.0
-offset_bottom = -38.0
+offset_left = -647.0
+offset_top = -248.0
+offset_right = 647.0
+offset_bottom = -11.0
+grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Main Menu" parent="HBoxContainer" instance=ExtResource("2_xlhkw")]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+label_text = "Main Menu"
+
+[node name="Play Again" parent="HBoxContainer" instance=ExtResource("2_xlhkw")]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
 label_text = "Play Again"
 
-[connection signal="pressed" from="CustomButton" to="." method="_on_custom_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="HBoxContainer/Play Again" to="." method="_on_custom_button_pressed"]
