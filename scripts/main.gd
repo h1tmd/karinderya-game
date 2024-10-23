@@ -5,6 +5,7 @@ extends Node2D
 @onready var end_screen = $"CanvasLayer/End Screen"
 @onready var serve_canvas: CanvasLayer = $"Layout/FoodTable/CanvasLayer"
 @onready var main_menu: Control = $"CanvasLayer/Main Menu"
+@onready var pause_menu: Control = $"CanvasLayer/Pause Menu"
 
 
 func _ready() -> void:
@@ -36,7 +37,7 @@ func start():
 			customer_interval = interval_arr[3]
 		else:
 			customer_interval = interval_arr[4]
-		await get_tree().create_timer(customer_interval).timeout
+		await get_tree().create_timer(customer_interval, false).timeout
 		GameState.total_customers += 1
 		var cust := customer.instantiate()
 		add_child(cust)
@@ -46,3 +47,8 @@ func start():
 		serve_canvas.hide()
 	end_screen.show_stats()
 	end_screen.show()
+
+
+func _on_pause_button_pressed() -> void:
+	get_tree().paused = true
+	pause_menu.show()

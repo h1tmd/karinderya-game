@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c8sbjr4h22ptn"]
+[gd_scene load_steps=16 format=3 uid="uid://c8sbjr4h22ptn"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_gky2s"]
 [ext_resource type="PackedScene" uid="uid://ciaoc3hpfpjof" path="res://scenes/layout.tscn" id="1_ptahu"]
@@ -7,10 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://dd38tua3xlrsv" path="res://scenes/stats_ui.tscn" id="5_4xcc7"]
 [ext_resource type="Texture2D" uid="uid://d1sw1qe850eyw" path="res://assets/interface/timeprogressunder.png" id="6_7rw5d"]
 [ext_resource type="Texture2D" uid="uid://dorv5t1eknoho" path="res://assets/interface/timeprogressover.png" id="7_587rj"]
+[ext_resource type="PackedScene" uid="uid://c65l2pccvivo" path="res://scenes/pause_menu.tscn" id="7_a61po"]
 [ext_resource type="Texture2D" uid="uid://pclefjw2kia4" path="res://assets/interface/timeprogress.png" id="8_cb16f"]
 [ext_resource type="Script" path="res://scripts/timer_progress.gd" id="9_8a104"]
 [ext_resource type="Texture2D" uid="uid://r7fyrieshiwt" path="res://assets/interface/timeicon.png" id="9_e7uqa"]
 [ext_resource type="PackedScene" uid="uid://d3d5vewgpvuja" path="res://scenes/main_menu.tscn" id="12_dveia"]
+[ext_resource type="Texture2D" uid="uid://cnbl8a3hfya4n" path="res://assets/interface/pause_normal.png" id="13_wti64"]
+[ext_resource type="Texture2D" uid="uid://1vowa23ttmnc" path="res://assets/interface/pause_pressed.png" id="14_wy31p"]
 [ext_resource type="PackedScene" uid="uid://w0r5jh035ntn" path="res://scenes/end_screen.tscn" id="17_2ama2"]
 
 [node name="Main" type="Node2D"]
@@ -30,6 +33,19 @@ position = Vector2(-298, 301)
 collision_mask = 0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pause Button" type="TextureButton" parent="CanvasLayer"]
+offset_left = 16.0
+offset_top = 14.0
+offset_right = 99.0
+offset_bottom = 90.0
+texture_normal = ExtResource("13_wti64")
+texture_pressed = ExtResource("14_wy31p")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Pause Menu" parent="CanvasLayer" instance=ExtResource("7_a61po")]
+visible = false
 
 [node name="Stats UI" parent="CanvasLayer" instance=ExtResource("5_4xcc7")]
 
@@ -80,3 +96,8 @@ visible = false
 
 [node name="Main Menu" parent="CanvasLayer" instance=ExtResource("12_dveia")]
 visible = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, 536)
+
+[connection signal="pressed" from="CanvasLayer/Pause Button" to="." method="_on_pause_button_pressed"]

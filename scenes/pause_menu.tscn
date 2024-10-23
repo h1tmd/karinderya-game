@@ -1,0 +1,92 @@
+[gd_scene load_steps=8 format=3 uid="uid://c65l2pccvivo"]
+
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_6m715"]
+[ext_resource type="Shader" path="res://blur.gdshader" id="2_ehxtw"]
+[ext_resource type="Texture2D" uid="uid://cdm6icp5lerar" path="res://assets/interface/rect.png" id="3_qtt01"]
+[ext_resource type="PackedScene" uid="uid://c1eye0bn7omsf" path="res://scenes/custom_button.tscn" id="4_2bu23"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rv40o"]
+shader = ExtResource("2_ehxtw")
+shader_parameter/blur_amount = 1.158
+shader_parameter/mix_amount = 0.333
+shader_parameter/color_over = null
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l4yiy"]
+texture = ExtResource("3_qtt01")
+texture_margin_left = 54.0
+texture_margin_top = 55.0
+texture_margin_right = 56.0
+texture_margin_bottom = 66.0
+expand_margin_left = 50.0
+expand_margin_top = 30.0
+expand_margin_right = 50.0
+expand_margin_bottom = 30.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_8mdkm"]
+font_size = 100
+font_color = Color(0.166016, 0.154687, 0.128078, 1)
+
+[node name="Pause Menu" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6m715")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_rv40o")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.121569, 0.121569, 0.121569, 0.619608)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.5
+offset_top = -125.5
+offset_right = 195.5
+offset_bottom = 125.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 36
+
+[node name="NinePatchRect" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_l4yiy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/NinePatchRect"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+text = "PAUSED"
+label_settings = SubResource("LabelSettings_8mdkm")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Resume" parent="VBoxContainer/HBoxContainer" instance=ExtResource("4_2bu23")]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 2
+label_text = "Resume"
+
+[node name="Main Menu" parent="VBoxContainer/HBoxContainer" instance=ExtResource("4_2bu23")]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 2
+label_text = "Main Menu"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
