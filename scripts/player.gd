@@ -36,7 +36,7 @@ func _process(delta):
 		if position.distance_to(current_path[0]) < speed * delta:
 			position = current_path[0]
 			current_path.remove_at(0)
-		if current_path.is_empty():
+		if current_path.is_empty() and queued_path.is_empty():
 			arrived.emit()
 	elif not queued_path.is_empty():
 		current_path = queued_path

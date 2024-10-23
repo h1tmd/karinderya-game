@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cl6m2d3tmqoog"]
+[gd_scene load_steps=13 format=3 uid="uid://cl6m2d3tmqoog"]
 
 [ext_resource type="Texture2D" uid="uid://f2fgaamw4nsn" path="res://assets/room/sink.png" id="1_l8bvp"]
 [ext_resource type="Script" path="res://scripts/sink.gd" id="1_vfgh5"]
@@ -21,6 +21,9 @@ size = Vector2(171, 317)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_engdg"]
 size = Vector2(284, 267)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_323ln"]
+radius = 40.1995
+
 [node name="Sink" type="StaticBody2D"]
 script = ExtResource("1_vfgh5")
 sink_sprite = ExtResource("1_l8bvp")
@@ -34,11 +37,11 @@ texture = ExtResource("1_l8bvp")
 position = Vector2(19.5, 94.5)
 shape = SubResource("RectangleShape2D_uarev")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Click Area" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Click Area"]
 position = Vector2(21, 0.5)
 shape = SubResource("RectangleShape2D_engdg")
 
@@ -67,6 +70,14 @@ offset_right = -140.0
 offset_bottom = -86.0
 hint_string = "3. Wash plates here"
 
+[node name="Wash Area" type="Area2D" parent="."]
+position = Vector2(-160, 204)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wash Area"]
+shape = SubResource("CircleShape2D_323ln")
+
 [connection signal="interacted" from="." to="Hint Popup" method="hide"]
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Click Area" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Click Area" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="body_entered" from="Wash Area" to="." method="_on_wash_area_body_entered"]

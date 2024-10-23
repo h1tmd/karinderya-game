@@ -60,6 +60,7 @@ hint_string = "1. Serve orders here."
 
 [node name="Serve Area" type="Area2D" parent="."]
 position = Vector2(-184, -176)
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Serve Area"]
 shape = SubResource("CircleShape2D_kigow")
@@ -75,7 +76,6 @@ shape = SubResource("CircleShape2D_be6ob")
 [connection signal="mouse_entered" from="Click Area" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Click Area" to="." method="_on_area_2d_mouse_exited"]
 [connection signal="hidden" from="CanvasLayer/Serve UI" to="." method="_on_serve_ui_hidden"]
-[connection signal="body_entered" from="Serve Area" to="." method="_on_serve_area_body_entered"]
 [connection signal="body_exited" from="Serve Area" to="." method="_on_serve_area_body_exited"]
 [connection signal="body_entered" from="OrderArea" to="." method="_on_order_area_body_entered"]
 [connection signal="body_entered" from="OrderArea" to="OrderArea" method="_on_body_entered"]

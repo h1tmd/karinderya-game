@@ -14,6 +14,7 @@ var can_interact = false
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("click") and can_interact:
 		Global.player.go_to(SERVE_LOCATION)
+		await Global.player.arrived
 		if Global.player.position == SERVE_LOCATION:
 			open_serve_ui()
 
@@ -46,11 +47,6 @@ func open_serve_ui():
 	ui_visible.emit(serve_ui.visible)
 	sfx_open_menu.play()
 	serve_ui._on_dishes_node_child_order_changed()
-
-
-func _on_serve_area_body_entered(body: Node2D) -> void:
-	if body is Player:
-		open_serve_ui()
 
 
 func _on_serve_area_body_exited(body: Node2D) -> void:
