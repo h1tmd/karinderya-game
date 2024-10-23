@@ -60,11 +60,6 @@ func _input(_event: InputEvent) -> void:
 	pickup_plates and can_interact:
 		Global.player.go_to(player_pickup_area.global_position)
 
-func on_plate_taken():
-	if food_on_table.get_child_count() == 0 and seat_location not in GameState.available_seats:
-		GameState.available_seats.push_front(seat_location)
-
-
 func _on_click_area_mouse_entered() -> void:
 	can_interact = true
 	highlight_signal.emit(can_interact)
@@ -85,5 +80,6 @@ func _on_player_pickup_area_body_entered(body: Node2D) -> void:
 			dirty_plate.call_deferred("reparent", body.plate_holder, false)
 			dirty_plate.collision_shape_2d.set_deferred("disabled", true)
 			sfx_get.play()
-			GameState.available_seats.push_front(seat_location)
+			if seat_location not in GameState.available_seats:
+				GameState.available_seats.push_front(seat_location)
 			pickup_plates = false
