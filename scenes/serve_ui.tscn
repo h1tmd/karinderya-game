@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://tkakyoly1imi" path="res://assets/audio/515626__mrickey13__uiexitcancel.wav" id="7_l4u50"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tfjti"]
-size = Vector2(102, 44)
+size = Vector2(136, 184)
 
 [sub_resource type="LabelSettings" id="LabelSettings_qspo1"]
 font_size = 40
@@ -70,7 +70,7 @@ offset_top = 75.0
 offset_right = -23.0
 offset_bottom = 732.0
 grow_horizontal = 0
-mouse_filter = 1
+mouse_filter = 0
 texture = ExtResource("2_q5qdh")
 patch_margin_left = 49
 patch_margin_top = 54
@@ -104,16 +104,12 @@ texture = ExtResource("3_juqtc")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="DishesNode" type="Node2D" parent="NinePatchRect/HSplitContainer/MarginContainer/Panel"]
-z_index = 1
-position = Vector2(195, 219)
-
 [node name="Serving Area" type="Area2D" parent="NinePatchRect/HSplitContainer/MarginContainer/Panel"]
 collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NinePatchRect/HSplitContainer/MarginContainer/Panel/Serving Area"]
-position = Vector2(201, 348)
+position = Vector2(201, 337)
 shape = SubResource("RectangleShape2D_tfjti")
 
 [node name="Label" type="Label" parent="NinePatchRect/HSplitContainer/MarginContainer/Panel"]
@@ -185,6 +181,20 @@ custom_minimum_size = Vector2(280, 90)
 layout_mode = 2
 texture_disabled = ExtResource("5_xu85t")
 
+[node name="DishesNode" type="Control" parent="."]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -700.0
+offset_top = 354.0
+offset_right = -700.0
+offset_bottom = 354.0
+grow_horizontal = 0
+mouse_filter = 1
+
 [node name="SFX Bell" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_bu4rd")
 volume_db = -15.348
@@ -194,7 +204,7 @@ pitch_scale = 1.08
 stream = ExtResource("7_l4u50")
 volume_db = -9.309
 
-[connection signal="child_entered_tree" from="NinePatchRect/HSplitContainer/MarginContainer/Panel/DishesNode" to="." method="_on_dishes_node_child_entered_tree"]
-[connection signal="child_order_changed" from="NinePatchRect/HSplitContainer/MarginContainer/Panel/DishesNode" to="." method="_on_dishes_node_child_order_changed"]
 [connection signal="pressed" from="HBoxContainer/Cancel Button" to="." method="hide"]
 [connection signal="pressed" from="HBoxContainer/Serve Button" to="." method="_on_button_pressed"]
+[connection signal="child_entered_tree" from="DishesNode" to="." method="_on_dishes_node_child_entered_tree"]
+[connection signal="child_order_changed" from="DishesNode" to="." method="_on_dishes_node_child_order_changed"]

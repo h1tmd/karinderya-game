@@ -29,7 +29,7 @@ shape = SubResource("RectangleShape2D_mnahm")
 
 [node name="PlateHolder" type="Node2D" parent="."]
 position = Vector2(0, -144)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.65, 0.65)
 
 [connection signal="child_entered_tree" from="PlateHolder" to="." method="_on_plate_holder_child_entered_tree"]
 [connection signal="child_exiting_tree" from="PlateHolder" to="." method="_on_plate_holder_child_exiting_tree"]

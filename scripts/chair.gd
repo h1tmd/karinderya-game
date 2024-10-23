@@ -33,15 +33,15 @@ func _on_chair_area_body_entered(body: Node2D) -> void:
 	if body is Customer:
 		body.seat_and_eat()
 		body.connect("done_signal", on_customer_done)
-		for dish : Node2D in body.food_holder.get_children():
+		for dish: Node in body.food_holder.get_children():
 			dish.call_deferred("reparent", food_on_table, false)
 
 func on_customer_done(seat):
 	pickup_plates = true
 	seat_location = seat
-	for node: Sprite2D in food_on_table.get_children():
+	for node: Node in food_on_table.get_children():
 		var dirty_plate = DIRTY_PLATE.instantiate()
-		if node is DishServing:
+		if node is DishDraggable:
 			if node.dish_data.name == "Rice":
 				node.queue_free()
 				continue
@@ -51,12 +51,11 @@ func on_customer_done(seat):
 			print("Error identifiying food on table child")
 			return
 		dirty_plate.position = node.position
-		#dirty_plate.connect("plate_taken", on_plate_taken)
 		connect("highlight_signal", dirty_plate.highlight)
 		node.queue_free()
 		food_on_table.add_child(dirty_plate)
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("click") and \
 	pickup_plates and can_interact:
 		Global.player.go_to(player_pickup_area.global_position)

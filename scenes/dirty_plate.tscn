@@ -16,7 +16,7 @@ size = Vector2(442.5, 365)
 
 [node name="Dirty Plate" type="Sprite2D"]
 material = SubResource("ShaderMaterial_ww0ym")
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_bj31q")
 script = ExtResource("2_2mcp8")
 

@@ -34,7 +34,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			return
 		position = Vector2.ZERO
 		if player.plate_holder.get_child_count() != 0:
-			position.y = player.plate_holder.get_child(-1).position.y - 40
+			position.y = player.plate_holder.get_child(-1).position.y - 80
 		reparent(player.plate_holder, false)
 		collision_shape_2d.disabled = true
 		sfx_get.play()

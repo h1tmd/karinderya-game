@@ -161,7 +161,6 @@ func receive_order(order_received: Dictionary):
 
 # Called when customer reaches a chair
 func seat_and_eat():
-	
 	head.texture = head_sprites[EAT]
 	body.texture = body_sprites[1]
 	timer.start(time_eating)

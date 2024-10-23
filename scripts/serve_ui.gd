@@ -1,7 +1,7 @@
 extends Control
 
 @onready var grid_container: GridContainer = $NinePatchRect/HSplitContainer/ScrollContainer/GridContainer
-@onready var dishes_node: Node2D = $NinePatchRect/HSplitContainer/MarginContainer/Panel/DishesNode
+@onready var dishes_node: Node = %DishesNode
 @onready var serve_button: TextureButton = $"HBoxContainer/Serve Button"
 @onready var sfx_bell: AudioStreamPlayer = $"SFX Bell"
 @onready var sfx_drop: AudioStreamPlayer = $"SFX Drop"
@@ -30,9 +30,9 @@ func _on_button_pressed():
 	# Make order dictionary
 	var order = {}
 	var dishes_served = dishes_node.get_children()
-	for dish_served: Sprite2D in dishes_served:
+	for dish_served: Node in dishes_served:
 		# if plate, skip
-		if dish_served is not DishServing:
+		if dish_served is not DishDraggable:
 			continue
 		var dish = dish_served.dish_data
 		if dish not in order:
@@ -46,12 +46,12 @@ func _on_button_pressed():
 		GameState.available_plates -= plate_counter()
 		cust.receive_order(order)
 		Customer.current_customer = null
-		for child: Node2D in dishes_node.get_children():
-			if child is DishServing:
-				child.area_2d.hide()
+		for child: Node in dishes_node.get_children():
+			if child is DishDraggable:
+				child.set_process(false)
 				child.selected = false
 				child.hide_highlight()
-			child.scale = Vector2(0.8, 0.8)
+				DishDraggable.currently_selected = null
 			child.reparent(cust.food_holder, false)
 		sfx_bell.play()
 		add_plate()
@@ -71,7 +71,7 @@ func plate_counter() -> int:
 	var plates = 0
 	for dish_served in dishes_node.get_children():
 		# if plate, skip
-		if dish_served is not DishServing:
+		if dish_served is not DishDraggable:
 			plates += 1
 			continue
 		elif dish_served.dish_data.name != "Rice":
@@ -84,5 +84,5 @@ func dish_dropped():
 
 
 func _on_dishes_node_child_entered_tree(node: Node) -> void:
-	if node is DishServing:
+	if node is DishDraggable:
 		node.connect("dropped", dish_dropped)

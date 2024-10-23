@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://c5y881dax3vmq"]
+
+[ext_resource type="Shader" path="res://outline.gdshader" id="1_oi74j"]
+[ext_resource type="Texture2D" uid="uid://cxca5sdre87xj" path="res://assets/dishes/batchoy.png" id="1_sm5hb"]
+[ext_resource type="Script" path="res://scripts/dish_draggable.gd" id="2_krqok"]
+[ext_resource type="AudioStream" uid="uid://cvvadelsabw5v" path="res://assets/audio/96185__atlaslives__cup-on-table.wav" id="4_pjkuh"]
+[ext_resource type="AudioStream" uid="uid://biuemag3b7o6o" path="res://assets/audio/326658__150128__wet-thump-or-splash.wav" id="5_lkqeo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iaf2s"]
+resource_local_to_scene = true
+shader = ExtResource("1_oi74j")
+shader_parameter/line_color = Color(1, 0.982, 0.555, 0.918)
+shader_parameter/line_thickness = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4bpgt"]
+size = Vector2(72, 36)
+
+[node name="Dish Draggable" type="Node2D"]
+script = ExtResource("2_krqok")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_iaf2s")
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_sm5hb")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, 34)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_4bpgt")
+
+[node name="SFX Place" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_pjkuh")
+volume_db = -12.0
+pitch_scale = 1.2
+bus = &"SFX"
+
+[node name="SFX Rice" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_lkqeo")
+volume_db = -10.0
+pitch_scale = 1.2
+bus = &"SFX"
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

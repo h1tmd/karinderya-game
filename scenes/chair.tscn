@@ -29,14 +29,14 @@ position = Vector2(0, -11)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_7bxmn")
 
+[node name="Food On Table" type="Node2D" parent="."]
+position = Vector2(241, -206)
+scale = Vector2(0.65, 0.65)
+
 [node name="Chair Area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chair Area"]
 shape = SubResource("RectangleShape2D_o44k8")
-
-[node name="Food On Table" type="Node2D" parent="."]
-position = Vector2(241, -206)
-scale = Vector2(0.5, 0.5)
 
 [node name="Click Area" type="Area2D" parent="."]
 position = Vector2(241, -206)
