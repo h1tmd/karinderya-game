@@ -23,8 +23,9 @@ var available_plates: int:
 		update_ui()
 
 # Seats that customers can go
-var available_seats: Array[Vector2] = []
+var available_seats: Array[Vector2]
 
+# Difficulty
 var current_difficulty: Dictionary = Global.diff[1]
 
 # Stat vars
@@ -46,4 +47,4 @@ func reset():
 	total_plates = 0
 	total_customers = 0
 	ideal_profit = 0.0
-	available_seats = []
+	available_seats.assign(Global.seats.duplicate(true))

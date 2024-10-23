@@ -8,6 +8,7 @@ var player_astar: AStar2D
 # End screen replay or main menu
 var start_immediately = false
 var player: Player = null
+var seats = []
 
 const order_loc = Vector2(672, 481)
 const exit_loc = Vector2(-89, 483)
@@ -45,7 +46,8 @@ func _ready() -> void:
 	player_astar = generate_astar(player_astar_points.instantiate())
 	customer_astar = generate_astar(customer_astar_points.instantiate())
 	customer_astar.disconnect_points(1, 36, false)
-	randomize()
+	GameState.available_seats.assign(seats.duplicate(true))
+
 
 func read_dishes():
 	dishes.append(load("res://rice.tres"))
@@ -63,7 +65,7 @@ func generate_astar(astar_points_container: Node2D) -> AStar2D:
 	for point:AstarPoint in all_points:
 		astar.add_point(point.get_index(), point.position)
 		if point.is_chair:
-			GameState.available_seats.append(point.position)
+			seats.append(point.position)
 	
 	# Connect all the AStar points to each other
 	for point:AstarPoint in all_points:
