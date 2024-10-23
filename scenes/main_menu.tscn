@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d3d5vewgpvuja"]
+[gd_scene load_steps=13 format=3 uid="uid://d3d5vewgpvuja"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_3dwbv"]
 [ext_resource type="Shader" path="res://blur.gdshader" id="1_cobnw"]
@@ -22,6 +22,25 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_o72jm"]
 font_size = 70
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e681a"]
+content_margin_left = 50.0
+content_margin_top = 50.0
+content_margin_right = 50.0
+content_margin_bottom = 50.0
+bg_color = Color(0.495652, 0.462728, 0.258601, 0.756863)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_dwkxe"]
+font_size = 50
 
 [node name="Main Menu" type="Control"]
 process_mode = 2
@@ -67,19 +86,44 @@ label_settings = SubResource("LabelSettings_o72jm")
 horizontal_alignment = 1
 
 [node name="Control" type="Control" parent="CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 
 [node name="CustomButton" parent="CenterContainer/VBoxContainer" instance=ExtResource("2_av0i0")]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
-label_text = "Play Game"
+label_text = "Play"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+[node name="Control2" type="Control" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-alignment = 1
 
-[node name="Comfy" parent="CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_av0i0")]
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -395.0
+offset_top = -701.0
+offset_right = -45.0
+offset_bottom = -58.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_e681a")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Difficulty"
+label_settings = SubResource("LabelSettings_dwkxe")
+horizontal_alignment = 1
+
+[node name="Comfy" parent="PanelContainer/VBoxContainer" instance=ExtResource("2_av0i0")]
 custom_minimum_size = Vector2(250, 150)
 layout_mode = 2
 toggle_mode = true
@@ -87,8 +131,8 @@ button_group = ExtResource("4_6ce42")
 label_text = "Comfy"
 icon = ExtResource("4_i6koe")
 
-[node name="Normal" parent="CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_av0i0")]
-custom_minimum_size = Vector2(250, 130)
+[node name="Normal" parent="PanelContainer/VBoxContainer" instance=ExtResource("2_av0i0")]
+custom_minimum_size = Vector2(250, 150)
 layout_mode = 2
 toggle_mode = true
 button_pressed = true
@@ -96,8 +140,8 @@ button_group = ExtResource("4_6ce42")
 label_text = "Normal"
 icon = ExtResource("5_0a1fg")
 
-[node name="Hard" parent="CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_av0i0")]
-custom_minimum_size = Vector2(250, 130)
+[node name="Hard" parent="PanelContainer/VBoxContainer" instance=ExtResource("2_av0i0")]
+custom_minimum_size = Vector2(250, 150)
 layout_mode = 2
 toggle_mode = true
 button_group = ExtResource("4_6ce42")
