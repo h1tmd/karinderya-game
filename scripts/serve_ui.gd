@@ -6,6 +6,7 @@ extends Control
 @onready var sfx_bell: AudioStreamPlayer = $"SFX Bell"
 @onready var sfx_drop: AudioStreamPlayer = $"SFX Drop"
 
+
 func _ready() -> void:
 	hide()
 	add_plate()
