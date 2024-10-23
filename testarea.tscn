@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://orpc6ca4kevq"]
-
-[ext_resource type="PackedScene" uid="uid://dw2uugi5lsy75" path="res://scenes/customer.tscn" id="2_ct5wd"]
-
-[node name="testarea" type="Node2D"]
-
-[node name="Customer" parent="." instance=ExtResource("2_ct5wd")]
