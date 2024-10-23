@@ -55,10 +55,11 @@ func on_customer_done(seat):
 		node.queue_free()
 		food_on_table.add_child(dirty_plate)
 
-func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("click") and \
-	pickup_plates and can_interact:
-		Global.player.go_to(player_pickup_area.global_position)
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("click") and pickup_plates: 
+		for i in range(2): await get_tree().physics_frame
+		if can_interact:
+			Global.player.go_to(player_pickup_area.global_position)
 
 func _on_click_area_mouse_entered() -> void:
 	can_interact = true

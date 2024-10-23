@@ -61,16 +61,21 @@ func _input(event: InputEvent) -> void:
 			selected = true
 			get_parent().move_child(self, -1)
 			mouse_offset = global_position - get_global_mouse_position()
-	elif event.is_action_released("click") and selected:
-		selected = false
-		if on_area:
-			if dish_data.name == "Rice":
-				sfx_rice.play()
-			else:
-				sfx_place.play()
-			return
-		dropped.emit()
-		queue_free()
+	elif event.is_action_released("click"): 
+		for i in range(2): await get_tree().physics_frame
+		if selected:
+			selected = false
+			selectable = false
+			hide_highlight()
+			#currently_selected = null
+			if on_area:
+				if dish_data.name == "Rice":
+					sfx_rice.play()
+				else:
+					sfx_place.play()
+				return
+			dropped.emit()
+			queue_free()
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
