@@ -17,25 +17,24 @@ var washing = false
 
 const WASH_LOCATION = Vector2(1788, 320)
 
-func _ready() -> void:
-	print(to_local(WASH_LOCATION))
-
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("click"):
 		for i in range(2): await get_tree().physics_frame
 		if can_interact:
 			Global.player.go_to(WASH_LOCATION)
 			await Global.player.arrived
-			if Global.player.position == WASH_LOCATION:
+			if Global.player.position == WASH_LOCATION and not washing:
+				washing = true
 				interacted.emit()
 				timer.start(plates * GameState.current_difficulty["wash_time"])
 				timer_circle.show()
 				while Global.player.position == WASH_LOCATION and plates != 0:
-					await get_tree().create_timer(GameState.current_difficulty["wash_time"]).timeout
+					await get_tree().create_timer(GameState.current_difficulty["wash_time"], false).timeout
 					plates -= 1
 					GameState.available_plates += 1
 					sfx_wash.play()
 				timer_circle.hide()
+				washing = false
 				if plates == 0:
 					sprite_2d.texture = sink_sprite
 
@@ -51,7 +50,7 @@ func _on_area_2d_mouse_exited() -> void:
 
 func _on_wash_area_body_entered(body: Node2D) -> void:
 	if body is Player:
-		if body.get_child_count() != 0:
+		if body.plate_holder.get_child_count() != 0:
 			var plates_recieved = body.plate_holder.get_child_count()
 			for child in body.plate_holder.get_children():
 				child.queue_free()

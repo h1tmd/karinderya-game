@@ -26,6 +26,8 @@ func _ready():
 	if food_on_table.get_child_count() != 0:
 		pickup_plates = true
 		var seat_point = Global.customer_astar.get_point_position(Global.customer_astar.get_closest_point(global_position))
+		print(seat_point)
+		print(seat_point in GameState.available_seats)
 		GameState.available_seats.erase(seat_point)
 		seat_location = seat_point
 

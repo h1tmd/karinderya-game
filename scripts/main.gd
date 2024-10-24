@@ -9,9 +9,6 @@ extends Node2D
 
 
 func _ready() -> void:
-	get_window()
-	if GameState.profit != 0:
-		GameState.reset()
 	if not Global.start_immediately:
 		# Show menu
 		get_tree().paused = true
@@ -20,6 +17,7 @@ func _ready() -> void:
 	else:
 		get_tree().paused = false
 		Global.start_immediately = false
+	Global.player.current_speed = GameState.current_difficulty["speed"]
 	start()
 
 func start():

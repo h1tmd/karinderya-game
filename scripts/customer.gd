@@ -16,7 +16,6 @@ class_name Customer
 
 signal done_signal(chair_location)
 
-var speed = 250
 var order_price = 0
 var time_eating = 0
 var order = {}
@@ -184,6 +183,7 @@ func go_to(target_position: Vector2):
 
 func _process(delta: float) -> void:
 	if path.size() > 0 and not person_in_front:
+		var speed = GameState.current_difficulty["speed"] * 0.5
 		var move_velocity = position.direction_to(path[0]) * speed * delta
 		person_radar.look_at(path[0])
 		position += move_velocity

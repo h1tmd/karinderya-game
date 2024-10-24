@@ -29,8 +29,10 @@ func _on_custom_button_pressed():
 	# insert transition
 	get_tree().reload_current_scene()
 	Global.start_immediately = true
+	GameState.reset()
 
 
 func _on_main_menu_pressed() -> void:
 	get_tree().reload_current_scene()
 	Global.start_immediately = false
+	GameState.reset()

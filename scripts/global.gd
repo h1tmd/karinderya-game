@@ -16,26 +16,29 @@ const diff = [
 	{
 		# Comfy
 		"game_time": 360,
-		"cust_interval": [20, 10, 10, 10 ,10],
+		"cust_interval": [20, 10, 10, 10, 10],
 		"cust_timer": 0,
+		"speed": 400,
 		"plate_weight": 15,
 		"wash_time": 0.6
 	},
 	{
 		# Normal
 		"game_time": 300,
-		"cust_interval": [20, 10, 9, 8 ,7],
+		"cust_interval": [20, 10, 9, 9, 8],
 		"cust_timer": 30,
-		"plate_weight": 20,
+		"speed": 450,
+		"plate_weight": 10,
 		"wash_time": 1.0
 	},
 	{
 		# Challenge
 		"game_time": 300,
-		"cust_interval": [10, 8, 6, 5 ,5],
+		"cust_interval": [10, 9, 8, 7, 7],
 		"cust_timer": 20,
+		"speed": 650,
 		"plate_weight": 35,
-		"wash_time": 1.3
+		"wash_time": 1.2
 	}
 ]
 const player_astar_points = preload("res://scenes/player_astar_points.tscn")
