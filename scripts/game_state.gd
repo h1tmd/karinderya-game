@@ -26,7 +26,10 @@ var available_plates: int:
 var available_seats: Array[Vector2]
 
 # Difficulty
-var current_difficulty: Dictionary = Global.diff[1]
+var current_difficulty: Dictionary = Global.diff[1]:
+	set(value):
+		Global.player.current_speed = GameState.current_difficulty["speed"]
+		current_difficulty = value
 
 # Stat vars
 var total_plates: int = 0

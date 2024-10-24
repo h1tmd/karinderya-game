@@ -18,11 +18,10 @@ func _ready() -> void:
 	else:
 		get_tree().paused = false
 		Global.start_immediately = false
-	Global.player.current_speed = GameState.current_difficulty["speed"]
 	start()
 
 func start():
-	#game_timer.start(GameState.current_difficulty["game_time"])
+	game_timer.start(GameState.current_difficulty["game_time"])
 	while game_timer.time_left > 15:
 		var current_time = (game_timer.wait_time - game_timer.time_left) / game_timer.wait_time
 		var interval_arr = GameState.current_difficulty["cust_interval"]
