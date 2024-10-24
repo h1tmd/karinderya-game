@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c8sbjr4h22ptn"]
+[gd_scene load_steps=19 format=3 uid="uid://c8sbjr4h22ptn"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_gky2s"]
 [ext_resource type="PackedScene" uid="uid://ciaoc3hpfpjof" path="res://scenes/layout.tscn" id="1_ptahu"]
@@ -16,6 +16,13 @@
 [ext_resource type="Texture2D" uid="uid://1vowa23ttmnc" path="res://assets/interface/pause_pressed.png" id="14_wy31p"]
 [ext_resource type="AudioStream" uid="uid://bbe55hd5tep8b" path="res://assets/audio/731993__6sdeimos__click-1.wav" id="16_kv2sy"]
 [ext_resource type="PackedScene" uid="uid://w0r5jh035ntn" path="res://scenes/end_screen.tscn" id="17_2ama2"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_raa52"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_bh0eo"]
+events = [SubResource("InputEventKey_raa52")]
 
 [node name="Main" type="Node2D"]
 process_mode = 1
@@ -40,6 +47,7 @@ offset_left = 16.0
 offset_top = 14.0
 offset_right = 99.0
 offset_bottom = 90.0
+shortcut = SubResource("Shortcut_bh0eo")
 texture_normal = ExtResource("13_wti64")
 texture_pressed = ExtResource("14_wy31p")
 ignore_texture_size = true
