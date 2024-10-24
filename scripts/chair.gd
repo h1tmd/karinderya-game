@@ -82,7 +82,11 @@ func _on_player_pickup_area_body_entered(body: Node2D) -> void:
 			dirty_plate.plate_taken.emit()
 			dirty_plate.call_deferred("reparent", body.plate_holder, false)
 			dirty_plate.collision_shape_2d.set_deferred("disabled", true)
+			
+			var pitch = randf_range(0.9, 1.1)
+			sfx_get.pitch_scale = pitch
 			sfx_get.play()
+			await get_tree().create_timer(0.2, false).timeout
 			if seat_location not in GameState.available_seats:
 				GameState.available_seats.push_front(seat_location)
 			pickup_plates = false
