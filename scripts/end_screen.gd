@@ -1,10 +1,15 @@
 extends Control
 
 @onready var star_container: HBoxContainer = %"Star Container"
-@onready var profit = $MarginContainer/NinePatchRect/VBoxContainer/HBoxContainer/Profit
-@onready var customers = $MarginContainer/NinePatchRect/VBoxContainer/HBoxContainer2/Customers
-@onready var plates = $MarginContainer/NinePatchRect/VBoxContainer/HBoxContainer3/Plates
+@onready var profit: Label = %Profit
+@onready var highscore: Label = %Highscore
+@onready var customers: Label = %Customers
+@onready var plates: Label = %Plates
 const STAR = preload("res://scenes/star.tscn")
+var highscores: HighScore
+
+func _ready() -> void:
+	highscores = HighScore.load()
 
 func show_stats():
 	var stars
@@ -22,6 +27,22 @@ func show_stats():
 		star_container.add_child(STAR.instantiate())
 	
 	profit.text = "₱ %01.2f" % GameState.profit
+	var current_highscore = 0.0
+	if GameState.current_difficulty == Global.diff[0]:
+		highscore.get_parent().hide()
+	elif GameState.current_difficulty == Global.diff[1]:
+		if GameState.profit > highscores.normal_highscore:
+			highscores.normal_highscore = GameState.profit
+		current_highscore = highscores.normal_highscore
+	elif GameState.current_difficulty == Global.diff[2]:
+		if GameState.profit > highscores.normal_highscore:
+			highscores.hard_highscore = GameState.profit
+		current_highscore = highscores.hard_highscore
+	highscores.save()
+	if current_highscore == GameState.profit:
+		highscore.label_settings.font_color = Color.WEB_GREEN
+	highscore.text = "₱ %01.2f" % current_highscore
+	
 	customers.text = str(GameState.total_customers)
 	plates.text = str(GameState.total_plates)
 

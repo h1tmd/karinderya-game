@@ -65,8 +65,8 @@ func _input(event: InputEvent) -> void:
 		for i in range(2): await get_tree().physics_frame
 		if selected:
 			selected = false
-			selectable = false
-			hide_highlight()
+			#selectable = false
+			#hide_highlight()
 			#currently_selected = null
 			if on_area:
 				if dish_data.name == "Rice":

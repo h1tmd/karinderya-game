@@ -92,7 +92,7 @@ position = Vector2(1584, 608)
 position = Vector2(942, 321)
 
 [node name="Sink" parent="." instance=ExtResource("8_mcwtw")]
-position = Vector2(1868, 218)
+position = Vector2(1874, 218)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(1526, 302)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://w0r5jh035ntn"]
+[gd_scene load_steps=9 format=3 uid="uid://w0r5jh035ntn"]
 
 [ext_resource type="Script" path="res://scripts/end_screen.gd" id="1_jjb8y"]
 [ext_resource type="Texture2D" uid="uid://cdm6icp5lerar" path="res://assets/interface/rect.png" id="1_nvx7a"]
@@ -16,6 +16,10 @@ font_size = 100
 font_color = Color(0.166016, 0.154687, 0.128078, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_4h5qx"]
+font_size = 70
+font_color = Color(0.166016, 0.154687, 0.128078, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_toesj"]
 font_size = 70
 font_color = Color(0.166016, 0.154687, 0.128078, 1)
 
@@ -81,11 +85,6 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Label3" type="Label" parent="MarginContainer/NinePatchRect/VBoxContainer"]
-layout_mode = 2
-text = "Stats"
-label_settings = SubResource("LabelSettings_4h5qx")
-
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/NinePatchRect/VBoxContainer"]
 layout_mode = 2
 
@@ -96,10 +95,28 @@ text = "Total Profit:"
 label_settings = SubResource("LabelSettings_4h5qx")
 
 [node name="Profit" type="Label" parent="MarginContainer/NinePatchRect/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
 text = "15"
 label_settings = SubResource("LabelSettings_4h5qx")
+horizontal_alignment = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="MarginContainer/NinePatchRect/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Highest Profit:"
+label_settings = SubResource("LabelSettings_4h5qx")
+
+[node name="Highscore" type="Label" parent="MarginContainer/NinePatchRect/VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+text = "0"
+label_settings = SubResource("LabelSettings_toesj")
 horizontal_alignment = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/NinePatchRect/VBoxContainer"]
@@ -112,6 +129,7 @@ text = "Number of Customers:"
 label_settings = SubResource("LabelSettings_4h5qx")
 
 [node name="Customers" type="Label" parent="MarginContainer/NinePatchRect/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "9"
@@ -128,6 +146,7 @@ text = "Number of Plates Served:"
 label_settings = SubResource("LabelSettings_4h5qx")
 
 [node name="Plates" type="Label" parent="MarginContainer/NinePatchRect/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
 text = "5"

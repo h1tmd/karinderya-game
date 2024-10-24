@@ -22,7 +22,7 @@ func _ready() -> void:
 	start()
 
 func start():
-	game_timer.start(GameState.current_difficulty["game_time"])
+	#game_timer.start(GameState.current_difficulty["game_time"])
 	while game_timer.time_left > 15:
 		var current_time = (game_timer.wait_time - game_timer.time_left) / game_timer.wait_time
 		var interval_arr = GameState.current_difficulty["cust_interval"]
