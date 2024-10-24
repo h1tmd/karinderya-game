@@ -32,7 +32,8 @@ material = SubResource("ShaderMaterial_8qcgj")
 texture = ExtResource("1_ultsb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, 87.5)
+position = Vector2(0, 43.75)
+scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_px4kx")
 
 [node name="Click Area" type="Area2D" parent="."]
@@ -40,7 +41,8 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Click Area"]
-position = Vector2(4.5, 25.5)
+position = Vector2(0, 12.75)
+scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_50whi")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -52,24 +54,27 @@ visible = false
 stream = ExtResource("5_s8twr")
 
 [node name="Hint Popup" parent="." instance=ExtResource("6_5tejg")]
-offset_left = -359.0
-offset_top = -290.0
-offset_right = -6.0
-offset_bottom = -105.0
+offset_left = -179.0
+offset_top = -145.0
+offset_right = 174.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
 hint_string = "1. Serve orders here."
 
 [node name="Serve Area" type="Area2D" parent="."]
-position = Vector2(-184, -176)
+position = Vector2(-92, -88)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Serve Area"]
+scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_kigow")
 
 [node name="OrderArea" type="Area2D" parent="."]
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OrderArea"]
-position = Vector2(-560, 328)
+position = Vector2(-280, 164)
+scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_be6ob")
 
 [connection signal="interacted" from="." to="Hint Popup" method="hide"]

@@ -34,7 +34,8 @@ material = SubResource("ShaderMaterial_s4yr3")
 texture = ExtResource("1_l8bvp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(19.5, 94.5)
+position = Vector2(9.75, 47.25)
+scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_uarev")
 
 [node name="Click Area" type="Area2D" parent="."]
@@ -43,6 +44,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Click Area"]
 position = Vector2(21, 0.5)
+scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_engdg")
 
 [node name="Timer" type="Timer" parent="."]
@@ -50,10 +52,11 @@ one_shot = true
 
 [node name="Timer Circle" parent="." instance=ExtResource("4_sgrm2")]
 visible = false
-offset_left = -47.0
-offset_top = -218.0
-offset_right = 130.0
-offset_bottom = -41.0
+offset_left = -23.0
+offset_top = -109.0
+offset_right = 154.0
+offset_bottom = 68.0
+scale = Vector2(0.4, 0.4)
 
 [node name="SFX Receive Plates" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_o63fw")
@@ -64,14 +67,16 @@ volume_db = -11.685
 pitch_scale = 1.32
 
 [node name="Hint Popup" parent="." instance=ExtResource("8_hs6n1")]
-offset_left = -493.0
-offset_top = -271.0
-offset_right = -140.0
-offset_bottom = -86.0
+offset_left = -246.0
+offset_top = -135.0
+offset_right = 107.0
+offset_bottom = 50.0
+scale = Vector2(0.5, 0.5)
 hint_string = "3. Wash plates here"
 
 [node name="Wash Area" type="Area2D" parent="."]
-position = Vector2(-160, 204)
+position = Vector2(-80, 102)
+scale = Vector2(0.5, 0.5)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wash Area"]

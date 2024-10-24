@@ -41,7 +41,7 @@ func _unhandled_input(event):
 
 
 func _on_area_2d_mouse_entered() -> void:
-	sprite_2d.material.set_shader_parameter("line_thickness", 15)
+	sprite_2d.material.set_shader_parameter("line_thickness", 8)
 	can_interact = true
 
 func _on_area_2d_mouse_exited() -> void:

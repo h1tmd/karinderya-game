@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ciaoc3hpfpjof"]
+[gd_scene load_steps=16 format=3 uid="uid://ciaoc3hpfpjof"]
 
 [ext_resource type="Texture2D" uid="uid://dbrcdx406xmeu" path="res://assets/room/roomwide.png" id="1_xt43c"]
 [ext_resource type="Texture2D" uid="uid://oxlvqv3e2dwl" path="res://assets/room/leftwall.png" id="2_j4qqj"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://cl6m2d3tmqoog" path="res://scenes/sink.tscn" id="8_mcwtw"]
 [ext_resource type="Texture2D" uid="uid://c4gnj6f1ur7ny" path="res://assets/room/sidetable.png" id="9_v0fxn"]
 [ext_resource type="PackedScene" uid="uid://cfrv63xxono2w" path="res://scenes/hint_popup.tscn" id="10_6rb86"]
-[ext_resource type="PackedScene" uid="uid://bq17cv2xbugd6" path="res://scenes/astar_point.tscn" id="13_7ynet"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eeemq"]
 radius = 104.0
@@ -30,25 +29,24 @@ shader_parameter/line_thickness = 0.0
 size = Vector2(328, 482)
 
 [node name="Layout" type="Node2D"]
-scale = Vector2(0.5, 0.5)
 
 [node name="Room" type="StaticBody2D" parent="."]
-metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Room"]
-position = Vector2(-432, 0)
+position = Vector2(-212, 0)
 texture = ExtResource("1_xt43c")
 centered = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room"]
+scale = Vector2(0.5, 0.5)
 polygon = PackedVector2Array(-32, 764, 82, 758, 82, 68, 400, 68, 398, 2, 618, 2, 614, 64, 934, 66, 940, 178, 964, 210, 1010, 222, 1062, 200, 1076, 182, 1082, 70, 1162, 70, 1162, 212, 1490, 214, 1614, 210, 2134, 202, 2140, 78, 2396, 76, 2402, 208, 2418, 226, 2830, 228, 2852, 202, 2852, 76, 3254, 74, 3836, 74, 3840, 2158, 80, 2158, 86, 1052, -2, 1050, 2, 764, -60, 746, -16, 858, -20, 2156, -16, 2264, 3974, 2286, 3938, -46, -28, -30)
 
 [node name="Wall" type="Sprite2D" parent="."]
-position = Vector2(-104, 1498)
+position = Vector2(-52, 749)
 texture = ExtResource("2_j4qqj")
 
 [node name="Dispenser" type="StaticBody2D" parent="."]
-position = Vector2(202, 1242)
+position = Vector2(101, 621)
 
 [node name="Sprite2D" type="Sprite2D" parent="Dispenser"]
 texture = ExtResource("3_485o0")
@@ -58,7 +56,7 @@ position = Vector2(-2, 120)
 shape = SubResource("CapsuleShape2D_eeemq")
 
 [node name="Sign" type="StaticBody2D" parent="."]
-position = Vector2(232, 646)
+position = Vector2(121, 333)
 
 [node name="Sprite2D" type="Sprite2D" parent="Sign"]
 position = Vector2(-16, 56)
@@ -66,50 +64,46 @@ texture = ExtResource("4_thymj")
 offset = Vector2(0, -100)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sign"]
-position = Vector2(-21, 42)
+position = Vector2(-21, 20)
+scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_2gy24")
 
 [node name="Table" parent="." instance=ExtResource("5_bi7te")]
-position = Vector2(950, 1216)
-metadata/_edit_lock_ = true
+position = Vector2(475, 608)
 
 [node name="Table2" parent="." instance=ExtResource("5_bi7te")]
-position = Vector2(2076, 1208)
+position = Vector2(1038, 604)
 
 [node name="Dirty Plate" parent="Table2/Chair/Food On Table" index="0" instance=ExtResource("6_x28kr")]
 material = SubResource("ShaderMaterial_5t5a0")
 
 [node name="Hint Popup" parent="Table2/Chair" index="3" instance=ExtResource("10_6rb86")]
-offset_left = -22.0
-offset_top = -114.0
-offset_right = 331.0
-offset_bottom = 71.0
+offset_left = -11.0
+offset_top = -57.0
+offset_right = 342.0
+offset_bottom = 128.0
+scale = Vector2(0.5, 0.5)
 hint_string = "2. Clean up tables"
 
 [node name="Table3" parent="." instance=ExtResource("5_bi7te")]
-position = Vector2(3168, 1216)
-metadata/_edit_lock_ = true
+position = Vector2(1584, 608)
 
 [node name="FoodTable" parent="." instance=ExtResource("2_pyccu")]
-position = Vector2(1884, 642)
+position = Vector2(942, 321)
 
 [node name="Sink" parent="." instance=ExtResource("8_mcwtw")]
-position = Vector2(3736, 436)
+position = Vector2(1868, 218)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(3052, 604)
+position = Vector2(1526, 302)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 texture = ExtResource("9_v0fxn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-8, 69)
+position = Vector2(-8, 34)
+scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_drnj1")
-
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="AstarPoint" parent="Node2D" instance=ExtResource("13_7ynet")]
-position = Vector2(1488, 512)
 
 [connection signal="highlight_signal" from="Table2/Chair" to="Table2/Chair/Food On Table/Dirty Plate" method="highlight"]
 [connection signal="plate_taken" from="Table2/Chair/Food On Table/Dirty Plate" to="Table2/Chair" method="on_plate_taken"]

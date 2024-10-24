@@ -9,7 +9,7 @@ radius = 37.0
 height = 198.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o44k8"]
-size = Vector2(68, 12)
+size = Vector2(34, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gu67a"]
 size = Vector2(181, 212)
@@ -22,16 +22,17 @@ script = ExtResource("1_vghsm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_nwtpe")
-offset = Vector2(0, -130)
+offset = Vector2(0, -65)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -11)
+position = Vector2(0, -5)
 rotation = 1.5708
+scale = Vector2(0.5, 0.5)
 shape = SubResource("CapsuleShape2D_7bxmn")
 
 [node name="Food On Table" type="Node2D" parent="."]
-position = Vector2(241, -206)
-scale = Vector2(0.65, 0.65)
+position = Vector2(120, -103)
+scale = Vector2(0.35, 0.35)
 
 [node name="Chair Area" type="Area2D" parent="."]
 
@@ -39,18 +40,20 @@ scale = Vector2(0.65, 0.65)
 shape = SubResource("RectangleShape2D_o44k8")
 
 [node name="Click Area" type="Area2D" parent="."]
-position = Vector2(241, -206)
+position = Vector2(120, -103)
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Click Area"]
-position = Vector2(-12.5, 0)
+position = Vector2(-6.25, 0)
+scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_gu67a")
 
 [node name="Player Pickup Area" type="Area2D" parent="."]
-position = Vector2(241, -158)
+position = Vector2(120, -79)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player Pickup Area"]
+scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_tav2u")
 
 [node name="SFX Get" type="AudioStreamPlayer" parent="."]
