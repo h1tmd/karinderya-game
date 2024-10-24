@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://tkakyoly1imi" path="res://assets/audio/515626__mrickey13__uiexitcancel.wav" id="7_l4u50"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tfjti"]
-size = Vector2(136, 184)
+size = Vector2(136, 152)
 
 [sub_resource type="LabelSettings" id="LabelSettings_qspo1"]
 font_size = 40
@@ -110,17 +110,20 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NinePatchRect/HSplitContainer/MarginContainer/Panel/Serving Area"]
-position = Vector2(201, 337)
+position = Vector2(201, 321)
 shape = SubResource("RectangleShape2D_tfjti")
 
 [node name="Label" type="Label" parent="NinePatchRect/HSplitContainer/MarginContainer/Panel"]
 layout_mode = 1
-offset_left = -55.0
-offset_top = 164.0
-offset_right = 240.0
-offset_bottom = 227.0
-rotation = -0.856957
-text = "Rice"
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -147.5
+offset_top = 29.0
+offset_right = 147.5
+offset_bottom = 92.0
+grow_horizontal = 2
+text = "Rice Only"
 label_settings = SubResource("LabelSettings_qspo1")
 horizontal_alignment = 1
 

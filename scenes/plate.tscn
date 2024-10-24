@@ -7,14 +7,13 @@ radius = 75.0
 height = 256.667
 
 [node name="Plate" type="Node2D"]
+position = Vector2(0, -70)
 
 [node name="Plate Sprite" type="Sprite2D" parent="."]
-position = Vector2(0, -100)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_sj8ql")
 
 [node name="Plate Area" type="Area2D" parent="."]
-position = Vector2(0, -100)
 scale = Vector2(0.6, 0.6)
 collision_layer = 4
 collision_mask = 0
