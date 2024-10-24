@@ -82,11 +82,13 @@ alignment = 1
 custom_minimum_size = Vector2(300, 150)
 layout_mode = 2
 label_text = "Resume"
+use_default_sfx = true
 
 [node name="Main Menu" parent="VBoxContainer/HBoxContainer" instance=ExtResource("4_2bu23")]
 custom_minimum_size = Vector2(300, 150)
 layout_mode = 2
 label_text = "Main Menu"
+use_default_sfx = true
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]

@@ -60,11 +60,13 @@ scale = Vector2(0.4, 0.4)
 
 [node name="SFX Receive Plates" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_o63fw")
+bus = &"SFX"
 
 [node name="SFX Wash" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_7qdns")
 volume_db = -11.685
 pitch_scale = 1.32
+bus = &"SFX"
 
 [node name="Hint Popup" parent="." instance=ExtResource("8_hs6n1")]
 offset_left = -246.0

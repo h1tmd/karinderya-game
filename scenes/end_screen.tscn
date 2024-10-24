@@ -153,11 +153,13 @@ alignment = 1
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 label_text = "Main Menu"
+use_default_sfx = true
 
 [node name="Play Again" parent="HBoxContainer" instance=ExtResource("2_xlhkw")]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 label_text = "Play Again"
+use_default_sfx = true
 
 [connection signal="pressed" from="HBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="HBoxContainer/Play Again" to="." method="_on_custom_button_pressed"]

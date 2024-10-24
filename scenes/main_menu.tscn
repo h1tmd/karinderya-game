@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d3d5vewgpvuja"]
+[gd_scene load_steps=14 format=3 uid="uid://d3d5vewgpvuja"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_3dwbv"]
 [ext_resource type="Shader" path="res://blur.gdshader" id="1_cobnw"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dx6glxxtewc4t" path="res://assets/interface/diffcomfy.png" id="4_i6koe"]
 [ext_resource type="Texture2D" uid="uid://7a53e4bv48s6" path="res://assets/interface/diffnormal.png" id="5_0a1fg"]
 [ext_resource type="Texture2D" uid="uid://dprxt7con0lu" path="res://assets/interface/diffchallenge.png" id="6_kgvah"]
+[ext_resource type="AudioStream" uid="uid://bbe55hd5tep8b" path="res://assets/audio/731993__6sdeimos__click-1.wav" id="8_t682y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wd3ci"]
 shader = ExtResource("1_cobnw")
@@ -130,6 +131,7 @@ toggle_mode = true
 button_group = ExtResource("4_6ce42")
 label_text = "Comfy"
 icon = ExtResource("4_i6koe")
+use_default_sfx = true
 
 [node name="Normal" parent="PanelContainer/VBoxContainer" instance=ExtResource("2_av0i0")]
 custom_minimum_size = Vector2(250, 150)
@@ -139,6 +141,7 @@ button_pressed = true
 button_group = ExtResource("4_6ce42")
 label_text = "Normal"
 icon = ExtResource("5_0a1fg")
+use_default_sfx = true
 
 [node name="Hard" parent="PanelContainer/VBoxContainer" instance=ExtResource("2_av0i0")]
 custom_minimum_size = Vector2(250, 150)
@@ -147,5 +150,10 @@ toggle_mode = true
 button_group = ExtResource("4_6ce42")
 label_text = "Hard"
 icon = ExtResource("6_kgvah")
+use_default_sfx = true
+
+[node name="SFX Play" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_t682y")
+bus = &"SFX"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/CustomButton" to="." method="_on_custom_button_pressed"]

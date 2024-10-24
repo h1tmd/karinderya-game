@@ -5,6 +5,7 @@ extends Control
 @onready var serve_button: TextureButton = $"HBoxContainer/Serve Button"
 @onready var sfx_bell: AudioStreamPlayer = $"SFX Bell"
 @onready var sfx_drop: AudioStreamPlayer = $"SFX Drop"
+@onready var sfx_close: AudioStreamPlayer = $"SFX Close"
 
 
 func _ready() -> void:
@@ -86,3 +87,8 @@ func dish_dropped():
 func _on_dishes_node_child_entered_tree(node: Node) -> void:
 	if node is DishDraggable:
 		node.connect("dropped", dish_dropped)
+
+
+func _on_cancel_button_pressed() -> void:
+	sfx_close.play()
+	hide()

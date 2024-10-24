@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1eye0bn7omsf"]
+[gd_scene load_steps=6 format=3 uid="uid://c1eye0bn7omsf"]
 
 [ext_resource type="Texture2D" uid="uid://bjj0owksvppwh" path="res://assets/interface/buttonnormal.png" id="1_e7gwj"]
 [ext_resource type="Texture2D" uid="uid://cf67ay3psods3" path="res://assets/interface/buttonpressed.png" id="2_cwksc"]
 [ext_resource type="Script" path="res://scripts/custom_button.gd" id="3_rn7te"]
+[ext_resource type="AudioStream" uid="uid://jxfetew2t13d" path="res://assets/audio/731994__6sdeimos__click-2.wav" id="4_2j8ba"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_27ekb"]
 font_size = 50
@@ -43,6 +44,9 @@ layout_mode = 2
 text = "Serve!"
 label_settings = SubResource("LabelSettings_27ekb")
 
+[node name="SFX Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_2j8ba")
+bus = &"SFX"
+
 [connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="button_up" from="." to="." method="_on_button_up"]
-[connection signal="toggled" from="." to="." method="_on_toggled"]

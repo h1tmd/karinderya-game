@@ -6,6 +6,7 @@ extends Node2D
 @onready var serve_canvas: CanvasLayer = $"Layout/FoodTable/CanvasLayer"
 @onready var main_menu: Control = $"CanvasLayer/Main Menu"
 @onready var pause_menu: Control = $"CanvasLayer/Pause Menu"
+@onready var sfx_pause: AudioStreamPlayer = $"SFX Pause"
 
 
 func _ready() -> void:
@@ -50,4 +51,5 @@ func start():
 
 func _on_pause_button_pressed() -> void:
 	get_tree().paused = true
+	sfx_pause.play()
 	pause_menu.show()

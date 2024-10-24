@@ -1,7 +1,7 @@
 extends Control
 
 @export var diff_buttons: ButtonGroup
-
+@onready var sfx_play: AudioStreamPlayer = $"SFX Play"
 
 func _on_custom_button_pressed() -> void:
 	var selected = diff_buttons.get_pressed_button().name
@@ -15,4 +15,5 @@ func _on_custom_button_pressed() -> void:
 		_:
 			print("Error button name does not match difficulty")
 	get_tree().paused = false
+	sfx_play.play()
 	hide()
