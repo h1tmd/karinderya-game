@@ -27,6 +27,7 @@ var walking_out = false
 var person_in_front = false
 
 static var current_customer: Customer = null
+static var num_lined_up: int = 0
 
 const DEFAULT = 0
 const HAPPY = 1
@@ -41,6 +42,7 @@ const COLORS = [
 ]
 
 func _ready() -> void:
+	Customer.num_lined_up += 1
 	position = Global.exit_loc
 	go_to(Global.order_loc)
 	order_bubble.hide()
@@ -95,6 +97,7 @@ func generate_order():
 		order_bubble.hide()
 		order_done = true
 		done_eating = true
+		Customer.num_lined_up -= 1
 		go_to(Global.exit_loc)
 
 

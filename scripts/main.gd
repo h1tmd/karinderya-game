@@ -8,8 +8,10 @@ extends Node2D
 @onready var pause_menu: Control = $"CanvasLayer/Pause Menu"
 @onready var sfx_pause: AudioStreamPlayer = $"SFX Pause"
 
+signal timeout_or_customer_served
 
 func _ready() -> void:
+	ServeUi.current_instance.connect("customer_served", on_timeout_or_customer_served.bind(true))
 	if not Global.start_immediately:
 		# Show menu
 		get_tree().paused = true
@@ -37,7 +39,10 @@ func start():
 			customer_interval = interval_arr[3]
 		else:
 			customer_interval = interval_arr[4]
-		await get_tree().create_timer(customer_interval, false).timeout
+		var next_cutomer = get_tree().create_timer(customer_interval, false)
+		next_cutomer.connect("timeout", on_timeout_or_customer_served.bind(false))
+		await timeout_or_customer_served
+		next_cutomer.disconnect("timeout", on_timeout_or_customer_served)
 		GameState.total_customers += 1
 		var cust := customer.instantiate()
 		add_child(cust)
@@ -48,6 +53,12 @@ func start():
 	end_screen.show_stats()
 	end_screen.show()
 
+func on_timeout_or_customer_served(is_customer_served: bool):
+	if is_customer_served:
+		if Customer.num_lined_up == 0:
+			timeout_or_customer_served.emit()
+	else:
+		timeout_or_customer_served.emit()
 
 func _on_pause_button_pressed() -> void:
 	get_tree().paused = true

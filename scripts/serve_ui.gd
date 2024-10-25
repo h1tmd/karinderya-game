@@ -1,4 +1,5 @@
 extends Control
+class_name ServeUi
 
 @onready var grid_container: GridContainer = $NinePatchRect/HSplitContainer/ScrollContainer/GridContainer
 @onready var dishes_node: Node = %DishesNode
@@ -7,11 +8,15 @@ extends Control
 @onready var sfx_drop: AudioStreamPlayer = $"SFX Drop"
 @onready var sfx_close: AudioStreamPlayer = $"SFX Close"
 
+signal customer_served
+
+static var current_instance: ServeUi = null
 
 func _ready() -> void:
 	hide()
 	add_plate()
 	load_dishes()
+	current_instance = self
 
 
 func load_dishes():
@@ -54,6 +59,8 @@ func _on_button_pressed():
 				child.hide_highlight()
 				DishDraggable.currently_selected = null
 			child.reparent(cust.food_holder, false)
+		Customer.num_lined_up -= 1
+		customer_served.emit()
 		sfx_bell.play()
 		add_plate()
 
