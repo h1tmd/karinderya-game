@@ -1,5 +1,6 @@
 extends Control
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var star_container: HBoxContainer = %"Star Container"
 @onready var profit: Label = %Profit
 @onready var highscore: Label = %Highscore
@@ -57,3 +58,7 @@ func _on_main_menu_pressed() -> void:
 	get_tree().reload_current_scene()
 	Global.start_immediately = false
 	GameState.reset()
+
+func _on_visibility_changed() -> void:
+	if visible == true:
+		animation_player.play("enter")
