@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfrv63xxono2w"]
+[gd_scene load_steps=8 format=3 uid="uid://cfrv63xxono2w"]
 
 [ext_resource type="Texture2D" uid="uid://cqyax8vbc7ywj" path="res://assets/interface/smallrect.png" id="1_lin63"]
 [ext_resource type="Script" path="res://scripts/hint_popup.gd" id="2_32fsw"]
@@ -13,6 +13,44 @@ texture_margin_bottom = 32.0
 [sub_resource type="LabelSettings" id="LabelSettings_vk18t"]
 font_size = 70
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_4ifdy"]
+resource_name = "pulse"
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, -2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.870588), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gk6dg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t70un"]
+_data = {
+"RESET": SubResource("Animation_gk6dg"),
+"pulse": SubResource("Animation_4ifdy")
+}
 
 [node name="Hint Popup" type="PanelContainer"]
 z_index = 1
@@ -34,3 +72,9 @@ custom_minimum_size = Vector2(280, 0)
 layout_mode = 2
 text = "Hint here"
 label_settings = SubResource("LabelSettings_vk18t")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_t70un")
+}
+autoplay = "pulse"

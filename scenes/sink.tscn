@@ -69,12 +69,12 @@ pitch_scale = 1.32
 bus = &"SFX"
 
 [node name="Hint Popup" parent="." instance=ExtResource("8_hs6n1")]
-offset_left = -246.0
-offset_top = -135.0
-offset_right = 107.0
-offset_bottom = 50.0
+offset_left = -383.0
+offset_top = 29.0
+offset_right = -30.0
+offset_bottom = 214.0
 scale = Vector2(0.5, 0.5)
-hint_string = "3. Wash plates here"
+hint_string = "#3 Click on sink to wash plates"
 
 [node name="Wash Area" type="Area2D" parent="."]
 position = Vector2(-80, 102)

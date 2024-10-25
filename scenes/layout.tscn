@@ -78,12 +78,12 @@ position = Vector2(1038, 604)
 material = SubResource("ShaderMaterial_5t5a0")
 
 [node name="Hint Popup" parent="Table2/Chair" index="3" instance=ExtResource("10_6rb86")]
-offset_left = -11.0
-offset_top = -57.0
-offset_right = 342.0
-offset_bottom = 128.0
+offset_left = 86.0
+offset_top = -235.0
+offset_right = 439.0
+offset_bottom = -50.0
 scale = Vector2(0.5, 0.5)
-hint_string = "2. Clean up tables"
+hint_string = "#2 Click on dirty plates to clean table"
 
 [node name="Table3" parent="." instance=ExtResource("5_bi7te")]
 position = Vector2(1584, 608)
