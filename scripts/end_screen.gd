@@ -35,7 +35,7 @@ func show_stats():
 			highscores.normal_highscore = GameState.profit
 		current_highscore = highscores.normal_highscore
 	elif GameState.current_difficulty == Global.diff[2]:
-		if GameState.profit > highscores.normal_highscore:
+		if GameState.profit > highscores.hard_highscore:
 			highscores.hard_highscore = GameState.profit
 		current_highscore = highscores.hard_highscore
 	highscores.save()

@@ -24,16 +24,16 @@ const diff = [
 	},
 	{
 		# Normal
-		"game_time": 300,
-		"cust_interval": [20, 10, 9, 9, 8],
+		"game_time": 180,
+		"cust_interval": [15, 9, 9, 8, 7],
 		"cust_timer": 30,
 		"speed": 450,
-		"plate_weight": 10,
+		"plate_weight": 20,
 		"wash_time": 1.0
 	},
 	{
 		# Challenge
-		"game_time": 300,
+		"game_time": 180,
 		"cust_interval": [10, 9, 8, 7, 7],
 		"cust_timer": 20,
 		"speed": 650,

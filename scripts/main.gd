@@ -18,6 +18,7 @@ func _ready() -> void:
 	else:
 		get_tree().paused = false
 		Global.start_immediately = false
+	Global.player.current_speed = GameState.current_difficulty["speed"]
 	start()
 
 func start():
