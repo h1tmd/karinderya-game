@@ -34,7 +34,7 @@ customer = ExtResource("3_rxjuf")
 y_sort_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_royxq")]
-position = Vector2(246, 208)
+position = Vector2(302, 216)
 
 [node name="Customer" parent="." instance=ExtResource("3_rxjuf")]
 position = Vector2(-298, 301)
