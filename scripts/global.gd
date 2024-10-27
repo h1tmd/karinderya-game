@@ -15,7 +15,7 @@ const exit_loc = Vector2(-296, 483)
 const diff = [
 	{
 		# Comfy
-		"game_time": 360,
+		"game_time": 140,
 		"cust_interval": [20, 10, 10, 10, 10],
 		"cust_timer": 0,
 		"speed": 400,
@@ -25,7 +25,7 @@ const diff = [
 	{
 		# Normal
 		"game_time": 180,
-		"cust_interval": [15, 9, 9, 8, 7],
+		"cust_interval": [15, 7, 8, 8, 7],
 		"cust_timer": 30,
 		"speed": 450,
 		"plate_weight": 20,
